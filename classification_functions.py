@@ -1,7 +1,5 @@
 import numpy as np
 from dca_functions import *
-import numpy as np
-from dca_functions import *
 
 def create_oneclass_model(data,n_bins, lamb):
     sitefreq = Sitefreq(data, n_bins, lamb)
