@@ -2,9 +2,9 @@
 
 Energy Flow Classifier (EFC) is a new method for flow-based network intrusion detection using the inverse Potts model.
 
-This repository contains files that implements EFC in a one-class version and a multi-class version. These files are *dca_functions*, *classification_functions* and *test_data*. The first one contains
-functions to be used in the model inferrence for both versions. The second one is where training and testing function are defined for each classifier. The last file is an example
-of usage of the classifiers.
+This repository contains the implementation of EFC in a one-class version and a multi-class version. The file *dca_functions* contains
+functions to be used in the model inferrence for both versions. The file *classification_functions* is where training and testing function are 
+defined for each one-class EFC and multi-class EFC. The *test_data* is an usage example of the classifiers.
 
 Observations:
 * EFC requires discretized data
