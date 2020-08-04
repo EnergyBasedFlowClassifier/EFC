@@ -14,8 +14,8 @@ Observations:
 # Experiments
 
 The folders within the repository contains scripts used to
-perform experiments on CICDDS-001, CICIDS2017 and CICDDoS2019 datasets.
-The experiments conducted for the one-class EFC are in the One-class folder and their results can be seen in the paper
+perform experiments on CICDDS-001, CICIDS2017 and CICDDoS2019 data sets.
+The experiments conducted for the one-class EFC are in the One-class folder and their results can be seen in
 [A new method for flow-based network intrusion
 detection using the inverse Potts model](https://arxiv.org/pdf/1910.07266.pdf)
 
