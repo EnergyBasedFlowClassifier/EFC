@@ -2,12 +2,13 @@
 
 Energy Flow Classifier (EFC) is a new method for flow-based network intrusion detection using the inverse Potts model.
 
-This repository contains the implementation of EFC in a one-class version. The file *dca_functions.pyx* contains
-functions to be used in model inferrence and the file *classification_functions.pyx* is where training and testing functions are
-defined. Both files were written in Cython language and therefore must be built using *setup.py*. To do this, run the following command:
-python3 setup.py build_ext --inplace
+This repository contains the implementation of EFC in a one-class version. The file **dca_functions.pyx** contains
+functions to be used in model inferrence and the file **classification_functions.pyx** is where training and testing functions are
+defined. Both files were written in Cython language and therefore must be built using **setup.py**. To do this, run the following command:
 
-Lastly, *test_data.py* is an usage example of the classifier.
+`python3 setup.py build_ext --inplace`
+
+Lastly, **test_data.py** is an usage example of the classifier.
 
 Observations:
 * EFC requires discretized data
@@ -16,7 +17,7 @@ Observations:
 
 # Experiments
 
-The folder *One_class* *EFC* within the repository contains scripts used to
+The folder **One_class EFC** within the repository contains scripts used to
 perform experiments on CICDDS-001, CICIDS2017 and CICDDoS2019 data sets.
 The experiments results can be seen in
 [A new method for flow-based network intrusion
