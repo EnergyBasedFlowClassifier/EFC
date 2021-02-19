@@ -3,15 +3,8 @@ from Cython.Build import cythonize
 import numpy
 
 setup(
-    name='Classification functions app',
-    ext_modules=cythonize("classification_functions_parallel.pyx"),
-    zip_safe=False,
-    include_dirs=[numpy.get_include()],
-)
-
-setup(
     name='Classification functions seq app',
-    ext_modules=cythonize("classification_functions_seq.pyx"),
+    ext_modules=cythonize("classification_functions.pyx"),
     zip_safe=False,
     include_dirs=[numpy.get_include()],
 )

@@ -1,2 +1,0 @@
-A pasta Data contém os conjuntos de treino e teste internos do dataset, com a discretização do próprio dataset. 
-A pasta External test contém os conjunto de teste externos do dataset, ou seja, ou conjuntos da CICIDS17 com a discretização do conjunto de treinamento (CICDDoS19).
