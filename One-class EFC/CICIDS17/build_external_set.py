@@ -3,9 +3,10 @@ import numpy as np
 import random
 import os
 
+PATH = "GeneratedLabelledFlows/TrafficLabelling /"
 
-data_disc = np.load("Discretized_unique_CICDDoS19.npy", allow_pickle=True)
-data_pre = np.array(pd.read_csv("Pre_processed.csv"))
+data_disc = np.genfromtxt(PATH + "Discretized_unique_CICDDoS19.csv", delimiter=',')
+data_pre = np.genfromtxt(PATH + "Pre_processed.csv", delimiter=',')
 
 for i in range(1,11):
     dos = random.Random(i+15).sample([x for x in data_disc if x[-1] == 1], 2740)

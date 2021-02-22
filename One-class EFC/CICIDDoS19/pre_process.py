@@ -7,7 +7,7 @@ import math
 
 def pre_process(day, files):
     for file in files:
-        data = pd.read_csv("Reduced/{}/{}.csv".format(day, file))
+        data = pd.read_csv("{}/{}_reduced.csv".format(day, file))
 
         data.columns = ['Unnamed:0','FlowID','SourceIP','SourcePort','DestinationIP','DestinationPort','Protocol','Timestamp',
         'FlowDuration','TotalFwdPackets','TotalBackwardPackets','TotalLengthofFwdPackets','TotalLengthofBwdPackets',
@@ -41,10 +41,8 @@ def pre_process(day, files):
                 data.loc[:, "{}".format(feature)] = atribute_values
 
 
-        print(day, file, data.info())
-
         data.insert(0, 'Index', [x for x in range(data.shape[0])])
-        data.to_csv("Pre_processed/{}/{}.csv".format(day, file), index=False)
+        data.to_csv("{}/{}_pre_processed.csv".format(day, file), index=False)
 
 
 files_day1 = ['DrDoS_DNS','DrDoS_LDAP','DrDoS_MSSQL','DrDoS_NetBIOS','DrDoS_NTP','DrDoS_SNMP','DrDoS_SSDP','DrDoS_UDP','Syn','TFTP','UDPLag']

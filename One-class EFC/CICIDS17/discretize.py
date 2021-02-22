@@ -58,6 +58,7 @@ def discretize_data(dict_dataset):
 
     for i, value in enumerate(malicious_names):
         data.iloc[:,-1][data.iloc[:,-1] == value] = i
+
     data.to_csv("Discretized_{}.csv".format(dict_dataset), index=False)
     print(np.unique(data.iloc[:,1:-1]))
 

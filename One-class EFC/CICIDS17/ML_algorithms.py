@@ -27,18 +27,14 @@ def KNN(sets):
     external_test_labels = np.load("External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
     external_test_labels = [0 if x=='BENIGN' else 1 for x in external_test_labels]
 
-    f = open("Times.txt", 'a')
+
     KNN = KNeighborsClassifier()
-    start = time.time()
     KNN.fit(train, train_labels)
-    training_time = time.time()-start
 
     predict_prob_internal = KNN.predict_proba(test)
-    start = time.time()
     predict_labels_internal = KNN.predict(test)
-    testing_time = time.time()-start
-    f.write("KNN & {} & {} \\\\ \n".format(training_time, testing_time))
-    f.close()
+
+
 
     precision = precision_score(test_labels, predict_labels_internal)
     recall = recall_score(test_labels, predict_labels_internal)
@@ -68,18 +64,13 @@ def RF(sets):
     external_test_labels = np.load("External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
     external_test_labels = [0 if x=='BENIGN' else 1 for x in external_test_labels]
 
-    f = open("Times.txt", 'a')
+
     RF = RandomForestClassifier()
-    start = time.time()
     RF.fit(train, train_labels)
-    training_time = time.time()-start
 
     predict_prob_internal = RF.predict_proba(test)
-    start = time.time()
     predict_labels_internal = RF.predict(test)
-    testing_time = time.time()-start
-    f.write("RF & {} & {} \\\\ \n".format(training_time, testing_time))
-    f.close()
+
     precision = precision_score(test_labels, predict_labels_internal)
     recall = recall_score(test_labels, predict_labels_internal)
     f1 = f1_score(test_labels, predict_labels_internal)
@@ -108,18 +99,12 @@ def GaussianNaiveB(sets):
     external_test_labels = np.load("External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
     external_test_labels = [0 if x=='BENIGN' else 1 for x in external_test_labels]
 
-    f = open("Times.txt", 'a')
+
     NB = GaussianNB()
-    start = time.time()
     NB.fit(train, train_labels)
-    training_time = time.time()-start
 
     predict_prob_internal = NB.predict_proba(test)
-    start = time.time()
     predict_labels_internal = NB.predict(test)
-    testing_time = time.time()-start
-    f.write("NB & {} & {} \\\\ \n".format(training_time, testing_time))
-    f.close()
 
     precision = precision_score(test_labels, predict_labels_internal)
     recall = recall_score(test_labels, predict_labels_internal)
@@ -147,19 +132,12 @@ def DT(sets):
     external_test_labels = np.load("External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
     external_test_labels = [0 if x=='BENIGN' else 1 for x in external_test_labels]
 
-    f = open("Times.txt", 'a')
-    DT = DecisionTreeClassifier()
-    start = time.time()
-    DT.fit(train, train_labels)
-    training_time = time.time()-start
 
+    DT = DecisionTreeClassifier()
+    DT.fit(train, train_labels)
 
     predict_prob_internal = DT.predict_proba(test)
-    start = time.time()
     predict_labels_internal = DT.predict(test)
-    testing_time = time.time()-start
-    f.write("DT & {} & {} \\\\ \n".format(training_time, testing_time))
-    f.close()
 
     precision = precision_score(test_labels, predict_labels_internal)
     recall = recall_score(test_labels, predict_labels_internal)
@@ -187,18 +165,12 @@ def Adaboost(sets):
     external_test_labels = np.load("External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
     external_test_labels = [0 if x=='BENIGN' else 1 for x in external_test_labels]
 
-    f = open("Times.txt", 'a')
+
     AD = AdaBoostClassifier()
-    start = time.time()
     AD.fit(train, train_labels)
-    training_time = time.time()-start
 
     predict_prob_internal = AD.predict_proba(test)
-    start = time.time()
     predict_labels_internal = AD.predict(test)
-    testing_time = time.time()-start
-    f.write("KNN & {} & {} \\\\ \n".format(training_time, testing_time))
-    f.close()
 
     precision = precision_score(test_labels, predict_labels_internal)
     recall = recall_score(test_labels, predict_labels_internal)
@@ -233,18 +205,12 @@ def svc(sets):
     transformer = Normalizer().fit(external_test)
     external_test = transformer.transform(external_test)
 
-    f = open("Times.txt", 'a')
     svc = SVC(kernel='poly', probability=True)
-    start = time.time()
+
     svc.fit(train, train_labels)
-    training_time = time.time()-start
 
     predict_prob_internal = svc.predict_proba(test)
-    start = time.time()
     predict_labels_internal = svc.predict(test)
-    testing_time = time.time()-start
-    f.write("SVC & {} & {} \\\\ \n".format(training_time, testing_time))
-    f.close()
 
     precision = precision_score(test_labels, predict_labels_internal)
     recall = recall_score(test_labels, predict_labels_internal)
@@ -279,18 +245,12 @@ def mlp(sets):
     transformer = Normalizer().fit(external_test)
     external_test = transformer.transform(external_test)
 
-    f = open("Times.txt", 'a')
+
     MLP = MLPClassifier(max_iter=300)
-    start = time.time()
     MLP.fit(train, train_labels)
-    training_time = time.time()-start
 
     predict_prob_internal = MLP.predict_proba(test)
-    start = time.time()
     predict_labels_internal = MLP.predict(test)
-    testing_time = time.time()-start
-    f.write("MLP & {} & {} \\\\ \n".format(training_time, testing_time))
-    f.close()
 
     precision = precision_score(test_labels, predict_labels_internal)
     recall = recall_score(test_labels, predict_labels_internal)
@@ -323,7 +283,7 @@ def EFC(sets):
     # Creating model
     couplingmatrix, h_i = create_model(train_normal, Q, LAMBDA)
     CUTOFF = define_cutoff(train_normal, h_i, couplingmatrix, Q)
-    
+
     np.save("Data/Discretized/Exp{}/h_i.npy".format(sets), h_i)
     np.save("Data/Discretized/Exp{}/couplingmatrix.npy".format(sets), couplingmatrix)
     np.save("Data/Discretized/Exp{}/cutoff.npy".format(sets), np.array(CUTOFF))
