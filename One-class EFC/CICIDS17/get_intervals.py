@@ -9,7 +9,7 @@ from zipfile import ZipFile
 intervals = []
 for feature in range(1,80):
     print(feature)
-    data = pd.read_csv("GeneratedLabelledFlows/TrafficLabelling /Pre_processed.csv", usecols = [feature], header=None)
+    data = pd.read_csv("TrafficLabelling /Pre_processed.csv", usecols = [feature], header=None)
     data = list(data.iloc[:,0])
     if feature == 3:   #protocol - categorical
         intervals.append(list(np.unique(data)))

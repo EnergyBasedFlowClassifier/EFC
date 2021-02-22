@@ -1,6 +1,6 @@
 import hashlib
 
-PATH = "GeneratedLabelledFlows/TrafficLabelling /"
+PATH = "TrafficLabelling /"
 
 with open(PATH + "Discretized_{}.csv".format('CICIDS17'), "r") as f_in, \
         open(PATH + "Discretized_unique_{}.csv".format('CICIDS17'), "w") as f_out:

@@ -3,7 +3,7 @@ import pandas as pd
 import sys
 
 def pre_process(file, start_index):
-    data = pd.read_csv("GeneratedLabelledFlows/TrafficLabelling /{}.csv".format(file))
+    data = pd.read_csv("TrafficLabelling /{}.csv".format(file))
     data.columns = ['FlowID', 'SourceIP', 'SourcePort', 'DestinationIP','DestinationPort', 'Protocol', 'Timestamp','FlowDuration',
     'TotalFwdPackets','TotalBackwardPackets',
     'TotalLengthofFwdPackets','TotalLengthofBwdPackets',
@@ -54,7 +54,7 @@ def pre_process(file, start_index):
 
     end_index = start_index + data.shape[0]
     data.insert(0, 'Index', [x for x in range(start_index, end_index)])
-    data.to_csv("GeneratedLabelledFlows/TrafficLabelling /Pre_processed.csv", mode='a', header=False, index=False)
+    data.to_csv("TrafficLabelling /Pre_processed.csv", mode='a', header=False, index=False)
     print(start_index, end_index)
     return end_index
 

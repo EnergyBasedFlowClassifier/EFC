@@ -3,7 +3,7 @@ import numpy as np
 import random
 import os
 
-PATH = "GeneratedLabelledFlows/TrafficLabelling /"
+PATH = "TrafficLabelling /"
 
 data_disc = np.genfromtxt(PATH + "Discretized_unique_CICIDS17.csv", delimiter=',')
 data_pre = np.genfromtxt(PATH + "Pre_processed.csv", delimiter=',')

@@ -28,17 +28,17 @@ def discretize(data, intervals, dataset_discretization):
 
     data.drop_duplicates(subset=data.columns[1:-1], inplace=True)
     print(np.unique(data.iloc[:,1:-1]))
-    data.to_csv("GeneratedLabelledFlows/TrafficLabelling /Discretized_{}.csv".format(dataset_discretization), mode='a', header=False, index=False)
+    data.to_csv("TrafficLabelling /Discretized_{}.csv".format(dataset_discretization), mode='a', header=False, index=False)
 
 
 
 #discretize CICIDS17 with both dataset discretizations
 intervals = np.load("Dict_CICIDS17.npy", allow_pickle=True)
-reader = pd.read_csv("GeneratedLabelledFlows/TrafficLabelling /Pre_processed.csv", chunksize=500000, header=None)
+reader = pd.read_csv("TrafficLabelling /Pre_processed.csv", chunksize=500000, header=None)
 for chunk in reader:
     discretize(chunk, intervals, "CICIDS17")
 
-reader = pd.read_csv("GeneratedLabelledFlows/TrafficLabelling /Pre_processed.csv", chunksize=500000, header=None)
+reader = pd.read_csv("TrafficLabelling /Pre_processed.csv", chunksize=500000, header=None)
 intervals = np.load("../CICIDDoS19/Dict_CICDDoS19.npy", allow_pickle=True)
 for chunk in reader:
     discretize(chunk, intervals, "CICDDoS19")
