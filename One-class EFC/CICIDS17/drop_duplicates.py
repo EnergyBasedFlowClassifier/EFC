@@ -1,11 +1,12 @@
-import numpy as np
-import pandas as pd
-import os
+import hashlib
 
-def drop_duplicates(dict_dataset):
-    data = pd.read_csv("Discretized_{}.csv".format(dict_dataset))
-    data.drop_duplicates(subset=data.columns[1:-1], inplace=True)
-    np.save("Discretized_unique_{}.npy".format(dict_dataset), data)
+PATH = "GeneratedLabelledFlows/TrafficLabelling /"
 
-drop_duplicates("CICIDS17")
-drop_duplicates("CICDDoS19")
+with open(PATH + "Discretized_{}.csv".format('CICIDS17'), "r") as f_in, \
+        open(PATH + "Discretized_unique_{}.csv".format('CICIDS17'), "w") as f_out:
+    seen = set()
+    for line in f_in:
+        line_hash = hashlib.md5(''.join(line.split(",")[1:-2]).encode()).digest()
+        if line_hash not in seen:
+            seen.add(line_hash)
+            f_out.write(line)

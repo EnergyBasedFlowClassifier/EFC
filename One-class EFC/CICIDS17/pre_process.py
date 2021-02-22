@@ -2,8 +2,8 @@ import numpy as np
 import pandas as pd
 import sys
 
-def pre_process(file):
-    data = pd.read_csv("TrafficLabelling/{}.csv".format(file))
+def pre_process(file, start_index):
+    data = pd.read_csv("GeneratedLabelledFlows/TrafficLabelling /{}.csv".format(file))
     data.columns = ['FlowID', 'SourceIP', 'SourcePort', 'DestinationIP','DestinationPort', 'Protocol', 'Timestamp','FlowDuration',
     'TotalFwdPackets','TotalBackwardPackets',
     'TotalLengthofFwdPackets','TotalLengthofBwdPackets',
@@ -39,6 +39,9 @@ def pre_process(file):
     data['FlowBytes-s'] = data['FlowBytes-s'].replace('Infinity', '2070000001')
     data['FlowPackets-s'] = data['FlowPackets-s'].replace('Infinity', '4000000')
 
+    data['FlowBytes-s'][data['FlowBytes-s'] == np.inf] = '2070000001'
+    data['FlowPackets-s'][data['FlowPackets-s'] == np.inf] = '4000000'
+
 
     for feature in data.columns:
         if data.loc[:, "{}".format(feature)].dtype == 'object' and feature != 'Label':
@@ -49,9 +52,11 @@ def pre_process(file):
             data.loc[:, "{}".format(feature)] = atribute_values
             data["{}".format(feature)] = np.array(data["{}".format(feature)], dtype=np.float64)
 
-    data.insert(0, 'Index', [x for x in range(0, data.shape[0])])
-    print(data.head())
-    data.to_csv("All_files_pre_processed/{}.csv".format(file), index=False)
+    end_index = start_index + data.shape[0]
+    data.insert(0, 'Index', [x for x in range(start_index, end_index)])
+    data.to_csv("GeneratedLabelledFlows/TrafficLabelling /Pre_processed.csv", mode='a', header=False, index=False)
+    print(start_index, end_index)
+    return end_index
 
 
 
@@ -64,5 +69,6 @@ files = ['Friday-WorkingHours-Afternoon-DDos.pcap_ISCX',
 'Wednesday-workingHours.pcap_ISCX',
 'Monday-WorkingHours.pcap_ISCX']
 
+start_index = 0
 for file in files:
-    pre_process(file)
+    start_index = pre_process(file, start_index)
