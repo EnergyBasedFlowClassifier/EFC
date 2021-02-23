@@ -5,8 +5,7 @@ import shutil
 import os
 import math
 
-def pre_process(day, files):
-    for file in files:
+def pre_process(day, file, start_index):
         data = pd.read_csv("{}/{}_reduced.csv".format(day, file))
 
         data.columns = ['Unnamed:0','FlowID','SourceIP','SourcePort','DestinationIP','DestinationPort','Protocol','Timestamp',
@@ -24,7 +23,6 @@ def pre_process(day, files):
         'ActiveMin','IdleMean','IdleStd','IdleMax','IdleMin','SimillarHTTP','Inbound','Label']
 
         data.drop(['Unnamed:0','FlowID','SourceIP','DestinationIP', 'Timestamp', 'FwdHeaderLength.1', 'SimillarHTTP','Inbound'], axis=1, inplace=True)
-        data.dropna(axis=0, inplace=True)
 
         FB_max = 294400000000
         FP_max = 300000000
@@ -40,13 +38,18 @@ def pre_process(day, files):
                 atribute_values = np.array(data.loc[:, "{}".format(feature)])
                 data.loc[:, "{}".format(feature)] = atribute_values
 
-
-        data.insert(0, 'Index', [x for x in range(data.shape[0])])
-        data.to_csv("{}/{}_pre_processed.csv".format(day, file), index=False)
-
+        data.dropna(axis=0, inplace=True)
+        end_index = start_index + data.shape[0]
+        data.insert(0, 'Index', [x for x in range(start_index, end_index)])
+        data.to_csv("Pre_processed.csv".format(day, file), mode='a', header=False, index=False)
+        print(start_index, end_index)
+        return end_index
 
 files_day1 = ['DrDoS_DNS','DrDoS_LDAP','DrDoS_MSSQL','DrDoS_NetBIOS','DrDoS_NTP','DrDoS_SNMP','DrDoS_SSDP','DrDoS_UDP','Syn','TFTP','UDPLag']
 files_day2 = ['LDAP','MSSQL','NetBIOS','Portmap','Syn','UDP','UDPLag']
 
-pre_process('01-12', files_day1)
-pre_process('03-11', files_day2)
+start_index = 0
+for file in files_day1:
+    start_index = pre_process('01-12', file, start_index)
+for file in files_day2:
+    start_index = pre_process('03-11', file, start_index)

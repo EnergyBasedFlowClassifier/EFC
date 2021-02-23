@@ -52,6 +52,14 @@ def pre_process(file, start_index):
             data.loc[:, "{}".format(feature)] = atribute_values
             data["{}".format(feature)] = np.array(data["{}".format(feature)], dtype=np.float64)
 
+    for i in range(data.shape[0]):
+        if data.iloc[i,-1][-11:] == 'Brute Force':
+            data.iloc[i, -1] = 'Web Attack Brute Force'
+        if data.iloc[i,-1][-13:] == 'Sql Injection':
+            data.iloc[i, -1] = 'Web Attack Sql Injection'
+        if data.iloc[i,-1][-3:] == 'XSS':
+            data.iloc[i, -1] = 'Web Attack XSS'
+
     end_index = start_index + data.shape[0]
     data.insert(0, 'Index', [x for x in range(start_index, end_index)])
     data.to_csv("TrafficLabelling /Pre_processed.csv", mode='a', header=False, index=False)

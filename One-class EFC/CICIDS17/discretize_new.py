@@ -6,7 +6,7 @@ from matplotlib import pyplot as plt
 import math
 from zipfile import ZipFile
 
-def discretize(data, intervals, dataset_discretization):
+def discretize(data, dataset_discretization, intervals):
     for feature in range(1,80):
         print(feature)
         if feature == 3: #protocol
@@ -26,19 +26,27 @@ def discretize(data, intervals, dataset_discretization):
         print(x, string)
         data.iloc[:, -1] = [x if value == string else value for value in data.iloc[:,-1]]
 
-    data.drop_duplicates(subset=data.columns[1:-1], inplace=True)
+
     print(np.unique(data.iloc[:,1:-1]))
     data.to_csv("TrafficLabelling /Discretized_{}.csv".format(dataset_discretization), mode='a', header=False, index=False)
 
 
 
 #discretize CICIDS17 with both dataset discretizations
-intervals = np.load("Dict_CICIDS17.npy", allow_pickle=True)
-reader = pd.read_csv("TrafficLabelling /Pre_processed.csv", chunksize=500000, header=None)
-for chunk in reader:
-    discretize(chunk, intervals, "CICIDS17")
+data = pd.read_csv("TrafficLabelling /Pre_processed.csv", header=None)
 
-reader = pd.read_csv("TrafficLabelling /Pre_processed.csv", chunksize=500000, header=None)
-intervals = np.load("../CICIDDoS19/Dict_CICDDoS19.npy", allow_pickle=True)
-for chunk in reader:
-    discretize(chunk, intervals, "CICDDoS19")
+dict = np.load("Dict_CICIDS17.npy", allow_pickle=True)
+discretize(data, "CICIDS17", dict)
+dict = np.load("../CICIDDoS19/Dict_CICDDoS19.npy", allow_pickle=True)
+discretize(data, "CICDDoS19", dict)
+
+
+# intervals = np.load("Dict_CICIDS17.npy", allow_pickle=True)
+# reader = pd.read_csv("TrafficLabelling /Pre_processed.csv", chunksize=1000000, header=None)
+# for chunk in reader:
+#     discretize(chunk, intervals, "CICIDS17")
+#
+# reader = pd.read_csv("TrafficLabelling /Pre_processed.csv", chunksize=1000000, header=None)
+# intervals = np.load("../CICIDDoS19/Dict_CICDDoS19.npy", allow_pickle=True)
+# for chunk in reader:
+#     discretize(chunk, intervals, "CICDDoS19")

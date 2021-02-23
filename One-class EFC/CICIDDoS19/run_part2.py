@@ -1,7 +1,7 @@
 import os
 
 #discretize and sampling
-exec(open("discretize_new.py").read())
+exec(open("discretize.py").read())
 exec(open("drop_duplicates.py").read())
 exec(open("create_dir.py").read())
 exec(open("build_train_test.py").read())

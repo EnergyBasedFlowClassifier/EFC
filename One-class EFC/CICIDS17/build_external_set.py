@@ -5,10 +5,11 @@ import os
 
 PATH = "TrafficLabelling /"
 
-data_disc = np.genfromtxt(PATH + "Discretized_unique_CICDDoS19.csv", delimiter=',')
+data_disc = np.load(PATH + "Discretized_unique_CICDDoS19.npy", allow_pickle=True)
 data_pre = np.genfromtxt(PATH + "Pre_processed.csv", delimiter=',')
 
 for i in range(1,11):
+    print(i)
     dos = random.Random(i+15).sample([x for x in data_disc if x[-1] == 1], 2740)
     dos_index = [int(x[0]) for x in dos]
     portscan = random.Random(i+15).sample([x for x in data_disc if x[-1] == 2], 1060)
