@@ -23,18 +23,22 @@ def KNN(sets):
     test_labels = [0 if x=='BENIGN' else 1 for x in test_labels]
     train_labels = [0 if x=='BENIGN' else 1 for x in train_labels]
 
-    external_test = np.load("External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
-    external_test_labels = np.load("External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
+    external_test = np.load("../CICIDDoS19/External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
+    external_test_labels = np.load("../CICIDDoS19/External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
     external_test_labels = [0 if x=='BENIGN' else 1 for x in external_test_labels]
 
-
+    f = open("Times.txt", 'a')
     KNN = KNeighborsClassifier()
+    start = time.time()
     KNN.fit(train, train_labels)
+    training_time = time.time()-start
 
     predict_prob_internal = KNN.predict_proba(test)
+    start = time.time()
     predict_labels_internal = KNN.predict(test)
-
-
+    testing_time = time.time()-start
+    f.write("KNN & {} & {} \\\\ \n".format(training_time, testing_time))
+    f.close()
 
     precision = precision_score(test_labels, predict_labels_internal)
     recall = recall_score(test_labels, predict_labels_internal)
@@ -60,17 +64,22 @@ def RF(sets):
     test_labels = [0 if x=='BENIGN' else 1 for x in test_labels]
     train_labels = [0 if x=='BENIGN' else 1 for x in train_labels]
 
-    external_test = np.load("External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
-    external_test_labels = np.load("External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
+    external_test = np.load("../CICIDDoS19/External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
+    external_test_labels = np.load("../CICIDDoS19/External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
     external_test_labels = [0 if x=='BENIGN' else 1 for x in external_test_labels]
 
-
+    f = open("Times.txt", 'a')
     RF = RandomForestClassifier()
+    start = time.time()
     RF.fit(train, train_labels)
+    training_time = time.time()-start
 
     predict_prob_internal = RF.predict_proba(test)
+    start = time.time()
     predict_labels_internal = RF.predict(test)
-
+    testing_time = time.time()-start
+    f.write("RF & {} & {} \\\\ \n".format(training_time, testing_time))
+    f.close()
     precision = precision_score(test_labels, predict_labels_internal)
     recall = recall_score(test_labels, predict_labels_internal)
     f1 = f1_score(test_labels, predict_labels_internal)
@@ -95,16 +104,22 @@ def GaussianNaiveB(sets):
     test_labels = [0 if x=='BENIGN' else 1 for x in test_labels]
     train_labels = [0 if x=='BENIGN' else 1 for x in train_labels]
 
-    external_test = np.load("External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
-    external_test_labels = np.load("External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
+    external_test = np.load("../CICIDDoS19/External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
+    external_test_labels = np.load("../CICIDDoS19/External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
     external_test_labels = [0 if x=='BENIGN' else 1 for x in external_test_labels]
 
-
+    f = open("Times.txt", 'a')
     NB = GaussianNB()
+    start = time.time()
     NB.fit(train, train_labels)
+    training_time = time.time()-start
 
     predict_prob_internal = NB.predict_proba(test)
+    start = time.time()
     predict_labels_internal = NB.predict(test)
+    testing_time = time.time()-start
+    f.write("NB & {} & {} \\\\ \n".format(training_time, testing_time))
+    f.close()
 
     precision = precision_score(test_labels, predict_labels_internal)
     recall = recall_score(test_labels, predict_labels_internal)
@@ -128,16 +143,23 @@ def DT(sets):
     test_labels = [0 if x=='BENIGN' else 1 for x in test_labels]
     train_labels = [0 if x=='BENIGN' else 1 for x in train_labels]
 
-    external_test = np.load("External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
-    external_test_labels = np.load("External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
+    external_test = np.load("../CICIDDoS19/External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
+    external_test_labels = np.load("../CICIDDoS19/External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
     external_test_labels = [0 if x=='BENIGN' else 1 for x in external_test_labels]
 
-
+    f = open("Times.txt", 'a')
     DT = DecisionTreeClassifier()
+    start = time.time()
     DT.fit(train, train_labels)
+    training_time = time.time()-start
+
 
     predict_prob_internal = DT.predict_proba(test)
+    start = time.time()
     predict_labels_internal = DT.predict(test)
+    testing_time = time.time()-start
+    f.write("DT & {} & {} \\\\ \n".format(training_time, testing_time))
+    f.close()
 
     precision = precision_score(test_labels, predict_labels_internal)
     recall = recall_score(test_labels, predict_labels_internal)
@@ -161,16 +183,22 @@ def Adaboost(sets):
     test_labels = [0 if x=='BENIGN' else 1 for x in test_labels]
     train_labels = [0 if x=='BENIGN' else 1 for x in train_labels]
 
-    external_test = np.load("External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
-    external_test_labels = np.load("External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
+    external_test = np.load("../CICIDDoS19/External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
+    external_test_labels = np.load("../CICIDDoS19/External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
     external_test_labels = [0 if x=='BENIGN' else 1 for x in external_test_labels]
 
-
+    f = open("Times.txt", 'a')
     AD = AdaBoostClassifier()
+    start = time.time()
     AD.fit(train, train_labels)
+    training_time = time.time()-start
 
     predict_prob_internal = AD.predict_proba(test)
+    start = time.time()
     predict_labels_internal = AD.predict(test)
+    testing_time = time.time()-start
+    f.write("KNN & {} & {} \\\\ \n".format(training_time, testing_time))
+    f.close()
 
     precision = precision_score(test_labels, predict_labels_internal)
     recall = recall_score(test_labels, predict_labels_internal)
@@ -194,8 +222,8 @@ def svc(sets):
     test_labels = [0 if x=='BENIGN' else 1 for x in test_labels]
     train_labels = [0 if x=='BENIGN' else 1 for x in train_labels]
 
-    external_test = np.load("External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
-    external_test_labels = np.load("External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
+    external_test = np.load("../CICIDDoS19/External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
+    external_test_labels = np.load("../CICIDDoS19/External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
     external_test_labels = [0 if x=='BENIGN' else 1 for x in external_test_labels]
 
     transformer = Normalizer().fit(train)
@@ -205,12 +233,18 @@ def svc(sets):
     transformer = Normalizer().fit(external_test)
     external_test = transformer.transform(external_test)
 
+    f = open("Times.txt", 'a')
     svc = SVC(kernel='poly', probability=True)
-
+    start = time.time()
     svc.fit(train, train_labels)
+    training_time = time.time()-start
 
     predict_prob_internal = svc.predict_proba(test)
+    start = time.time()
     predict_labels_internal = svc.predict(test)
+    testing_time = time.time()-start
+    f.write("SVC & {} & {} \\\\ \n".format(training_time, testing_time))
+    f.close()
 
     precision = precision_score(test_labels, predict_labels_internal)
     recall = recall_score(test_labels, predict_labels_internal)
@@ -234,8 +268,8 @@ def mlp(sets):
     test_labels = [0 if x=='BENIGN' else 1 for x in test_labels]
     train_labels = [0 if x=='BENIGN' else 1 for x in train_labels]
 
-    external_test = np.load("External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
-    external_test_labels = np.load("External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
+    external_test = np.load("../CICIDDoS19/External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
+    external_test_labels = np.load("../CICIDDoS19/External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
     external_test_labels = [0 if x=='BENIGN' else 1 for x in external_test_labels]
 
     transformer = Normalizer().fit(train)
@@ -245,12 +279,18 @@ def mlp(sets):
     transformer = Normalizer().fit(external_test)
     external_test = transformer.transform(external_test)
 
-
+    f = open("Times.txt", 'a')
     MLP = MLPClassifier(max_iter=300)
+    start = time.time()
     MLP.fit(train, train_labels)
+    training_time = time.time()-start
 
     predict_prob_internal = MLP.predict_proba(test)
+    start = time.time()
     predict_labels_internal = MLP.predict(test)
+    testing_time = time.time()-start
+    f.write("MLP & {} & {} \\\\ \n".format(training_time, testing_time))
+    f.close()
 
     precision = precision_score(test_labels, predict_labels_internal)
     recall = recall_score(test_labels, predict_labels_internal)
@@ -273,8 +313,8 @@ def EFC(sets):
     test_labels = np.load("Data/Discretized/Exp{}/test_labels.npy".format(sets), allow_pickle=True).astype('int')
     test_labels = np.array([0 if x==0 else 1 for x in test_labels], dtype=int)
 
-    external_test = np.load("External_test/Discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True).astype('int')
-    external_test_labels = np.load("External_test/Discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True).astype('int')
+    external_test = np.load("../CICIDDoS19/External_test/Discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True).astype('int')
+    external_test_labels = np.load("../CICIDDoS19/External_test/Discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True).astype('int')
     external_test_labels = np.array([0 if x==0 else 1 for x in external_test_labels], dtype=int)
 
     Q = 11

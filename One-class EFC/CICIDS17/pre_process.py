@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import sys
 
-def pre_process(file, start_index):
+def pre_process(file):
     data = pd.read_csv("TrafficLabelling /{}.csv".format(file))
     data.columns = ['FlowID', 'SourceIP', 'SourcePort', 'DestinationIP','DestinationPort', 'Protocol', 'Timestamp','FlowDuration',
     'TotalFwdPackets','TotalBackwardPackets',
@@ -42,7 +42,6 @@ def pre_process(file, start_index):
     data['FlowBytes-s'][data['FlowBytes-s'] == np.inf] = '2070000001'
     data['FlowPackets-s'][data['FlowPackets-s'] == np.inf] = '4000000'
 
-
     for feature in data.columns:
         if data.loc[:, "{}".format(feature)].dtype == 'object' and feature != 'Label':
             print("{}".format(feature))
@@ -52,19 +51,9 @@ def pre_process(file, start_index):
             data.loc[:, "{}".format(feature)] = atribute_values
             data["{}".format(feature)] = np.array(data["{}".format(feature)], dtype=np.float64)
 
-    for i in range(data.shape[0]):
-        if data.iloc[i,-1][-11:] == 'Brute Force':
-            data.iloc[i, -1] = 'Web Attack Brute Force'
-        if data.iloc[i,-1][-13:] == 'Sql Injection':
-            data.iloc[i, -1] = 'Web Attack Sql Injection'
-        if data.iloc[i,-1][-3:] == 'XSS':
-            data.iloc[i, -1] = 'Web Attack XSS'
-
-    end_index = start_index + data.shape[0]
-    data.insert(0, 'Index', [x for x in range(start_index, end_index)])
-    data.to_csv("TrafficLabelling /Pre_processed.csv", mode='a', header=False, index=False)
-    print(start_index, end_index)
-    return end_index
+    data.insert(0, 'Index', [x for x in range(0, data.shape[0])])
+    print(data.head())
+    data.to_csv("All_files_pre_processed/{}.csv".format(file), index=False)
 
 
 
@@ -72,11 +61,10 @@ files = ['Friday-WorkingHours-Afternoon-DDos.pcap_ISCX',
 'Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX',
 'Friday-WorkingHours-Morning.pcap_ISCX',
 'Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX',
-'Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX',
+'Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX_fixed',
 'Tuesday-WorkingHours.pcap_ISCX',
 'Wednesday-workingHours.pcap_ISCX',
 'Monday-WorkingHours.pcap_ISCX']
 
-start_index = 0
 for file in files:
-    start_index = pre_process(file, start_index)
+    pre_process(file)

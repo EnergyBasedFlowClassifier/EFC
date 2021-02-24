@@ -3,38 +3,39 @@ import numpy as np
 import random
 import os
 
-PATH = "TrafficLabelling /"
 
-data_disc = np.load(PATH + "Discretized_unique_CICDDoS19.npy", allow_pickle=True)
-data_pre = np.genfromtxt(PATH + "Pre_processed.csv", delimiter=',')
+data_disc = np.load("Discretized_unique_CICDDoS19.npy", allow_pickle=True)
+unique, counts = np.unique(data_disc[:,-1], return_counts=True)
+print(unique)
+print(counts)
+data_pre = np.array(pd.read_csv("Pre_processed.csv"))
 
 for i in range(1,11):
-    print(i)
-    dos = random.Random(i+15).sample([x for x in data_disc if x[-1] == 1], 2740)
+    dos = random.Random(i+15).sample([x for x in data_disc if x[-1] == 1], 2910)
     dos_index = [int(x[0]) for x in dos]
-    portscan = random.Random(i+15).sample([x for x in data_disc if x[-1] == 2], 1060)
+    portscan = random.Random(i+15).sample([x for x in data_disc if x[-1] == 2], 1660)
     portscan_index = [int(x[0]) for x in portscan]
     bot = random.Random(i+15).sample([x for x in data_disc if x[-1] == 3], 110)
     bot_index = [int(x[0]) for x in bot]
     inf = random.Random(i+15).sample([x for x in data_disc if x[-1] == 4], 20)
     inf_index = [int(x[0]) for x in inf]
-    bruteforce = random.Random(i+15).sample([x for x in data_disc if x[-1] == 5], 50)
+    bruteforce = random.Random(i+15).sample([x for x in data_disc if x[-1] == 5], 40)
     bruteforce_index = [int(x[0]) for x in bruteforce]
     sqlinj = random.Random(i+15).sample([x for x in data_disc if x[-1] == 6], 10)
     sqlinj_index = [int(x[0]) for x in sqlinj]
     xss = random.Random(i+15).sample([x for x in data_disc if x[-1] == 7], 10)
     xss_index = [int(x[0]) for x in xss]
-    ftp = random.Random(i+15).sample([x for x in data_disc if x[-1] == 8], 170)
+    ftp = random.Random(i+15).sample([x for x in data_disc if x[-1] == 8], 150)
     ftp_index = [int(x[0]) for x in ftp]
-    ssh = random.Random(i+15).sample([x for x in data_disc if x[-1] == 9], 80)
+    ssh = random.Random(i+15).sample([x for x in data_disc if x[-1] == 9], 60)
     ssh_index = [int(x[0]) for x in ssh]
-    hulk = random.Random(i+15).sample([x for x in data_disc if x[-1] == 10], 2730)
+    hulk = random.Random(i+15).sample([x for x in data_disc if x[-1] == 10], 2900)
     hulk_index = [int(x[0]) for x in hulk]
-    goldeneye = random.Random(i+15).sample([x for x in data_disc if x[-1] == 11], 2730)
+    goldeneye = random.Random(i+15).sample([x for x in data_disc if x[-1] == 11], 1800)
     goldeneye_index = [int(x[0]) for x in goldeneye]
     slowloris = random.Random(i+15).sample([x for x in data_disc if x[-1] == 12], 120)
     slowloris_index = [int(x[0]) for x in slowloris]
-    slowhttp = random.Random(i+15).sample([x for x in data_disc if x[-1] == 13], 170)
+    slowhttp = random.Random(i+15).sample([x for x in data_disc if x[-1] == 13], 210)
     slowhttp_index = [int(x[0]) for x in slowhttp]
     normals = random.Random(i+15).sample([x for x in data_disc if x[-1] == 0], 10000)
     normals_index = [int(x[0]) for x in normals]

@@ -23,8 +23,8 @@ def KNN(sets):
     test_labels = [0 if x=='BENIGN' else 1 for x in test_labels]
     train_labels = [0 if x=='BENIGN' else 1 for x in train_labels]
 
-    external_test = np.load("External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
-    external_test_labels = np.load("External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
+    external_test = np.load("../CICIDS17/External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
+    external_test_labels = np.load("../CICIDS17/External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
     external_test_labels = [0 if x=='BENIGN' else 1 for x in external_test_labels]
 
     f = open("Times.txt", 'a')
@@ -64,8 +64,8 @@ def RF(sets):
     test_labels = [0 if x=='BENIGN' else 1 for x in test_labels]
     train_labels = [0 if x=='BENIGN' else 1 for x in train_labels]
 
-    external_test = np.load("External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
-    external_test_labels = np.load("External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
+    external_test = np.load("../CICIDS17/External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
+    external_test_labels = np.load("../CICIDS17/External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
     external_test_labels = [0 if x=='BENIGN' else 1 for x in external_test_labels]
 
     f = open("Times.txt", 'a')
@@ -104,8 +104,8 @@ def GaussianNaiveB(sets):
     test_labels = [0 if x=='BENIGN' else 1 for x in test_labels]
     train_labels = [0 if x=='BENIGN' else 1 for x in train_labels]
 
-    external_test = np.load("External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
-    external_test_labels = np.load("External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
+    external_test = np.load("../CICIDS17/External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
+    external_test_labels = np.load("../CICIDS17/External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
     external_test_labels = [0 if x=='BENIGN' else 1 for x in external_test_labels]
 
     f = open("Times.txt", 'a')
@@ -143,8 +143,8 @@ def DT(sets):
     test_labels = [0 if x=='BENIGN' else 1 for x in test_labels]
     train_labels = [0 if x=='BENIGN' else 1 for x in train_labels]
 
-    external_test = np.load("External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
-    external_test_labels = np.load("External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
+    external_test = np.load("../CICIDS17/External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
+    external_test_labels = np.load("../CICIDS17/External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
     external_test_labels = [0 if x=='BENIGN' else 1 for x in external_test_labels]
 
     f = open("Times.txt", 'a')
@@ -183,8 +183,8 @@ def Adaboost(sets):
     test_labels = [0 if x=='BENIGN' else 1 for x in test_labels]
     train_labels = [0 if x=='BENIGN' else 1 for x in train_labels]
 
-    external_test = np.load("External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
-    external_test_labels = np.load("External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
+    external_test = np.load("../CICIDS17/External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
+    external_test_labels = np.load("../CICIDS17/External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
     external_test_labels = [0 if x=='BENIGN' else 1 for x in external_test_labels]
 
     f = open("Times.txt", 'a')
@@ -222,8 +222,8 @@ def svc(sets):
     test_labels = [0 if x=='BENIGN' else 1 for x in test_labels]
     train_labels = [0 if x=='BENIGN' else 1 for x in train_labels]
 
-    external_test = np.load("External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
-    external_test_labels = np.load("External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
+    external_test = np.load("../CICIDS17/External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
+    external_test_labels = np.load("../CICIDS17/External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
     external_test_labels = [0 if x=='BENIGN' else 1 for x in external_test_labels]
 
     transformer = Normalizer().fit(train)
@@ -268,8 +268,8 @@ def mlp(sets):
     test_labels = [0 if x=='BENIGN' else 1 for x in test_labels]
     train_labels = [0 if x=='BENIGN' else 1 for x in train_labels]
 
-    external_test = np.load("External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
-    external_test_labels = np.load("External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
+    external_test = np.load("../CICIDS17/External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
+    external_test_labels = np.load("../CICIDS17/External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
     external_test_labels = [0 if x=='BENIGN' else 1 for x in external_test_labels]
 
     transformer = Normalizer().fit(train)
@@ -313,8 +313,8 @@ def EFC(sets):
     test_labels = np.load("Data/Discretized/Exp{}/test_labels.npy".format(sets), allow_pickle=True).astype('int')
     test_labels = np.array([0 if x==0 else 1 for x in test_labels], dtype=int)
 
-    external_test = np.load("External_test/Discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True).astype('int')
-    external_test_labels = np.load("External_test/Discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True).astype('int')
+    external_test = np.load("../CICIDS17/External_test/Discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True).astype('int')
+    external_test_labels = np.load("../CICIDS17/External_test/Discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True).astype('int')
     external_test_labels = np.array([0 if x==0 else 1 for x in external_test_labels], dtype=int)
 
     Q = 14

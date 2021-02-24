@@ -1,9 +1,6 @@
 import os
 
-#pre process and sampling
-exec(open("reduce.py").read())
-exec(open("pre_process.py").read())
-exec(open("Join_pre_processed.py").read())
+os.system('cp ../CICIDS17/Dict_CICIDS17.npy ./')
 exec(open("discretize.py").read())
 exec(open("drop_duplicates.py").read())
 exec(open("create_dir.py").read())

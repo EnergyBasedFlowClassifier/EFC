@@ -8,6 +8,9 @@ import os
 from zipfile import ZipFile
 
 data_dis = np.load("Discretized_unique_CICIDS17.npy", allow_pickle=True)
+unique, counts = np.unique(data_dis[:,-1], return_counts=True)
+print(unique)
+print(counts)
 data_pre = np.array(pd.read_csv("Pre_processed.csv"))
 for i in range(1,11):
     print(i)
@@ -40,11 +43,11 @@ for i in range(1,11):
     # WebdDrDoS_DNS_index = [int(x[0]) for x in WebdDrDoS_DNS]
     LDAP = random.Random(6).sample([x for x in data_dis if x[-1] == 13], 120)
     LDAP_index = [int(x[0]) for x in LDAP]
-    NetBIOS = random.Random(6).sample([x for x in data_dis if x[-1] == 14], 140)
+    NetBIOS = random.Random(6).sample([x for x in data_dis if x[-1] == 14], 150)
     NetBIOS_index = [int(x[0]) for x in NetBIOS]
-    MSSQL = random.Random(6).sample([x for x in data_dis if x[-1] == 15], 660)
+    MSSQL = random.Random(6).sample([x for x in data_dis if x[-1] == 15], 630)
     MSSQL_index = [int(x[0]) for x in MSSQL]
-    Portmap = random.Random(6).sample([x for x in data_dis if x[-1] == 16], 400)
+    Portmap = random.Random(6).sample([x for x in data_dis if x[-1] == 16], 420)
     Portmap_index = [int(x[0]) for x in Portmap]
     UDP = random.Random(6).sample([x for x in data_dis if x[-1] == 17], 880)
     UDP_index = [int(x[0]) for x in UDP]

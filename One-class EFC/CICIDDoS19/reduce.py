@@ -16,7 +16,7 @@ def reduce(files, day):
             for line in fl:
                 raw = line.split(",")
                 a = tuple(np.array(raw))
-                with open("{}/{}_reduced.csv".format(day, file), "a") as fl2:
+                with open("Reduced/{}/{}.csv".format(day, file), "a") as fl2:
                     if len(raw) > 0 and raw[-1]=='BENIGN\n':
                         counter_benign += 1
                         for word in a:
@@ -30,7 +30,6 @@ def reduce(files, day):
 
 files_day1 = ['DrDoS_DNS','DrDoS_LDAP','DrDoS_MSSQL','DrDoS_NetBIOS','DrDoS_NTP','DrDoS_SNMP','DrDoS_SSDP','DrDoS_UDP','Syn','TFTP','UDPLag']
 files_day2 = ['LDAP','MSSQL','NetBIOS','Portmap','Syn','UDP','UDPLag']
-
 
 reduce(files_day1, '01-12')
 reduce(files_day2, '03-11')
