@@ -3,10 +3,9 @@ import pandas as pd
 import shutil
 import os
 
-PATH = "WISENT-CIDDS-001/CIDDS-001/test_sets/"
+PATH = "CIDDS-001/test_sets/"
 
 for i in range(1,11):
-    # # #ajusta teste externo nao discretizado
     test = np.array(pd.read_csv(PATH+"non-discretized/{}_test_cidds_ext.csv".format(i)))
     test_labels = test[:,0]
     test_labels = [1 if x=='suspicious' else 0 for x in test_labels]
@@ -18,7 +17,6 @@ for i in range(1,11):
     test = np.load(PATH+"discretized/{}_test_ext.npy".format(i), allow_pickle=True)
     test_labels = np.load(PATH+"discretized/{}_labels_ext.npy".format(i), allow_pickle=True)
     test_labels = [1 if x=='suspicious' else 0 for x in test_labels]
-    print(np.unique(test_labels))
     np.save("External_test/Discretized/Exp{}/external_test.npy".format(i), np.array(test))
     np.save("External_test/Discretized/Exp{}/external_test_labels.npy".format(i), np.array(test_labels))
 
@@ -50,4 +48,3 @@ for i in range(1,11):
     np.save("Data/Discretized/Exp{}/train_labels.npy".format(i), np.array(train_labels))
     np.save("Data/Discretized/Exp{}/test.npy".format(i), np.array(test))
     np.save("Data/Discretized/Exp{}/test_labels.npy".format(i), np.array(test_labels))
-    #os.remove(PATH+"discretized/{}_test_randomall_wall.npy".format(i))

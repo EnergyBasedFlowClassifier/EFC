@@ -8,7 +8,9 @@ defined. Both files were written in Cython language and therefore must be built 
 
 `python3 setup.py build_ext --inplace`
 
-Lastly, **test_data.py** is an usage example of the classifier.
+Lastly, **test_data.py** is an usage example of the classifier. Please note that it is
+a fake script used only to exemplify the one-class EFC function calls. It will not run without
+real data being loaded into the variables.
 
 Observations:
 * EFC requires discretized data
@@ -18,7 +20,8 @@ Observations:
 # Experiments
 
 The folder **One_class EFC** within the repository contains scripts used to
-perform experiments on CICDDS-001, CICIDS2017 and CICDDoS2019 data sets.
+perform experiments on CICDDS-001, CICIDS2017 and CICDDoS2019 data sets. To reproduce the experiments,
+please read the README.md file inside that folder.
 The experiments results can be seen in
 [A new method for flow-based network intrusion
 detection using the inverse Potts model](https://arxiv.org/pdf/1910.07266.pdf)

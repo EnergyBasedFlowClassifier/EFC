@@ -1,5 +1,6 @@
 import numpy as np
 from classification_functions import *
+from sklearn.metrics import precision_score, recall_score
 
 X_train = train_data
 X_train_normals = train_data_normals

@@ -7,17 +7,17 @@ from discretize import *
 # this script creates the training and test sets to perform cross validation
 # it creates the same sets to evaluate efc and classical ml methods
 # argv[1] can be 'os' or 'ext'
-#
-# os.mkdir("WISENT-CIDDS-001/CIDDS-001/test_sets")
-# os.mkdir("WISENT-CIDDS-001/CIDDS-001/test_sets/non-discretized")
-# os.mkdir("WISENT-CIDDS-001/CIDDS-001/test_sets/discretized")
+
+os.mkdir("CIDDS-001/test_sets")
+os.mkdir("CIDDS-001/test_sets/non-discretized")
+os.mkdir("CIDDS-001/test_sets/discretized")
 
 TRAFFIC = sys.argv[1]           # openstack traffic 'os' for openstack or 'ext' for external traffic
 REP = sys.argv[2]               # test set number
 TRAINING_4_DNN = 1              # write continuous datasets?
-OUT_PATH = "WISENT-CIDDS-001/CIDDS-001/test_sets/"
-PATH = "WISENT-CIDDS-001/CIDDS-001/Reduced/OpenStack/"
-PATH_EXT =  "WISENT-CIDDS-001/CIDDS-001/Reduced/ExternalServer/"
+OUT_PATH = "CIDDS-001/test_sets/"
+PATH = "CIDDS-001/Reduced/OpenStack/"
+PATH_EXT =  "CIDDS-001/Reduced/ExternalServer/"
 LABELS = [  ('Date first seen', 0, 0),
             ('Duration', 1, 1),
             ('Proto', 1, 0),

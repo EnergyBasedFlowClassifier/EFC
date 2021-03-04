@@ -8,7 +8,7 @@ import numpy as np
 week_number = sys.argv[1]
 class_name = sys.argv[2]
 
-PATH = "WISENT-CIDDS-001/CIDDS-001/Reduced/ExternalServer/"
+PATH = "CIDDS-001/Reduced/ExternalServer/"
 FILE = "week{}.csv".format(week_number)
 
 counter = 0
