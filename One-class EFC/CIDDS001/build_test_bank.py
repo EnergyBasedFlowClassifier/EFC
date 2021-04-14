@@ -8,9 +8,10 @@ from discretize import *
 # it creates the same sets to evaluate efc and classical ml methods
 # argv[1] can be 'os' or 'ext'
 
-os.mkdir("CIDDS-001/test_sets")
-os.mkdir("CIDDS-001/test_sets/non-discretized")
-os.mkdir("CIDDS-001/test_sets/discretized")
+
+os.makedirs("CIDDS-001/test_sets", exist_ok=True)
+os.makedirs("CIDDS-001/test_sets/non-discretized", exist_ok=True)
+os.makedirs("CIDDS-001/test_sets/discretized", exist_ok=True)
 
 TRAFFIC = sys.argv[1]           # openstack traffic 'os' for openstack or 'ext' for external traffic
 REP = sys.argv[2]               # test set number

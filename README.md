@@ -8,13 +8,11 @@ defined. Both files were written in Cython language and therefore must be built 
 
 `python3 setup.py build_ext --inplace`
 
-Lastly, **test_data.py** is an usage example of the classifier. Please note that it is
-a fake script used only to exemplify the one-class EFC function calls. It will not run without
-real data being loaded into the variables.
+Lastly, **test_data.py** is an usage example of the classifier.
 
 Observations:
 * EFC requires discretized data
-* The one-class EFC is trained with only normal samples.
+* The one-class EFC is trained with only normal samples (class 0).
 
 
 # Experiments

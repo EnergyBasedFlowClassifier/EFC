@@ -1,17 +1,17 @@
 import os
 
-os.mkdir("Data/")
-os.mkdir("External_test/")
+os.makedirs("Data/", exist_ok=True)
+os.makedirs("External_test/", exist_ok=True)
 
-os.mkdir("Data/Discretized")
-os.mkdir("Data/Non_discretized")
-os.mkdir("Data/Results")
-os.mkdir("External_test/Discretized")
-os.mkdir("External_test/Non_discretized")
+os.makedirs("Data/Discretized", exist_ok=True)
+os.makedirs("Data/Non_discretized", exist_ok=True)
+os.makedirs("Data/Results", exist_ok=True)
+os.makedirs("External_test/Discretized", exist_ok=True)
+os.makedirs("External_test/Non_discretized", exist_ok=True)
 
 for exp in range(1,11):
-    os.mkdir("Data/Discretized/Exp{}/".format(exp))
-    os.mkdir("Data/Non_discretized/Exp{}/".format(exp))
-    os.mkdir("Data/Results/Exp{}/".format(exp))
-    os.mkdir("External_test/Discretized/Exp{}/".format(exp))
-    os.mkdir("External_test/Non_discretized/Exp{}/".format(exp))
+    os.makedirs("Data/Discretized/Exp{}/".format(exp), exist_ok=True)
+    os.makedirs("Data/Non_discretized/Exp{}/".format(exp), exist_ok=True)
+    os.makedirs("Data/Results/Exp{}/".format(exp), exist_ok=True)
+    os.makedirs("External_test/Discretized/Exp{}/".format(exp), exist_ok=True)
+    os.makedirs("External_test/Non_discretized/Exp{}/".format(exp), exist_ok=True)

@@ -1,17 +1,25 @@
 import numpy as np
+import pandas as pd
 from classification_functions import *
-from sklearn.metrics import precision_score, recall_score
+from generic_discretize import *
+from sklearn.metrics import classification_report
+from sklearn.datasets import load_breast_cancer
+from sklearn.model_selection import train_test_split
 
-X_train = train_data
-X_train_normals = train_data_normals
-y_train = train_labels
-X_test = test_data
-y_test = test_labels
+data = load_breast_cancer(as_frame=True) # load toy dataset from scikit
+y = data.target
+intervals, X = get_intervals(data.data, 10) # discretize dataset
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, shuffle=False) # split dataset into training and testing sets
 
-Q = 14 #max value in database
-LAMBDA = 0.5
+idx_abnormal = np.where(y_train == 1)[0] # find abnormal samples indexes in the training set
+X_train.drop(idx_abnormal, axis=0, inplace=True) # remove abnormal samples from training
+y_train.drop(idx_abnormal, axis=0, inplace=True) # remove the corresponding abonrmal training targets
 
-coupling, h_i, cutoff = create_oneclass_model(X_train_normals, Q, LAMBDA)
-y_predicted, energies = test_oneclass_model(X_test, coupling, h_i, y_test, cutoff, Q)
-precision = precision_score(y_test, y_predicted)
-recall = recall_score(y_test, y_predicted)
+
+Q = 11 # max value in dataset (number of bins used to discretize plus one)
+LAMBDA = 0.5 # lambda parameter
+
+coupling, h_i, cutoff = create_oneclass_model(np.array(X_train), Q, LAMBDA) # train model
+y_predicted, energies = test_oneclass_model(np.array(X_test), coupling, h_i, np.array(y_test), cutoff, Q) # test model
+report = classification_report(np.array(y_test), y_predicted) # colect results
+print(report)

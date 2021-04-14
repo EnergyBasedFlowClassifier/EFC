@@ -1,17 +1,5 @@
 import numpy as np
 
-def local_fields(coupling_matrix, sitefreq, q):
-    N = sitefreq.shape[0]
-    fields = np.empty((N*(q-1)),dtype=float)
-
-    for i in range(N):
-        for ai in range(q-1):
-            fields[i*(q-1) + ai] = sitefreq[i,ai]/sitefreq[i,q-1]
-            for j in range(N):
-                for aj in range(q-1):
-                    fields[i*(q-1) + ai] /= coupling_matrix[i*(q-1) + ai, j*(q-1) + aj]**sitefreq[j,aj]
-    return fields
-
 def Sitefreq(encoded_msa, q, LAMBDA):
     nA = encoded_msa.shape[1]
     Meff = encoded_msa.shape[0]
@@ -23,22 +11,11 @@ def Sitefreq(encoded_msa, q, LAMBDA):
     sitefreq = (1-LAMBDA)*sitefreq + LAMBDA/q
     return sitefreq
 
-def Entropy(sitefreq,nA,nB,alpha):
-    ent = np.zeros((nA+nB),dtype=float)
-    for i in range(nA+nB):
-        ent[i] = -np.sum((sitefreq[i,:]**alpha)*((sitefreq[i,:]**(1-alpha)-1)/(1-alpha)))
-
-    return ent
-
-def cantor(x, y):
-    return (x + y) * (x + y + 1) / 2 + y
-
 def Pairfreq(encoded_msa, sitefreq, q, LAMBDA):
     nP = encoded_msa.shape[1]
     Meff = encoded_msa.shape[0]
     pairfreq = np.zeros((nP,q,nP,q),dtype=float)
-    print(pairfreq.shape)
-    print(np.max(encoded_msa))
+
     for i in range(nP):
         for j in range(nP):
             c = cantor(encoded_msa[:,i],encoded_msa[:,j])
@@ -57,6 +34,24 @@ def Pairfreq(encoded_msa, sitefreq, q, LAMBDA):
                 else:
                     pairfreq[i,am_i,i,am_j] = 0.0
     return pairfreq
+
+
+def cantor(x, y):
+    return (x + y) * (x + y + 1) / 2 + y
+
+
+def local_fields(coupling_matrix, sitefreq, q):
+    N = sitefreq.shape[0]
+    fields = np.empty((N*(q-1)),dtype=float)
+
+    for i in range(N):
+        for ai in range(q-1):
+            fields[i*(q-1) + ai] = sitefreq[i,ai]/sitefreq[i,q-1]
+            for j in range(N):
+                for aj in range(q-1):
+                    fields[i*(q-1) + ai] /= coupling_matrix[i*(q-1) + ai, j*(q-1) + aj]**sitefreq[j,aj]
+    return fields
+
 
 def Coupling(sitefreq, pairfreq, q):
     nP = sitefreq.shape[0]

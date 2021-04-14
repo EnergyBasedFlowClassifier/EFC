@@ -22,3 +22,10 @@ exec(open("ML_algorithms.py").read())
 #results
 exec(open("colect_results.py").read())
 exec(open("plot_energies.py").read())
+
+#time complexity experiment
+exec(open("generateLargeFIles.py").read())
+exec(open("ML_algorithms_times.py").read())
+
+#results
+exec(open("plot_times.py").read())

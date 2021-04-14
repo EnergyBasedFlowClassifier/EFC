@@ -24,7 +24,6 @@ def KNN(sets):
     external_test = np.load("External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
     external_test_labels = np.load("External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
 
-    f = open("Times.txt", 'a')
     KNN = KNeighborsClassifier()
     start = time.time()
     KNN.fit(train, train_labels)
@@ -34,9 +33,8 @@ def KNN(sets):
     start = time.time()
     predict_labels_internal = KNN.predict(test)
     testing_time = time.time()-start
-    f.write("KNN & {} & {} \\\\ \n".format(training_time, testing_time))
-    f.close()
 
+    np.save("Data/Results/Exp{}/KNN_times.npy".format(sets), [training_time, testing_time])
     precision = precision_score(test_labels, predict_labels_internal)
     recall = recall_score(test_labels, predict_labels_internal)
     f1 = f1_score(test_labels, predict_labels_internal)
@@ -62,7 +60,6 @@ def RF(sets):
     external_test = np.load("External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
     external_test_labels = np.load("External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
 
-    f = open("Times.txt", 'a')
     RF = RandomForestClassifier()
     start = time.time()
     RF.fit(train, train_labels)
@@ -72,8 +69,7 @@ def RF(sets):
     start = time.time()
     predict_labels_internal = RF.predict(test)
     testing_time = time.time()-start
-    f.write("RF & {} & {} \\\\ \n".format(training_time, testing_time))
-    f.close()
+    np.save("Data/Results/Exp{}/RF_times.npy".format(sets), [training_time, testing_time])
     precision = precision_score(test_labels, predict_labels_internal)
     recall = recall_score(test_labels, predict_labels_internal)
     f1 = f1_score(test_labels, predict_labels_internal)
@@ -99,7 +95,6 @@ def GaussianNaiveB(sets):
     external_test = np.load("External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
     external_test_labels = np.load("External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
 
-    f = open("Times.txt", 'a')
     NB = GaussianNB()
     start = time.time()
     NB.fit(train, train_labels)
@@ -109,9 +104,8 @@ def GaussianNaiveB(sets):
     start = time.time()
     predict_labels_internal = NB.predict(test)
     testing_time = time.time()-start
-    f.write("NB & {} & {} \\\\ \n".format(training_time, testing_time))
-    f.close()
 
+    np.save("Data/Results/Exp{}/GaussianNB_times.npy".format(sets), [training_time, testing_time])
     precision = precision_score(test_labels, predict_labels_internal)
     recall = recall_score(test_labels, predict_labels_internal)
     f1 = f1_score(test_labels, predict_labels_internal)
@@ -135,7 +129,6 @@ def DT(sets):
     external_test = np.load("External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
     external_test_labels = np.load("External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
 
-    f = open("Times.txt", 'a')
     DT = DecisionTreeClassifier()
     start = time.time()
     DT.fit(train, train_labels)
@@ -146,8 +139,7 @@ def DT(sets):
     start = time.time()
     predict_labels_internal = DT.predict(test)
     testing_time = time.time()-start
-    f.write("DT & {} & {} \\\\ \n".format(training_time, testing_time))
-    f.close()
+    np.save("Data/Results/Exp{}/DT_times.npy".format(sets), [training_time, testing_time])
 
     precision = precision_score(test_labels, predict_labels_internal)
     recall = recall_score(test_labels, predict_labels_internal)
@@ -172,7 +164,6 @@ def Adaboost(sets):
     external_test = np.load("External_test/Non_discretized/Exp{}/external_test.npy".format(sets), allow_pickle=True)
     external_test_labels = np.load("External_test/Non_discretized/Exp{}/external_test_labels.npy".format(sets), allow_pickle=True)
 
-    f = open("Times.txt", 'a')
     AD = AdaBoostClassifier()
     start = time.time()
     AD.fit(train, train_labels)
@@ -182,8 +173,7 @@ def Adaboost(sets):
     start = time.time()
     predict_labels_internal = AD.predict(test)
     testing_time = time.time()-start
-    f.write("KNN & {} & {} \\\\ \n".format(training_time, testing_time))
-    f.close()
+    np.save("Data/Results/Exp{}/Adaboost_times.npy".format(sets), [training_time, testing_time])
 
     precision = precision_score(test_labels, predict_labels_internal)
     recall = recall_score(test_labels, predict_labels_internal)
@@ -215,7 +205,6 @@ def svc(sets):
     transformer = Normalizer().fit(external_test)
     external_test = transformer.transform(external_test)
 
-    f = open("Times.txt", 'a')
     svc = SVC(kernel='poly', probability=True)
     start = time.time()
     svc.fit(train, train_labels)
@@ -225,9 +214,8 @@ def svc(sets):
     start = time.time()
     predict_labels_internal = svc.predict(test)
     testing_time = time.time()-start
-    f.write("SVC & {} & {} \\\\ \n".format(training_time, testing_time))
-    f.close()
 
+    np.save("Data/Results/Exp{}/SVC_times.npy".format(sets), [training_time, testing_time])
     precision = precision_score(test_labels, predict_labels_internal)
     recall = recall_score(test_labels, predict_labels_internal)
     f1 = f1_score(test_labels, predict_labels_internal)
@@ -258,7 +246,6 @@ def mlp(sets):
     transformer = Normalizer().fit(external_test)
     external_test = transformer.transform(external_test)
 
-    f = open("Times.txt", 'a')
     MLP = MLPClassifier(max_iter=300)
     start = time.time()
     MLP.fit(train, train_labels)
@@ -268,9 +255,7 @@ def mlp(sets):
     start = time.time()
     predict_labels_internal = MLP.predict(test)
     testing_time = time.time()-start
-    f.write("MLP & {} & {} \\\\ \n".format(training_time, testing_time))
-    f.close()
-
+    np.save("Data/Results/Exp{}/MLP_times.npy".format(sets), [training_time, testing_time])
     precision = precision_score(test_labels, predict_labels_internal)
     recall = recall_score(test_labels, predict_labels_internal)
     f1 = f1_score(test_labels, predict_labels_internal)
@@ -298,15 +283,21 @@ def EFC(sets):
     LAMBDA = 0.5
 
     # Creating model
-    couplingmatrix, h_i = create_model(train_normal, Q, LAMBDA)
+    start = time.time()
+    couplingmatrix, h_i, cutoff = create_oneclass_model(train_normal, Q, LAMBDA)
+    training_time = time.time()-start
+    np.save("Data/Discretized/Exp{}/cutoff.npy".format(sets), np.array(CUTOFF))
     np.save("Data/Discretized/Exp{}/h_i.npy".format(sets), h_i)
     np.save("Data/Discretized/Exp{}/couplingmatrix.npy".format(sets), couplingmatrix)
 
+    start = time.time()
+    predicted_labels_internal, energies_internal = test_oneclass_model(np.array(test,dtype=int), couplingmatrix, h_i, test_labels, CUTOFF, Q)
+    testing_time = time.time()-start
+    np.save("Data/Results/Exp{}/EFC_times.npy".format(sets), [training_time, testing_time])
 
-    CUTOFF = define_cutoff(train_normal, h_i, couplingmatrix, Q)
-    np.save("Data/Discretized/Exp{}/cutoff.npy".format(sets), np.array(CUTOFF))
+    print("Train:", training_time)
+    print("Test:", testing_time)
 
-    predicted_labels_internal, energies_internal = test_model(np.array(test,dtype=int), couplingmatrix, h_i, test_labels, CUTOFF, Q)
     np.save("Data/Discretized/Exp{}/energies_internal.npy".format(sets), np.array(energies_internal))
     predict_prob = [x for x in MinMaxScaler().fit_transform(np.array(energies_internal).reshape(-1,1))]
     precision = precision_score(test_labels, predicted_labels_internal)
@@ -314,14 +305,16 @@ def EFC(sets):
     f1 = f1_score(test_labels, predicted_labels_internal)
     roc = roc_auc_score(test_labels, predict_prob)
     np.save("Data/Results/Exp{}/EFC_internal.npy".format(sets), np.array([precision, recall, f1, roc]))
+    print(f1, roc)
 
-    predicted_labels_external, energies_external = test_model(np.array(external_test,dtype=int), couplingmatrix, h_i, external_test_labels, CUTOFF, Q)
+    predicted_labels_external, energies_external = test_oneclass_model(np.array(external_test,dtype=int), couplingmatrix, h_i, external_test_labels, CUTOFF, Q)
     np.save("Data/Discretized/Exp{}/energies_external.npy".format(sets), np.array(energies_external))
     predict_prob = [x for x in MinMaxScaler().fit_transform(np.array(energies_external).reshape(-1,1))]
     precision = precision_score(external_test_labels, predicted_labels_external)
     recall = recall_score(external_test_labels, predicted_labels_external)
     f1 = f1_score(external_test_labels, predicted_labels_external)
     roc = roc_auc_score(external_test_labels, predict_prob)
+    print(f1, roc)
     np.save("Data/Results/Exp{}/EFC_external.npy".format(sets), np.array([precision, recall, f1, roc]))
 
 
