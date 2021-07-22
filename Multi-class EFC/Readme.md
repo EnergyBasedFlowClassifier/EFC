@@ -1,11 +1,13 @@
-#Experiments
+# Experiments
 
-To reproduce the experiments, first download ([CICIDS17](https://www.unb.ca/cic/datasets/ids-2017.html),
-[CIDDS-001](https://www.hs-coburg.de/forschung/forschungsprojekte-oeffentlich/informationstechnologie/cidds-coburg-intrusion-detection-data-sets.html)) and extract the datasets in its corresponding directory using the unzip command. It is important to use the unzip command, as different forms of extraction can change the names of the directories used in the scripts.
+To reproduce the experiments, first download and extract [CICIDS17](https://www.unb.ca/cic/datasets/ids-2017.html) and
+[CIDDS-001](https://www.hs-coburg.de/forschung/forschungsprojekte-oeffentlich/informationstechnologie/cidds-coburg-intrusion-detection-data-sets.html) in its corresponding directories using the unzip command. It is important to use the unzip command, as different forms of extraction can change the names of the directories used in the scripts. Then, you need to build EFC Cython module in the root directory, using the command
+`python3 setup.py build_ext --inplace`
 
-##CICIDS17 and CIDDS001
-To preprocess, discretize and sample the dataset, run the **exec.py** script inside each folder.
-To run the experiments, **ML_algorithms.py** does the training and testing of all classical ML algorithms in 5-fold cross-validation; and **ML_algorithms_unknown.py**
-performs training and testing by removing one type of attack from training (one at a time). This second experiment was conducted only for EFC and RF, also in 5-fold cross-validation.
+## CICIDS17 and CIDDS001
+To preprocess, discretize, sample and execute, run the **exec.py** script inside each folder.
+**ML_algorithms.py** is the script in which training and testing of all classical ML algorithms and EFC happen, in 5-fold cross-validation. **ML_algorithms_unknown.py**
+performs training and testing of EFC and RF removing one type of attack from training (one at a time), also in 5-fold cross-validation.
+
 
 
