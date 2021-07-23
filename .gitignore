@@ -1,7 +1,4 @@
 /build
-classification_functions_parallel_py.py
-classification_functions_seq_py.py
-dca_functions_py.py
 modifications.txt
 /"Multi-class EFC"/CICIDS17/5_fold_sets/
 /"Multi-class EFC"/CIDDS-001/5-fold_sets/
@@ -12,3 +9,4 @@ modifications.txt
 *.so
 *.c
 *.png
+/__pycache__
