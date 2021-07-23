@@ -71,7 +71,7 @@ def OneClassPredict(DTYPE_t[:,:] test_data, double[:,:] couplingmatrix, double[:
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
-def MultiClassFit(np.ndarray[DTYPE_t, ndim=2] data, np.ndarray[DTYPE_t, ndim=1] labels, DTYPE_t Q, float LAMBDA, float THETA):
+def MultiClassFit(np.ndarray[DTYPE_t, ndim=2] data, np.ndarray[DTYPE_t, ndim=1] labels, DTYPE_t Q, float LAMBDA):
     cdef np.ndarray[DTYPE_t, ndim=2] data_concat = np.empty((data.shape[0],data.shape[1]+1), dtype=DTYPE)
     data_concat[:,:-1] = data
     data_concat[:, -1] = labels
@@ -89,10 +89,9 @@ def MultiClassFit(np.ndarray[DTYPE_t, ndim=2] data, np.ndarray[DTYPE_t, ndim=1] 
     cdef np.ndarray[double, ndim=1] cutoffs_list = np.empty(n_classes, dtype=float)
 
     for idx, label in enumerate(np.unique(labels)):
-      subset = data_concat[data_concat[:,-1] == label]
-      weights = Weights(subset, THETA)
-      sitefreq = Sitefreq(subset, weights, Q, LAMBDA)
-      pairfreq = Pairfreq(subset, sitefreq, weights , Q, LAMBDA)
+      subset = data_concat[data_concat[:,-1] == label
+      sitefreq = Sitefreq(subset, Q, LAMBDA)
+      pairfreq = Pairfreq(subset, sitefreq, Q, LAMBDA)
       couplingmatrix = Coupling(sitefreq, pairfreq, Q)
       h_i = LocalFields(couplingmatrix, sitefreq, Q)
       couplingmatrix = np.log(couplingmatrix)

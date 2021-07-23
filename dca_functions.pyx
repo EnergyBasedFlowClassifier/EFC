@@ -8,24 +8,15 @@ ctypedef np.int_t DTYPE_t
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
-def Weights(np.ndarray[DTYPE_t, ndim=2] data, float THETA):
-    hammdist = spatial.distance.pdist(data, 'hamming')
-    weight_matrix = spatial.distance.squareform(hammdist < (1.0- THETA))
-    weight = 1.0 / (np.sum(weight_matrix, axis = 1) + 1.0)
-    return weight
-
-
-@cython.boundscheck(False)
-@cython.wraparound(False)
-def Sitefreq(np.ndarray[DTYPE_t, ndim=2] data, np.ndarray[double, ndim=1] weights, int Q, float LAMBDA):
+def Sitefreq(np.ndarray[DTYPE_t, ndim=2] data, int Q, float LAMBDA):
     cdef int n_attr = data.shape[1]
     cdef np.ndarray[double, ndim=2] sitefreq = np.empty((n_attr, Q),dtype='float')
     cdef int i, aa
     for i in range(n_attr):
         for aa in range(Q):
-            sitefreq[i,aa] = np.sum(np.equal(data[:,i],aa)*weights)
+            sitefreq[i,aa] = np.sum(np.equal(data[:,i],aa))
 
-    sitefreq /= np.sum(weights)
+    sitefreq /= data.shape[0]
     sitefreq = (1-LAMBDA)*sitefreq + LAMBDA/Q
     return sitefreq
 
@@ -36,7 +27,7 @@ def cantor(np.ndarray[DTYPE_t, ndim=1] x, np.ndarray[DTYPE_t, ndim=1] y):
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
-def Pairfreq(np.ndarray[DTYPE_t, ndim=2] data, np.ndarray[double, ndim=2] sitefreq, np.ndarray[double, ndim=1] weights, int Q, float LAMBDA):
+def Pairfreq(np.ndarray[DTYPE_t, ndim=2] data, np.ndarray[double, ndim=2] sitefreq, int Q, float LAMBDA):
     cdef int n_attr = data.shape[1]
     cdef DTYPE_t[:,:] data_view = data
     cdef np.ndarray[double, ndim=4] pairfreq = np.zeros((n_attr, Q, n_attr, Q),dtype='float')
@@ -52,9 +43,9 @@ def Pairfreq(np.ndarray[DTYPE_t, ndim=2] data, np.ndarray[double, ndim=2] sitefr
             c = cantor(data[:,i],data[:,j])
             unique,aaIdx = np.unique(c,True)
             for x,item in enumerate(unique):
-                pairfreqview[i, data_view[aaIdx[x],i],j,data_view[aaIdx[x],j]] = np.sum(np.equal(c,item)*weights)
+                pairfreqview[i, data_view[aaIdx[x],i],j,data_view[aaIdx[x],j]] = np.sum(np.equal(c,item))
 
-    pairfreq /= np.sum(weights)
+    pairfreq /= data.shape[0]
     pairfreq = (1-LAMBDA)*pairfreq + LAMBDA/(Q*Q)
 
     for i in range(n_attr):
