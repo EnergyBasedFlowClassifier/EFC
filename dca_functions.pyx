@@ -10,12 +10,11 @@ ctypedef np.int_t DTYPE_t
 @cython.wraparound(False)
 def Weights(np.ndarray[DTYPE_t, ndim=2] data, float THETA):
     if data.shape[0] > 54000:
-	weight = [1]*data.shape[0]
+      weight = [1]*data.shape[0]
     else:
-
-        hammdist = spatial.distance.pdist(data, 'hamming')
-        weight_matrix = spatial.distance.squareform(hammdist < (1.0- THETA))
-        weight = 1.0 / (np.sum(weight_matrix, axis = 1) + 1.0)
+      hammdist = spatial.distance.pdist(data, 'hamming')
+      weight_matrix = spatial.distance.squareform(hammdist < (1.0- THETA))
+      weight = 1.0 / (np.sum(weight_matrix, axis = 1) + 1.0)
     return weight
 
 
