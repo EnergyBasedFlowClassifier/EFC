@@ -21,9 +21,10 @@ def DefineCutoff(train_data, h_i, couplingmatrix, Q):
     cutoff = energies[int(energies.shape[0]*0.95)]
     return cutoff
 
-def OneClassFit(data, Q, LAMBDA):
-    sitefreq = Sitefreq(data, Q, LAMBDA)
-    pairfreq = Pairfreq(data, sitefreq, Q, LAMBDA)
+def OneClassFit(data, Q, LAMBDA, THETA):
+    weights = Weights(data, THETA)
+    sitefreq = Sitefreq(data, weights, Q, LAMBDA)
+    pairfreq = Pairfreq(data, sitefreq, weights, Q, LAMBDA)
     couplingmatrix = Coupling(sitefreq, pairfreq, Q)
     h_i = LocalFields(couplingmatrix, sitefreq, Q)
     couplingmatrix = np.log(couplingmatrix)
@@ -51,7 +52,7 @@ def OneClassPredict(test_data, model, h_i, cutoff, Q):
     return predicted, energies
 
 @profile
-def MultiClassFit(data, labels, Q, LAMBDA):
+def MultiClassFit(data, labels, Q, LAMBDA, THETA):
     data_concat = np.empty((data.shape[0],data.shape[1]+1))
     data_concat[:,:-1] = data
     data_concat[:, -1] = labels
@@ -60,8 +61,9 @@ def MultiClassFit(data, labels, Q, LAMBDA):
     cutoffs_list = []
     for label in np.unique(labels):
         subset = data_concat[data_concat[:,-1] == label]
-        sitefreq = Sitefreq(subset, Q, LAMBDA)
-        pairfreq = Pairfreq(subset, sitefreq, Q, LAMBDA)
+        weights = Weights(subset, THETA)
+        sitefreq = Sitefreq(subset, weights, Q, LAMBDA)
+        pairfreq = Pairfreq(subset, sitefreq, weights, Q, LAMBDA)
         couplingmatrix = Coupling(sitefreq, pairfreq, Q)
         h_i = LocalFields(couplingmatrix, sitefreq, Q)
         couplingmatrix = np.log(couplingmatrix)
