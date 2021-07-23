@@ -70,12 +70,12 @@ malicious_names = [['normal.'], ['back.', 'smurf.', 'teardrop.', 'neptune.', 'la
 ['ipsweep.',  'portsweep.',  'satan.',  'nmap.'], ['ftp_write.', 'guess_passwd.', 'imap.', 'multihop.', 'spy.',
  'warezclient.', 'warezmaster.', 'phf.'], ['buffer_overflow.', 'loadmodule.', 'perl.', 'rootkit.']]
 
-#remove duplicates from training
-# data = pd.read_csv('kddcup.data_10_percent_corrected', header=None)
-# print(data.shape[0])
-# data.drop_duplicates(inplace=True)
-# print(data.shape[0])
-# data.to_csv('kddcup.data_10_percent_corrected_unique', header=False, index=False)
+# remove duplicates from training
+data = pd.read_csv('kddcup.data_10_percent_corrected', header=None)
+print(data.shape[0])
+data.drop_duplicates(inplace=True)
+print(data.shape[0])
+data.to_csv('kddcup.data_10_percent_corrected_unique', header=False, index=False)
 
 
 #normalize train and test sets
@@ -104,7 +104,7 @@ for chunk in reader:
     data.iloc[:, :-1].to_csv('X_kddcup.data_10_percent_corrected_discretized', mode='a', header=False, index=False)
     data.iloc[:, -1].to_csv('y_kddcup.data_10_percent_corrected_discretized', mode='a', header=False, index=False)
 
-reader = pd.read_csv('corrected_normalized', chunksize=7000000, header=None)
+reader = pd.read_csv('corrected', chunksize=7000000, header=None)
 for chunk in reader:
     os.remove('X_corrected_discretized')
     os.remove('y_corrected_discretized')
