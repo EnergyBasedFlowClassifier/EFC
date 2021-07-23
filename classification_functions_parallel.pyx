@@ -31,9 +31,10 @@ def DefineCutoff(DTYPE_t[:,:] train_data, double[:] h_i, double[:,:] couplingmat
     cutoff = energies[int(energies.shape[0]*0.95)]
     return cutoff
 
-def OneClassFit(np.ndarray[DTYPE_t, ndim=2] data, int Q, float LAMBDA):
-    cdef np.ndarray[double, ndim=2] sitefreq = Sitefreq(data, Q, LAMBDA)
-    cdef np.ndarray[double, ndim=4] pairfreq = Pairfreq(data, sitefreq, Q, LAMBDA)
+def OneClassFit(np.ndarray[DTYPE_t, ndim=2] data, int Q, float LAMBDA, float THETA):
+    cdef np.ndarray[double, ndim=1] weights = Weights(data, THETA)
+    cdef np.ndarray[double, ndim=2] sitefreq = Sitefreq(data, weights, Q, LAMBDA)
+    cdef np.ndarray[double, ndim=4] pairfreq = Pairfreq(data, sitefreq, weights, Q, LAMBDA)
     cdef np.ndarray[double, ndim=2] couplingmatrix = Coupling(sitefreq, pairfreq, Q)
     cdef np.ndarray[double, ndim=1] h_i = LocalFields(couplingmatrix, sitefreq, Q)
     couplingmatrix = np.log(couplingmatrix)
@@ -45,7 +46,7 @@ def OneClassFit(np.ndarray[DTYPE_t, ndim=2] data, int Q, float LAMBDA):
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.cdivision(True)
-def OneClassPredict(DTYPE_t[:,:] test_data, double[:,:] couplingmatrix, double[:] h_i, np.ndarray[DTYPE_t, ndim=1] expected, float cutoff, int Q):
+def OneClassPredict(DTYPE_t[:,:] test_data, double[:,:] couplingmatrix, double[:] h_i, float cutoff, int Q):
     cdef int n_inst = test_data.shape[0]
     cdef int n_attr = test_data.shape[1]
     cdef double[:] energies = np.empty(n_inst, dtype= 'float64')
@@ -80,7 +81,6 @@ def FitClass(np.ndarray[DTYPE_t, ndim=2] set, int Q, float LAMBDA, float THETA):
 
 
 def MultiClassFit(np.ndarray[DTYPE_t, ndim=2] data, np.ndarray[DTYPE_t, ndim=1] labels, int Q, float LAMBDA, float THETA):
-    cdef double start = time.time()
     cdef int n_classes = np.unique(labels).shape[0]
     cdef np.ndarray[object, ndim=1] data_per_type = np.empty(n_classes, dtype=np.ndarray)
     cdef int label
@@ -93,14 +93,11 @@ def MultiClassFit(np.ndarray[DTYPE_t, ndim=2] data, np.ndarray[DTYPE_t, ndim=1] 
     cdef np.ndarray[object, ndim=1] h_i_matrices = np.empty(n_classes, dtype=np.ndarray)
     cdef np.ndarray[object, ndim=1] coupling_matrices = np.empty(n_classes, dtype=np.ndarray)
     cdef np.ndarray[double, ndim=1] cutoffs_list = np.empty(n_classes, dtype=float)
-
     for indx, result in enumerate(results):
         h_i_matrices[indx] = result[0]
         coupling_matrices[indx] = result[1]
         cutoffs_list[indx] = result[2]
 
-
-    print("Training time: {}s".format(time.time()-start))
     return h_i_matrices, coupling_matrices, cutoffs_list
 
 
@@ -139,7 +136,6 @@ def PredictSubset(np.ndarray[DTYPE_t, ndim=2] test_data, np.ndarray[object, ndim
 
 
 def MultiClassPredict(np.ndarray[DTYPE_t, ndim=2] test_data, np.ndarray[object, ndim=1] h_i_matrices, np.ndarray[object, ndim=1] coupling_matrices, np.ndarray[double, ndim=1] cutoffs_list, int Q, np.ndarray[DTYPE_t, ndim=1] train_labels):
-    cdef double start = time.time()
     cdef int n_jobs = multiprocessing.cpu_count()
     cdef int chunk_size = test_data.shape[0]//n_jobs
     cdef int i
@@ -151,8 +147,7 @@ def MultiClassPredict(np.ndarray[DTYPE_t, ndim=2] test_data, np.ndarray[object, 
         results = executor.map(PredictSubset, data_frac, n_jobs*[h_i_matrices], n_jobs*[coupling_matrices], n_jobs*[cutoffs_list], n_jobs*[Q], n_jobs*[train_labels])
 
     predicted = []
-
     for result in results:
         predicted += list(result)
-    print("Testing time: {}s".format(time.time()-start))
+
     return predicted

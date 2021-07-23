@@ -47,7 +47,7 @@ def OneClassFit(np.ndarray[DTYPE_t, ndim=2] data, int Q, float LAMBDA):
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.cdivision(True)
-def OneClassPredict(DTYPE_t[:,:] test_data, double[:,:] couplingmatrix, double[:] h_i, np.ndarray[DTYPE_t, ndim=1] expected, float cutoff, int Q):
+def OneClassPredict(DTYPE_t[:,:] test_data, double[:,:] couplingmatrix, double[:] h_i, float cutoff, int Q):
     cdef int n_inst = test_data.shape[0]
     cdef int n_attr = test_data.shape[1]
     cdef double[:] energies = np.empty(n_inst, dtype= 'float64')

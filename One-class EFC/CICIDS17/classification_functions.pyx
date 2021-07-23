@@ -52,7 +52,7 @@ def define_cutoff(DTYPE_t[:,:] train_data, double[:] h_i, double[:,:] couplingma
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.cdivision(True)
-def test_oneclass_model(DTYPE_t[:,:] test_data, double[:,:] couplingmatrix, double[:] h_i, np.ndarray[DTYPE_t, ndim=1] expected, float cutoff, int n_bins):
+def test_oneclass_model(DTYPE_t[:,:] test_data, double[:,:] couplingmatrix, double[:] h_i, float cutoff, int n_bins):
     cdef int n_rows = test_data.shape[0]
     cdef int n_col = test_data.shape[1]
 
