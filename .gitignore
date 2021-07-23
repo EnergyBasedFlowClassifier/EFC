@@ -12,3 +12,4 @@ modifications.txt
 *.so
 *.c
 *.png
+/__pycache__
