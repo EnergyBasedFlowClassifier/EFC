@@ -5,19 +5,19 @@ def Weights(np.ndarray[DTYPE_t, ndim=2] data, float THETA):
     weight_matrix = spatial.distance.squareform(hammdist < (1.0- THETA))
     weight = 1.0 / (np.sum(weight_matrix, axis = 1) + 1.0)
     return weight
-    
-def Sitefreq(data, Q, LAMBDA):
+
+def Sitefreq(data, weights, Q, LAMBDA):
     n_attr = data.shape[1]
     sitefreq = np.empty((n_attr, Q),dtype=float)
     for i in range(n_attr):
         for aa in range(Q):
-            sitefreq[i,aa] = np.sum(np.equal(data[:,i],aa))
-    sitefreq /= data.shape[0]
-
+            sitefreq[i,aa] = np.sum(np.equal(data[:,i],aa)*weights)
+            
+    sitefreq /= np.sum(weights)
     sitefreq = (1-LAMBDA)*sitefreq + LAMBDA/Q
     return sitefreq
 
-def Pairfreq(data, sitefreq, Q, LAMBDA):
+def Pairfreq(data, sitefreq, weights, Q, LAMBDA):
     n_attr = data.shape[1]
     pairfreq = np.zeros((n_attr, Q, n_attr, Q),dtype=float)
 
@@ -26,8 +26,8 @@ def Pairfreq(data, sitefreq, Q, LAMBDA):
             c = cantor(data[:,i], data[:,j])
             unique, aaIdx = np.unique(c, True)
             for x, item in enumerate(unique):
-                pairfreq[i, data[aaIdx[x],i],j,data[aaIdx[x],j]] = np.sum(np.equal(c,item))
-    pairfreq /= data.shape[0]
+                pairfreq[i, data[aaIdx[x],i],j,data[aaIdx[x],j]] = np.sum(np.equal(c,item)*weights)
+    pairfreq /= np.sum(weights)
     pairfreq = (1-LAMBDA)*pairfreq + LAMBDA/(Q*Q)
 
     for i in range(n_attr):
