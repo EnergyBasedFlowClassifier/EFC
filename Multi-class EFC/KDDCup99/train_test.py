@@ -4,8 +4,8 @@ from classification_functions import *
 import pandas as pd
 import numpy as np
 
-train = pd.read_csv("X_kddcup.data_10_percent_corrected_discretized", header=None).astype('int')
-train_labels =  pd.read_csv("y_kddcup.data_10_percent_corrected_discretized", squeeze=True, header=None).astype('int')
+train = pd.read_csv("X_kddcup.data_10_percent_discretized", header=None).astype('int')
+train_labels =  pd.read_csv("y_kddcup.data_10_percent_discretized", squeeze=True, header=None).astype('int')
 print(np.unique(train_labels, return_counts=True))
 print(train_labels.shape[0])
 
