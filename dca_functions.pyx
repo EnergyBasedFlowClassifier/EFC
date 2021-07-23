@@ -8,7 +8,16 @@ ctypedef np.int_t DTYPE_t
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
-def Sitefreq(np.ndarray[DTYPE_t, ndim=2] encoded_msa, int q, float LAMBDA):
+def Weights(np.ndarray[DTYPE_t, ndim=2] encoded_msa, float THETA):
+    hammdist = spatial.distance.pdist(encoded_msa, 'hamming')
+    weight_matrix = spatial.distance.squareform(hammdist < (1.0- THETA))
+    weight = 1.0 / (np.sum(weight_matrix, axis = 1) + 1.0)
+    return weight
+
+
+@cython.boundscheck(False)
+@cython.wraparound(False)
+def Sitefreq(np.ndarray[DTYPE_t, ndim=2] encoded_msa, np.ndarray[double, ndim=1] weights, int q, float LAMBDA):
     cdef int nA = encoded_msa.shape[1]
     cdef np.ndarray[double, ndim=2] sitefreq = np.empty((nA,q),dtype='float')
     cdef int i, aa
