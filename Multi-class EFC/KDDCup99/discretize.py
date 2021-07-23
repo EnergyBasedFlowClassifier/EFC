@@ -96,18 +96,11 @@ intervals = get_intervals('kddcup.data_10_percent_corrected_unique')
 reader = pd.read_csv('kddcup.data_10_percent_corrected_unique', chunksize=7000000, header=None)
 for chunk in reader:
     data = discretize(chunk, intervals)
-    os.remove('X_kddcup.data_10_percent_corrected_discretized')
-    os.remove('y_kddcup.data_10_percent_corrected_discretized')
-    indexes = random.Random(2).sample(list(np.where(data.iloc[:,-1] == 0)[0]), 70000)
-    indexes += random.Random(2).sample(list(np.where(data.iloc[:,-1] == 1)[0]), 40000)
-    data.drop(indexes, inplace=True)
     data.iloc[:, :-1].to_csv('X_kddcup.data_10_percent_corrected_discretized', mode='a', header=False, index=False)
     data.iloc[:, -1].to_csv('y_kddcup.data_10_percent_corrected_discretized', mode='a', header=False, index=False)
 
 reader = pd.read_csv('corrected', chunksize=7000000, header=None)
 for chunk in reader:
-    os.remove('X_corrected_discretized')
-    os.remove('y_corrected_discretized')
     data = discretize(chunk, intervals)
     data.iloc[:, :-1].to_csv('X_corrected_discretized', mode='a', header=False, index=False)
     data.iloc[:, -1].to_csv('y_corrected_discretized', mode='a', header=False, index=False)
