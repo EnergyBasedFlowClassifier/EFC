@@ -7,7 +7,7 @@ DTYPE =  'int'
 ctypedef np.int_t DTYPE_t
 ctypedef np.uint8_t uint8
 # cython: profile=True
-import line_profiler
+
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
@@ -51,7 +51,7 @@ def OneClassPredict(DTYPE_t[:,:] test_data, double[:,:] couplingmatrix, double[:
     cdef int n_inst = test_data.shape[0]
     cdef int n_attr = test_data.shape[1]
     cdef double[:] energies = np.empty(n_inst, dtype= 'float64')
-    cdef DTYPE_t[:] predicted = np.empty(n_inst, dtype= 'int'
+    cdef DTYPE_t[:] predicted = np.empty(n_inst, dtype= 'int')
     cdef int i, j, k, k_value, j_value
     cdef float e
     for i in range(n_inst):
