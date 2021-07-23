@@ -1,6 +1,6 @@
 import numpy as np
 
-def Weights(np.ndarray[DTYPE_t, ndim=2] data, float THETA):
+def Weights(data, float THETA):
     hammdist = spatial.distance.pdist(data, 'hamming')
     weight_matrix = spatial.distance.squareform(hammdist < (1.0- THETA))
     weight = 1.0 / (np.sum(weight_matrix, axis = 1) + 1.0)
@@ -12,7 +12,7 @@ def Sitefreq(data, weights, Q, LAMBDA):
     for i in range(n_attr):
         for aa in range(Q):
             sitefreq[i,aa] = np.sum(np.equal(data[:,i],aa)*weights)
-            
+
     sitefreq /= np.sum(weights)
     sitefreq = (1-LAMBDA)*sitefreq + LAMBDA/Q
     return sitefreq
@@ -27,6 +27,7 @@ def Pairfreq(data, sitefreq, weights, Q, LAMBDA):
             unique, aaIdx = np.unique(c, True)
             for x, item in enumerate(unique):
                 pairfreq[i, data[aaIdx[x],i],j,data[aaIdx[x],j]] = np.sum(np.equal(c,item)*weights)
+
     pairfreq /= np.sum(weights)
     pairfreq = (1-LAMBDA)*pairfreq + LAMBDA/(Q*Q)
 
