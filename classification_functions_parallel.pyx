@@ -68,8 +68,7 @@ def OneClassPredict(DTYPE_t[:,:] test_data, double[:,:] couplingmatrix, double[:
     return np.asarray(predicted), np.asarray(energies)
 
 
-def FitClass(np.ndarray[DTYPE_t, ndim=2] set, int Q, float LAMBDA, float THETA):
-    cdef np.ndarray[double, ndim=1] weights = Weights(set, THETA)
+def FitClass(np.ndarray[DTYPE_t, ndim=2] set, np.ndarray[double, ndim=1] weights, int Q, float LAMBDA, float THETA):
     cdef np.ndarray[double, ndim=2] sitefreq = Sitefreq(set, weights, Q, LAMBDA)
     cdef np.ndarray[double, ndim=4] pairfreq = Pairfreq(set, sitefreq, weights, Q, LAMBDA)
     cdef np.ndarray[double, ndim=2] couplingmatrix = Coupling(sitefreq, pairfreq, Q)
@@ -83,12 +82,14 @@ def FitClass(np.ndarray[DTYPE_t, ndim=2] set, int Q, float LAMBDA, float THETA):
 def MultiClassFit(np.ndarray[DTYPE_t, ndim=2] data, np.ndarray[DTYPE_t, ndim=1] labels, int Q, float LAMBDA, float THETA):
     cdef int n_classes = np.unique(labels).shape[0]
     cdef np.ndarray[object, ndim=1] data_per_type = np.empty(n_classes, dtype=np.ndarray)
+    cdef np.ndarray[object, ndim=1] weights = np.empty(n_classes, dtype=np.ndarray)
     cdef int label
     for indx, label in enumerate(np.unique(labels)):
       data_per_type[indx] = np.array([data[i,:] for i in range(data.shape[0]) if labels[i] == label])
+      weights[indx] = np.array(Weights(data_per_type[indx], THETA))
 
     with concurrent.futures.ProcessPoolExecutor() as executor:
-        results = executor.map(FitClass, data_per_type, n_classes*[Q], n_classes*[LAMBDA], n_classes*[THETA])
+        results = executor.map(FitClass, data_per_type, weights, n_classes*[Q], n_classes*[LAMBDA], n_classes*[THETA])
 
     cdef np.ndarray[object, ndim=1] h_i_matrices = np.empty(n_classes, dtype=np.ndarray)
     cdef np.ndarray[object, ndim=1] coupling_matrices = np.empty(n_classes, dtype=np.ndarray)
