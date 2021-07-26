@@ -96,6 +96,7 @@ intervals = get_intervals('kddcup.data_10_percent_unique')
 reader = pd.read_csv('kddcup.data_10_percent_unique', chunksize=7000000, header=None)
 for chunk in reader:
     data = discretize(chunk, intervals)
+    data.drop(random.Random(2).sample(list(np.where(data.iloc[:, -1]==0)[0]), 30000), inplace=True)
     data.iloc[:, :-1].to_csv('X_kddcup.data_10_percent_discretized', mode='a', header=False, index=False)
     data.iloc[:, -1].to_csv('y_kddcup.data_10_percent_discretized', mode='a', header=False, index=False)
 
