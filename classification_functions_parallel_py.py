@@ -30,10 +30,9 @@ def DefineCutoff(train_data, h_i, couplingmatrix, Q):
     cutoff = energies[int(energies.shape[0]*0.95)]
     return cutoff
 
-def OneClassFit(train_data, Q, LAMBDA, THETA):
-    weights = Weights(data, THETA)
-    sitefreq = Sitefreq(train_data, weights, Q, LAMBDA)
-    pairfreq = Pairfreq(train_data, sitefreq, weights, Q, LAMBDA)
+def OneClassFit(train_data, Q, LAMBDA):
+    sitefreq = Sitefreq(train_data, Q, LAMBDA)
+    pairfreq = Pairfreq(train_data, sitefreq, Q, LAMBDA)
     couplingmatrix = Coupling(sitefreq, pairfreq, Q)
     h_i = LocalFields(couplingmatrix, sitefreq, Q)
     couplingmatrix = np.log(couplingmatrix)
@@ -61,10 +60,9 @@ def OneClassPredict(test_data, model, h_i, cutoff, Q):
     return predicted, energies
 
 
-def FitClass(set, Q, LAMBDA, THETA):
-    weights = Weights(set, THETA)
-    sitefreq = Sitefreq(set, weights, Q, LAMBDA)
-    pairfreq = Pairfreq(set, sitefreq, weights, Q, LAMBDA)
+def FitClass(set, Q, LAMBDA):
+    sitefreq = Sitefreq(set, Q, LAMBDA)
+    pairfreq = Pairfreq(set, sitefreq, Q, LAMBDA)
     couplingmatrix = Coupling(sitefreq, pairfreq, Q)
     h_i = LocalFields(couplingmatrix, sitefreq, Q)
     couplingmatrix = np.log(couplingmatrix)
@@ -72,14 +70,14 @@ def FitClass(set, Q, LAMBDA, THETA):
     cutoff = DefineCutoff(set, h_i, couplingmatrix, Q)
     return h_i, couplingmatrix, cutoff
 
-def MultiClassFit(data, labels, Q, LAMBDA, THETA):
+def MultiClassFit(data, labels, Q, LAMBDA):
     data_per_type = []
     for label in np.unique(labels):
         selected = [data[i,:] for i in range(data.shape[0]) if labels[i] == label]
         data_per_type.append(np.array(selected))
     n_jobs = len(data_per_type)
     with concurrent.futures.ProcessPoolExecutor() as executor:
-        results = executor.map(FitClass, data_per_type, n_jobs*[Q], n_jobs*[LAMBDA], n_jobs*[THETA])
+        results = executor.map(FitClass, data_per_type, n_jobs*[Q], n_jobs*[LAMBDA])
     h_i_matrices = []
     coupling_matrices = []
     cutoffs_list = []
