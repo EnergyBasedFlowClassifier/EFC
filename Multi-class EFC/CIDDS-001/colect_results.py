@@ -151,7 +151,7 @@ def plot_unknown():
             ax[1].set_title("EFC")
         fig.savefig("5-fold_sets/Results/EFC_RF_unknown_CIDDS001.pdf", format="pdf",bbox_inches = "tight")#
         fig.savefig("5-fold_sets/Results/EFC_RF_unknown_CIDDS001.jpeg", format="pdf",bbox_inches = "tight")#
-        
+
 def times():
     for alg in ['RF','NB','KNN', 'SVC', 'MLP', 'AD', 'DT','EFC']:
         train = []
@@ -162,8 +162,8 @@ def times():
             test.append(times[1])
         print("{} & {:.3f} $\\pm$ {:.3f} & {:.3f} $\\pm$ {:.3f} \\\\".format(alg, mean(train), 1.96*stdev(train)/sqrt(len(train)), mean(test), 1.96*stdev(test)/sqrt(len(test))))
 
-plot_unknown()
-# metrics_algorithms_multiclass()
+# plot_unknown()
+metrics_algorithms_multiclass()
 # tables_unknown()
 # unknown_matrix_efc()
 # times()

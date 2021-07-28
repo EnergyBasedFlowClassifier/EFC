@@ -25,9 +25,9 @@ def metrics_algorithms_multiclass():
                 y_pred = np.load("5-fold_sets/Results/Sets{}/{}_predicted.npy".format(sets, alg), allow_pickle=True)
                 macro_avarege[idx].append(f1_score(y_true, y_pred, average='macro'))
                 balanced_acc[idx].append(balanced_accuracy_score(y_true, y_pred))
-                f1.append(f1_score(y_true, y_pred, average=None, labels=[0,1,2,3,4]))
+                f1.append(f1_score(y_true, y_pred, average=None, labels=[0,1,2,3,4,5,6,7,8,9,10,11,12]))
 
-            for label in [0,1,2,3,4]:
+            for label in [0,1,2,3,4,5,6,7,8,9,10,11,12]:
                 lista = []
                 for x in range(5):
                     lista.append(f1[x][label])
@@ -35,7 +35,7 @@ def metrics_algorithms_multiclass():
                 f1_scores_std[idx].append(stdev(lista)/sqrt(len(lista))*1.96)
 
         print(macro_avarege)
-        for label in [0,1,2,3,4]:
+        for label in [0,1,2,3,4,5,6,7,8,9,10,11,12]:
             file.write('\\textit{{{}}} '.format(names[label]))
             for idx, alg in enumerate(['EFC','NB','KNN', 'DT', 'SVC', 'MLP','RF']):
                 file.write('& {:.3f} $\\pm$ {:.3f}'.format(f1_scores[idx][label], f1_scores_std[idx][label]))
@@ -164,8 +164,8 @@ def times():
             test.append(times[1])
         print("{} & {:.3f} $\\pm$ {:.3f} & {:.3f} $\\pm$ {:.3f} \\\\".format(alg, mean(train), 1.96*stdev(train)/sqrt(len(train)), mean(test), 1.96*stdev(test)/sqrt(len(test))))
 
-# metrics_algorithms_multiclass()
+metrics_algorithms_multiclass()
 # tables_unknown()
 # unknown_matrix_efc()
 # times()
-plot_unknown()
+# plot_unknown()

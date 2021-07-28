@@ -175,9 +175,10 @@ def EFC(sets):
 
     Q = 32
     LAMBDA = 0.5
+    THETA = 0.9
 
     start = time.time()
-    h_i_matrices, coupling_matrices, cutoffs_list = MultiClassFit(np.array(train), np.array(train_labels), Q, LAMBDA)
+    h_i_matrices, coupling_matrices, cutoffs_list = MultiClassFit(np.array(train), np.array(train_labels), Q, LAMBDA, THETA)
     training_time = time.time()-start
     print("EFC train: ", training_time)
     np.save("5-fold_sets/Discretized/Sets{}/h_i_matrices.npy".format(sets), h_i_matrices)
@@ -197,10 +198,10 @@ def EFC(sets):
 
 for sets in range(1,6):
     EFC(sets)
-    mlp(sets)
-    KNN(sets)
-    GaussianNaiveB(sets)
-    DT(sets)
-    svc(sets)
-    RF(sets)
-    Adaboost(sets)
+    # mlp(sets)
+    # KNN(sets)
+    # GaussianNaiveB(sets)
+    # DT(sets)
+    # svc(sets)
+    # RF(sets)
+    # Adaboost(sets)
