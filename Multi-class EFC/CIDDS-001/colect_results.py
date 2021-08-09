@@ -50,47 +50,6 @@ def metrics_algorithms_multiclass():
                 file.write('& {:.3f} $\\pm$ {:.3f}'.format(mean(balanced_acc[idx]), (stdev(balanced_acc[idx])/sqrt(len(balanced_acc[idx])))*1.96))
         file.write('\\\\ \n')
 
-def is_diff(removed_metrics):
-    #0 - benign mean, 1- benign std, 2- other classes mean, 3- other classes std, 4 - benign mean, 5- benign std
-    DT_benign_interval = [removed_metrics[0]-removed_metrics[1], removed_metrics[0]+removed_metrics[1]]
-    EFC_benign_interval = [removed_metrics[4]-removed_metrics[5], removed_metrics[4]+removed_metrics[5]]
-    if ((DT_benign_interval[0] <= EFC_benign_interval[1]) & (EFC_benign_interval[0] <= DT_benign_interval[1])):
-        return "No"
-    else: return "Yes"
-
-def tables_unknown():
-    names = ['normal','pingScan','bruteForce','portScan','dos']
-    with open("5-fold_sets/Table_DT-EFC_unknown.txt", 'w+') as file:
-        for removed in [1, 2, 3, 4]:
-            removed_metrics = []
-            for alg in ['RF','EFC']:
-                normal_percent = []
-                others_percent = []
-                suspicious_percent = []
-                for sets in range(1,6):
-                    y_true = list(pd.read_csv("5-fold_sets/Discretized/Sets{}/test_labels.csv".format(sets), header=None))
-                    y_pred = list(np.load("5-fold_sets/Results_removing{}/Sets{}/{}_predicted.npy".format(removed, sets, alg), allow_pickle=True))
-                    unknown_predicted = [y_pred[i] for i in np.where(np.array(y_true)==removed)[0]]
-                    normal_predicted = counts[np.where(unique==0)[0]]
-                    if not normal_predicted:
-                        normal_predicted = 0
-
-                    suspicious_predicted = counts[np.where(unique==100)[0]]
-                    if not suspicious_predicted:
-                        suspicious_predicted = 0
-
-                    normal_percent.append(float(normal_predicted/len(unknown_predicted)))
-                    others_percent.append(float((len(unknown_predicted)-normal_predicted-suspicious_predicted)/len(unknown_predicted)))
-                    suspicious_percent.append(float(suspicious_predicted/len(unknown_predicted)))
-
-                removed_metrics += [mean(normal_percent), (stdev(normal_percent)/sqrt(len(normal_percent)))*1.96, mean(others_percent), (stdev(others_percent)/sqrt(len(others_percent)))*1.96]
-
-                if alg != 'EFC':
-                    file.write('\\textit{{\\textbf{{{}}}}} & \\textbf{{{:.2f}}} $\\pm$ \\textbf{{{:.3f}}} & {:.2f} $\\pm$ {:.3f} & &'.format(names[removed], mean(normal_percent), (stdev(normal_percent)/sqrt(len(normal_percent)))*1.96, mean(others_percent), (stdev(others_percent)/sqrt(len(others_percent)))*1.96))
-                else:
-                    file.write('\\textbf{{{:.2f}}} $\\pm$ \\textbf{{{:.3f}}} & {:.2f} $\\pm$ {:.3f} & {:.2f} $\\pm$ {:.3f} &'.format(mean(normal_percent), (stdev(normal_percent)/sqrt(len(normal_percent)))*1.96, mean(others_percent), (stdev(others_percent)/sqrt(len(others_percent)))*1.96, mean(suspicious_percent), (stdev(suspicious_percent)/sqrt(len(suspicious_percent)))*1.96))
-            file.write('\\textbf{{{}}} \\\\ \n'.format(is_diff(removed_metrics)))
-    file.close()
 
 def plot_unknown():
     names = ['pingScan','bruteForce','portScan','DoS']
@@ -151,7 +110,7 @@ def plot_unknown():
             ax[1].set_title("EFC")
         fig.savefig("5-fold_sets/Results/EFC_RF_unknown_CIDDS001.pdf", format="pdf",bbox_inches = "tight")#
         fig.savefig("5-fold_sets/Results/EFC_RF_unknown_CIDDS001.jpeg", format="pdf",bbox_inches = "tight")#
-        
+
 def times():
     for alg in ['RF','NB','KNN', 'SVC', 'MLP', 'AD', 'DT','EFC']:
         train = []
@@ -162,8 +121,6 @@ def times():
             test.append(times[1])
         print("{} & {:.3f} $\\pm$ {:.3f} & {:.3f} $\\pm$ {:.3f} \\\\".format(alg, mean(train), 1.96*stdev(train)/sqrt(len(train)), mean(test), 1.96*stdev(test)/sqrt(len(test))))
 
-plot_unknown()
-# metrics_algorithms_multiclass()
-# tables_unknown()
-# unknown_matrix_efc()
+#plot_unknown()
+metrics_algorithms_multiclass()
 # times()

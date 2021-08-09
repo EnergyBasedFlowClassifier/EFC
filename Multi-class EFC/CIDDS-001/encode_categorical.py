@@ -24,12 +24,12 @@ for fold in range(1,6):
         data = encode(chunk, proto, flags)
         data.to_csv("5-fold_sets/Non_discretized/Sets{}/encoded_test.csv".format(fold), mode='a', header=False, index=False)
 
-    # train_labels =  pd.read_csv("5-fold_sets/Non_discretized/Sets{}/train_labels.csv".format(fold), header=None)
-    # test_labels =  pd.read_csv("5-fold_sets/Non_discretized/Sets{}/test_labels.csv".format(fold), header=None)
-    # for i, value in enumerate(malicious_names):
-    #     train_labels.iloc[:,-1][train_labels.iloc[:,-1] == value] = i
-    #     test_labels.iloc[:,-1][test_labels.iloc[:,-1] == value] = i
-    # print(np.unique(train_labels))
-    # print(np.unique(test_labels))
-    # train_labels.to_csv("5-fold_sets/Non_discretized/Sets{}/train_labels.csv".format(fold), header=False, index=False)
-    # test_labels.to_csv("5-fold_sets/Non_discretized/Sets{}/test_labels.csv".format(fold), header=False, index=False)
+    train_labels =  pd.read_csv("5-fold_sets/Non_discretized/Sets{}/train_labels.csv".format(fold), header=None)
+    test_labels =  pd.read_csv("5-fold_sets/Non_discretized/Sets{}/test_labels.csv".format(fold), header=None)
+    for i, value in enumerate(malicious_names):
+        train_labels.iloc[:,-1][train_labels.iloc[:,-1] == value] = i
+        test_labels.iloc[:,-1][test_labels.iloc[:,-1] == value] = i
+    print(np.unique(train_labels))
+    print(np.unique(test_labels))
+    train_labels.to_csv("5-fold_sets/Non_discretized/Sets{}/train_labels.csv".format(fold), header=False, index=False)
+    test_labels.to_csv("5-fold_sets/Non_discretized/Sets{}/test_labels.csv".format(fold), header=False, index=False)

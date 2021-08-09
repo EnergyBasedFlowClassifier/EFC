@@ -1,12 +1,9 @@
-/KDDCup99/kddcup.data_10_percent*
-/KDDCup99/corrected*
-/KDDCup99/y_kddcup.data_10_percent_discretized
-/KDDCup99/X_kddcup.data_10_percent_discretized
-/KDDCup99/y_kddcup.data_10_percent_corrected_discretized
-/KDDCup99/X_kddcup.data_10_percent_corrected_discretized
-/KDDCup99/y_corrected_discretized
-/KDDCup99/X_corrected_discretized
+/KDDCup99/Data/
+/KDDCup99/Results/
 /KDDCup99/__pycache__
+/KDDCup99/__pycache__
+/KDDCup99/plot_couplings.py
+/KDDCup99/plt_energies.py
 *.pdf
 *.npy
 *.so
