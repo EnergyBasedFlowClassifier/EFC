@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import random
 
-chunksize = 3000000
+chunksize = 2_000_000
 malicious_names = ['BENIGN',  'DDoS', 'PortScan', 'Bot', 'Infiltration', 'Web Attack',
 'FTP-Patator', 'SSH-Patator' , 'DoS Hulk', 'DoS GoldenEye',  'DoS slowloris', 'DoS Slowhttptest', 'Heartbleed']
 

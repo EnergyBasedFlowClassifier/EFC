@@ -17,8 +17,8 @@ from classification_functions import *
 import time
 
 def KNN(sets):
-    train = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/reduced_train.csv".format(sets), header=None)
-    train_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/reduced_train_labels.csv".format(sets), header=None)
+    train = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train.csv".format(sets), header=None)
+    train_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train_labels.csv".format(sets), header=None)
     test = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_test.csv".format(sets), header=None)
     test_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/test_labels.csv".format(sets), header=None)
 
@@ -37,8 +37,8 @@ def KNN(sets):
 
 
 def RF(sets):
-    train = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/reduced_train.csv".format(sets), header=None)
-    train_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/reduced_train_labels.csv".format(sets), header=None)
+    train = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train.csv".format(sets), header=None)
+    train_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train_labels.csv".format(sets), header=None)
     test = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_test.csv".format(sets), header=None)
     test_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/test_labels.csv".format(sets), header=None)
 
@@ -57,8 +57,8 @@ def RF(sets):
 
 
 def GaussianNaiveB(sets):
-    train = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/reduced_train.csv".format(sets), header=None)
-    train_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/reduced_train_labels.csv".format(sets), header=None)
+    train = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train.csv".format(sets), header=None)
+    train_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train_labels.csv".format(sets), header=None)
     test = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_test.csv".format(sets), header=None)
     test_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/test_labels.csv".format(sets), header=None)
 
@@ -77,8 +77,8 @@ def GaussianNaiveB(sets):
 
 
 def DT(sets):
-    train = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/reduced_train.csv".format(sets), header=None)
-    train_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/reduced_train_labels.csv".format(sets), header=None)
+    train = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train.csv".format(sets), header=None)
+    train_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train_labels.csv".format(sets), header=None)
     test = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_test.csv".format(sets), header=None)
     test_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/test_labels.csv".format(sets), header=None)
 
@@ -98,8 +98,8 @@ def DT(sets):
 
 
 def Adaboost(sets):
-    train = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/reduced_train.csv".format(sets), header=None)
-    train_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/reduced_train_labels.csv".format(sets), header=None)
+    train = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train.csv".format(sets), header=None)
+    train_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train_labels.csv".format(sets), header=None)
     test = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_test.csv".format(sets), header=None)
     test_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/test_labels.csv".format(sets), header=None)
 
@@ -117,15 +117,14 @@ def Adaboost(sets):
 
 
 def svc(sets):
-    train = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/reduced_train.csv".format(sets), header=None)
-    train_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/reduced_train_labels.csv".format(sets), header=None)
+    train = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train.csv".format(sets), header=None)
+    train_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train_labels.csv".format(sets), header=None)
     test = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_test.csv".format(sets), header=None)
     test_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/test_labels.csv".format(sets), header=None)
 
-    transformer = Normalizer().fit(test)
-    test = transformer.transform(test)
     transformer = Normalizer().fit(train)
     train = transformer.transform(train)
+    test = transformer.transform(test)
 
     svc = SVC(kernel='poly', probability=True)
     start = time.time()
@@ -142,15 +141,14 @@ def svc(sets):
 
 
 def mlp(sets):
-    train = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/reduced_train.csv".format(sets), header=None)
-    train_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/reduced_train_labels.csv".format(sets), header=None)
+    train = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train.csv".format(sets), header=None)
+    train_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train_labels.csv".format(sets), header=None)
     test = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_test.csv".format(sets), header=None)
     test_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/test_labels.csv".format(sets), header=None)
 
-    transformer = Normalizer().fit(test)
-    test = transformer.transform(test)
     transformer = Normalizer().fit(train)
     train = transformer.transform(train)
+    test = transformer.transform(test)
 
     MLP = MLPClassifier(max_iter=300)
     start = time.time()

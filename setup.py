@@ -12,7 +12,8 @@ directive_defaults['linetrace'] = True
 directive_defaults['binding'] = True
 
 #to use the sequential version of multi-class EFC, change
-#the source file to "classification_functions_seq.pyx"
+#the source file to "classification_functions_seq.pyx".
+#the single-class version is the same in both files
 ext_modules1 = [Extension(
     name="classification_functions",
     sources=["classification_functions_parallel.pyx"],

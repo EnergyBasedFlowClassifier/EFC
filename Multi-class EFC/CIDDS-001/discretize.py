@@ -14,8 +14,8 @@ def get_intervals(file, columns):
             intervals.append(list(np.unique(data)))
         else:
             if len(np.unique(data)) > 10:
-                quantiles = np.quantile(data, [0.03, 0.07, 0.1, 0.13, 0.17, 0.2, 0.23, 0.27, 0.3, 0.33, 0.37, 0.4, 0.43, 0.47, 0.5, 0.53, 0.57, 0.6, 0.63, 0.67, 0.7, 0.73, 0.77, 0.8, 0.83, 0.87, 0.9, 0.93, 0.97, 1.0])
-                quantiles = sorted(list(set([math.ceil(x) for x in quantiles])))
+                quantiles = np.quantile(data, [x*1/30 for x in range(1,31)])
+                quantiles = sorted(list(set(quantiles)))
                 intervals.append(quantiles)
             else:
                 intervals.append(list(np.unique(data)))
@@ -46,24 +46,24 @@ malicious_names = ['normal','pingScan','bruteForce','portScan','dos']
 
 
 for fold in range(1,6):
-    intervals = get_intervals("5-fold_sets/Non_discretized/Sets{}/train.csv".format(fold), columns)
+    intervals = get_intervals("5-fold_sets/Non_discretized/Sets{}/reduced_train.csv".format(fold), columns)
     np.save("5-fold_sets/Discretized/Sets{}/Dict.npy".format(fold), intervals)
 
-    intervals = np.load("5-fold_sets/Discretized/Sets{}/Dict.npy".format(fold), allow_pickle=True)
-    reader = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/train.csv".format(fold), chunksize=7000000, header=None)
+    # intervals = np.load("5-fold_sets/Discretized/Sets{}/Dict.npy".format(fold), allow_pickle=True)
+    reader = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/reduced_train.csv".format(fold), chunksize=7000000, header=None)
     for chunk in reader:
         data = discretize(chunk, intervals)
-        data.to_csv("5-fold_sets/Discretized/Sets{}/train.csv".format(fold), mode='a', header=False, index=False)
+        data.to_csv("5-fold_sets/Discretized/Sets{}/reduced_train.csv".format(fold), mode='a', header=False, index=False)
 
     reader = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/test.csv".format(fold), chunksize=7000000, header=None)
     for chunk in reader:
         data = discretize(chunk, intervals)
         data.to_csv("5-fold_sets/Discretized/Sets{}/test.csv".format(fold), mode='a', header=False, index=False)
 
-    train_labels =  pd.read_csv("5-fold_sets/Non_discretized/Sets{}/train_labels.csv".format(fold), header=None)
+    train_labels =  pd.read_csv("5-fold_sets/Non_discretized/Sets{}/reduced_train_labels.csv".format(fold), header=None)
     test_labels =  pd.read_csv("5-fold_sets/Non_discretized/Sets{}/test_labels.csv".format(fold), header=None)
     for i, value in enumerate(malicious_names):
         train_labels.iloc[:,-1][train_labels.iloc[:,-1] == value] = i
         test_labels.iloc[:,-1][test_labels.iloc[:,-1] == value] = i
-    train_labels.to_csv("5-fold_sets/Discretized/Sets{}/train_labels.csv".format(fold), header=False, index=False)
+    train_labels.to_csv("5-fold_sets/Discretized/Sets{}/reduced_train_labels.csv".format(fold), header=False, index=False)
     test_labels.to_csv("5-fold_sets/Discretized/Sets{}/test_labels.csv".format(fold), header=False, index=False)

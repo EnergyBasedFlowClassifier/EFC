@@ -8,6 +8,15 @@ ctypedef np.int_t DTYPE_t
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
+def Weights(np.ndarray[DTYPE_t, ndim=2] data, float THETA):
+    hammdist = spatial.distance.pdist(data, 'hamming')
+    weight_matrix = spatial.distance.squareform(hammdist < (1.0- THETA))
+    weight = 1.0 / (np.sum(weight_matrix, axis = 1) + 1.0)
+    return weight
+
+
+@cython.boundscheck(False)
+@cython.wraparound(False)
 def Sitefreq(np.ndarray[DTYPE_t, ndim=2] data, int Q, float LAMBDA):
     cdef int n_attr = data.shape[1]
     cdef np.ndarray[double, ndim=2] sitefreq = np.empty((n_attr, Q),dtype='float')
