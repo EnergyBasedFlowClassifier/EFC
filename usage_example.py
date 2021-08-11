@@ -13,7 +13,7 @@ from sklearn.ensemble import RandomForestClassifier
 '''Usage example of Single-class EFC'''
 data = load_breast_cancer(as_frame=True) # load toy dataset from scikit-learn (binary targets)
 X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, test_size=0.33, shuffle=False) # split dataset into training and testing sets
-intervals = get_intervals(X_train, 30) # get discretization intervals from train set
+intervals = get_intervals(X_train, 10) # get discretization intervals from train set
 X_train = discretize(X_train, intervals) # discretize train
 X_test = discretize(X_test, intervals) # discretize test
 
@@ -36,7 +36,7 @@ print(confusion_matrix(y_test, y_predicted))
 '''Usage example of Multi-class EFC'''
 data = load_wine(as_frame=True) # load toy dataset from scikit-learn (binary targets)
 X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, test_size=0.33, shuffle=False) # split dataset into training and testing sets
-intervals = get_intervals(X_train, 30) # get discretization intervals from train set
+intervals = get_intervals(X_train, 10) # get discretization intervals from train set
 X_train = discretize(X_train, intervals) # discretize train
 X_test = discretize(X_test, intervals) # discretize test
 

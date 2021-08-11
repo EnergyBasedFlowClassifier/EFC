@@ -27,5 +27,4 @@ def discretize(data, intervals):
             if diff.shape[0] > 0:
                 intervals[feature] += [x for x in diff]
             data.iloc[:,feature] = [intervals[feature].index(x) for x in col_values]
-        print(np.unique(data.iloc[:, feature]))
     return data.astype('int')
