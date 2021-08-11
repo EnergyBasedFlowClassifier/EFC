@@ -18,7 +18,7 @@ def get_normalization(file):
 
 def normalize(data, dict):
     for feature in range(8):
-        if feature not in [1,6]:
+        if is_numeric_dtype(data.iloc[:, feature]):
             min, max = dict[feature]
             if min != max:
                 data.iloc[:, feature] = (np.array(data.iloc[:,feature]) - min) / (max - min)
