@@ -24,9 +24,9 @@ def metrics_algorithms_multiclass():
                 y_pred = np.load("5-fold_sets/Results/Sets{}/{}_predicted.npy".format(sets, alg), allow_pickle=True)
                 macro_avarege[idx].append(f1_score(y_true, y_pred, average='macro'))
                 balanced_acc[idx].append(balanced_accuracy_score(y_true, y_pred))
-                f1.append(f1_score(y_true, y_pred, average=None, labels=[0,1,2,3,4]))
+                f1.append(f1_score(y_true, y_pred, average=None, labels=[0, 1, 2, 3, 4]))
 
-            for label in [0,1,2,3,4]:
+            for label in [0, 1, 2, 3, 4]:
                 lista = []
                 for x in range(5):
                     lista.append(f1[x][label])
@@ -34,7 +34,7 @@ def metrics_algorithms_multiclass():
                 f1_scores_std[idx].append(stdev(lista)/sqrt(len(lista))*1.96)
 
         print(macro_avarege)
-        for label in [0,1,2,3,4]:
+        for label in [0, 1, 2, 3, 4]:
             file.write('\\textit{{{}}} '.format(names[label]))
             for idx, alg in enumerate(['EFC','NB','KNN', 'DT', 'SVC', 'MLP','RF']):
                 file.write('& {:.3f} $\\pm$ {:.3f}'.format(f1_scores[idx][label], f1_scores_std[idx][label]))
@@ -50,15 +50,14 @@ def metrics_algorithms_multiclass():
                 file.write('& {:.3f} $\\pm$ {:.3f}'.format(mean(balanced_acc[idx]), (stdev(balanced_acc[idx])/sqrt(len(balanced_acc[idx])))*1.96))
         file.write('\\\\ \n')
 
-
 def plot_unknown():
-    names = ['pingScan','bruteForce','portScan','DoS']
+    names = ['normal','pingScan','bruteForce','portScan','dos']
     plt.rcParams.update({'font.size': 16})
 
     fig, ax = plt.subplots(1,2, figsize=(16.8, 4.8))
     plt.tight_layout(w_pad=3.3)
     plt.ylim((0.0,1.4))
-    width = 0.30
+    width = 0.45
     for alg in ['RF','EFC']:
         removed_metrics = []
         for removed in [1, 2, 3, 4]:
@@ -90,26 +89,25 @@ def plot_unknown():
                 removed_metrics.append([mean(normal_percent), (stdev(normal_percent)/sqrt(len(normal_percent)))*1.96, mean(others_percent), (stdev(others_percent)/sqrt(len(others_percent)))*1.96, mean(suspicious_percent), (stdev(suspicious_percent)/sqrt(len(suspicious_percent)))*1.96])
 
         if alg != 'EFC':
-            ax[0].bar(names, [x[0] for x in removed_metrics], width, yerr=[x[1] for x in removed_metrics], capsize=3, ecolor='black', label='Benign', color='#006BA4')
-            ax[0].bar(names, [x[2] for x in removed_metrics], width, yerr=[x[3] for x in removed_metrics], capsize=3,  ecolor='black', bottom=[x[0] for x in removed_metrics], label='Other classes', color = '#CFCFCF')
+            ax[0].bar(names, [x[0] for x in removed_metrics], width, capsize=3, ecolor='black', yerr=[x[1] for x in removed_metrics], label='Benign', color='#006BA4')
+            ax[0].bar(names, [x[2] for x in removed_metrics], width, capsize=3, ecolor='black', yerr=[x[3] for x in removed_metrics], bottom=[x[0] for x in removed_metrics], label='Other classes', color = '#CFCFCF')
             ax[0].set_ylabel('Percentages of predicted samples')
             ticks_loc = ax[0].get_xticks()
             ax[0].set_xticks(ax[0].get_xticks())
             ax[0].set_xticklabels(names, rotation=45, ha='right')
             ax[0].set_ylim((0.0,1.4))
-            ax[0].legend(loc=1,bbox_to_anchor=(1.1, 1.05))
+            ax[0].legend(loc=1, bbox_to_anchor=(1.1, 1.05))
             ax[0].set_title("RF")
         else:
-            ax[1].bar(names, [x[0] for x in removed_metrics], width, yerr=[x[1] for x in removed_metrics], capsize=3, ecolor='black', label='Benign', color='#006BA4')
-            ax[1].bar(names, [x[2] for x in removed_metrics], width, yerr=[x[3] for x in removed_metrics], bottom=[x[0] for x in removed_metrics], capsize=3,  ecolor='black', label='Other classes',  color = '#CFCFCF')
-            ax[1].bar(names, [x[4] for x in removed_metrics], width, yerr=[x[5] for x in removed_metrics], bottom=[x[0]+x[2] for x in removed_metrics], capsize=3,  ecolor='black', label='Suspicious',  color = '#FF800E')
+            ax[1].bar(names, [x[0] for x in removed_metrics], width, capsize=3, ecolor='black', yerr=[x[1] for x in removed_metrics], label='Benign', color='#006BA4')
+            ax[1].bar(names, [x[2] for x in removed_metrics], width, capsize=3, ecolor='black', yerr=[x[3] for x in removed_metrics], bottom=[x[0] for x in removed_metrics], label='Other classes',  color = '#CFCFCF')
+            ax[1].bar(names, [x[4] for x in removed_metrics], width, capsize=3, ecolor='black', yerr=[x[5] for x in removed_metrics], bottom=[x[0]+x[2] for x in removed_metrics], label='Suspicious',  color = '#FF800E')
             ax[1].set_ylabel('Percentages of predicted samples')
             ax[1].set_xticklabels(names, rotation=45, ha='right')
             ax[1].set_ylim((0.0,1.4))
             ax[1].legend(loc=1, bbox_to_anchor=(1.1, 1.05))
             ax[1].set_title("EFC")
         fig.savefig("5-fold_sets/Results/EFC_RF_unknown_CIDDS001.pdf", format="pdf",bbox_inches = "tight")#
-        fig.savefig("5-fold_sets/Results/EFC_RF_unknown_CIDDS001.jpeg", format="pdf",bbox_inches = "tight")#
 
 def times():
     for alg in ['RF','NB','KNN', 'SVC', 'MLP', 'AD', 'DT','EFC']:
@@ -121,6 +119,6 @@ def times():
             test.append(times[1])
         print("{} & {:.3f} $\\pm$ {:.3f} & {:.3f} $\\pm$ {:.3f} \\\\".format(alg, mean(train), 1.96*stdev(train)/sqrt(len(train)), mean(test), 1.96*stdev(test)/sqrt(len(test))))
 
-#plot_unknown()
 metrics_algorithms_multiclass()
 # times()
+# plot_unknown()

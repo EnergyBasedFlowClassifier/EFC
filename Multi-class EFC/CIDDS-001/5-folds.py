@@ -2,9 +2,9 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import StratifiedKFold
 
-reader = pd.read_csv("CIDDS-001/traffic/OpenStack/Pre_processed_unique.csv", chunksize=4000000, header=None)
+reader = pd.read_csv("CIDDS-001/traffic/OpenStack/Pre_processed.csv", chunksize=4000000, header=None)
 for chunk in reader:
-    skf = StratifiedKFold(n_splits=5)
+    skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
 
     X = chunk.iloc[:, 0:-1]
     y = chunk.iloc[:, -1]

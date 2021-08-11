@@ -4,8 +4,10 @@
 /KDDCup99/__pycache__
 /KDDCup99/plot_couplings.py
 /KDDCup99/plt_energies.py
+/CICIDS17/TrafficLabelling /
 *.pdf
 *.npy
 *.so
 *.c
 *.png
+*.zip

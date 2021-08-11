@@ -17,8 +17,8 @@ from classification_functions import *
 import time
 
 def RF(removed, sets):
-    train = np.array(pd.read_csv("5-fold_sets/Non_discretized/Sets{}/reduced_train.csv".format(sets), header=None))
-    train_labels = np.array(pd.read_csv("5-fold_sets/Non_discretized/Sets{}/reduced_train_labels.csv".format(sets), header=None))
+    train = np.array(pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train.csv".format(sets), header=None))
+    train_labels = np.array(pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train_labels.csv".format(sets), header=None))
     test = np.array(pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_test.csv".format(sets), header=None))
     test_labels = np.array(pd.read_csv("5-fold_sets/Non_discretized/Sets{}/test_labels.csv".format(sets), header=None))
 

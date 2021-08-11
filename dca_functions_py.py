@@ -1,5 +1,6 @@
 import numpy as np
 
+#deprecated
 def Weights(data, float THETA):
     hammdist = spatial.distance.pdist(data, 'hamming')
     weight_matrix = spatial.distance.squareform(hammdist < (1.0- THETA))

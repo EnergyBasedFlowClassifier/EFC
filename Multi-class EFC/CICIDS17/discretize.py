@@ -77,12 +77,12 @@ for fold in range(1,6):
     np.save("5-fold_sets/Discretized/Sets{}/Dict.npy".format(fold), intervals)
 
     # intervals = np.load("5-fold_sets/Discretized/Sets{}/Dict.npy".format(fold), allow_pickle=True)
-    reader = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/reduced_train.csv".format(fold), chunksize=4000000, header=None)
+    reader = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/reduced_train.csv".format(fold), chunksize=2_000_000, header=None)
     for chunk in reader:
         data = discretize(chunk, intervals)
         data.to_csv("5-fold_sets/Discretized/Sets{}/reduced_train.csv".format(fold), mode='a', header=False, index=False)
 
-    reader = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/test.csv".format(fold), chunksize=4000000, header=None)
+    reader = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/test.csv".format(fold), chunksize=2_000_000, header=None)
     for chunk in reader:
         data = discretize(chunk, intervals)
         data.to_csv("5-fold_sets/Discretized/Sets{}/test.csv".format(fold), mode='a', header=False, index=False)

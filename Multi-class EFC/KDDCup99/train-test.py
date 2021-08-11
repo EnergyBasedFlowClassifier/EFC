@@ -32,14 +32,20 @@ np.save("coupling_matrices.npy", coupling_matrices)
 np.save("cutoffs_list.npy", cutoffs_list)
 
 
-predicted, energies = MultiClassPredict(np.array(test), h_i_matrices, coupling_matrices, cutoffs_list, Q, np.unique(train_labels))
-np.save("Results/EFC_predicted.npy", predicted)
-
+predicted = MultiClassPredict(np.array(test), h_i_matrices, coupling_matrices, cutoffs_list, Q, np.unique(train_labels))
+np.save("Results/predicted_{}.npy".format(test_origin[8:]), predicted)
 print(classification_report(test_labels, predicted, labels=np.unique(test_labels)))
-names = ['normal','DoS','Probe', 'R2L', 'U2R', 'Unknown']
+
+
+plt.rcParams.update({'font.size': 14})
+
+names = ['Normal','DoS','Probe', 'R2L', 'U2R', 'Unknown']
 cf = pd.DataFrame(confusion_matrix(test_labels, predicted, normalize='true'), index = names, columns = names)
 sns.heatmap(cf, annot=True, cmap="Blues", fmt='.2f')
-plt.ylabel("True label", fontsize=12)
-plt.xlabel("Predicted label", fontsize=12)
-plt.yticks(rotation=45)
+plt.ylabel("True label")
+plt.xlabel("Predicted label")
+plt.yticks(rotation=30)
+plt.xticks(rotation=30)
+plt.tight_layout()
 plt.savefig("CM_Test_{}.pdf".format(test_origin[8:]), format='pdf',bbox_inches = "tight")
+plt.show()

@@ -50,7 +50,7 @@ def OneClassPredict(test_data, model, h_i, cutoff, Q):
         energies[i] = e
     return predicted, energies
 
-@profile
+
 def MultiClassFit(data, labels, Q, LAMBDA):
     data_concat = np.empty((data.shape[0],data.shape[1]+1))
     data_concat[:,:-1] = data
@@ -73,7 +73,7 @@ def MultiClassFit(data, labels, Q, LAMBDA):
 
     return h_i_matrices, coupling_matrices, cutoffs_list
 
-@profile
+
 def MultiClassPredict(test_data, h_i_matrices, coupling_matrices, cutoffs_list, Q, train_labels):
     n_inst = test_data.shape[0]
     n_attr = test_data.shape[1]
