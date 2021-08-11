@@ -4,58 +4,47 @@ from pandas.api.types import is_numeric_dtype
 import math
 import os
 
-def get_intervals(file, columns):
+def get_intervals(file, n_bins):
     intervals = []
-    for feature in range(len(columns)):
-        print(feature)
-        data = pd.read_csv(file, usecols = [feature], header=None)
-        data = list(data.iloc[:,0])
-        if feature in [1,6]:
-            intervals.append(list(np.unique(data)))
+    for feature in range(8):
+        data = pd.read_csv(file, usecols = [feature], header=None, squeeze=True)
+        if is_numeric_dtype(data):
+            data, retbins = pd.qcut(data, n_bins, labels=False, retbins=True, duplicates = 'drop')
+            intervals.append(retbins.astype('float64'))
         else:
-            if len(np.unique(data)) > 10:
-                quantiles = np.quantile(data, [x*1/30 for x in range(1,31)])
-                quantiles = sorted(list(set(quantiles)))
-                intervals.append(quantiles)
-            else:
-                intervals.append(list(np.unique(data)))
-        print(intervals[feature])
+            intervals.append(list(np.unique(data)))
+
     return intervals
 
-
-def discretize(data, dict):
+def discretize(data, intervals):
     for feature in range(8):
-        if feature in [1,6]:
-            diff = np.setdiff1d(data.iloc[:, feature], dict[feature])
-            if diff.shape[0] > 0:
-                dict[feature] += [x for x in diff]
-            for x, string in enumerate(dict[feature]):
-                data.iloc[:, feature] = [x if value == string else value for value in data.iloc[:,feature]]
-
+        col_values = data.iloc[:,feature]
+        if is_numeric_dtype(col_values):
+            data.iloc[:,feature] = pd.cut(col_values, intervals[feature], labels=False, include_lowest=True, duplicates = 'drop')
+            data.iloc[:,feature].fillna(len(intervals[feature]), inplace=True)
         else:
-            l_edge = np.NINF
-            for x, r_edge in enumerate(dict[feature]):
-                data.iloc[:, feature] = [x if value > l_edge and value <= r_edge else value for value in data.iloc[:,feature]]
-                if r_edge == dict[feature][-1]:
-                    data.iloc[:, feature] = [x if value > r_edge else value for value in data.iloc[:,feature]]
-                l_edge = r_edge
-    return data
+            diff = np.setdiff1d(col_values, intervals[feature])
+            if diff.shape[0] > 0:
+                intervals[feature] += [x for x in diff]
+            data.iloc[:,feature] = [intervals[feature].index(x) for x in col_values]
+    print(np.unique(data))
 
-columns = ['Duration','Proto','Src Pt','Dst Pt','Packets','Bytes','Flags','Tos']
+    return data.astype('int')
+
+
 malicious_names = ['normal','pingScan','bruteForce','portScan','dos']
 
-
 for fold in range(1,6):
-    intervals = get_intervals("5-fold_sets/Non_discretized/Sets{}/reduced_train.csv".format(fold), columns)
+    intervals = get_intervals("5-fold_sets/Normalized/Sets{}/reduced_train.csv".format(fold), 30)
     np.save("5-fold_sets/Discretized/Sets{}/Dict.npy".format(fold), intervals)
 
     # intervals = np.load("5-fold_sets/Discretized/Sets{}/Dict.npy".format(fold), allow_pickle=True)
-    reader = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/reduced_train.csv".format(fold), chunksize=7000000, header=None)
+    reader = pd.read_csv("5-fold_sets/Normalized/Sets{}/reduced_train.csv".format(fold), chunksize=7000000, header=None)
     for chunk in reader:
         data = discretize(chunk, intervals)
         data.to_csv("5-fold_sets/Discretized/Sets{}/reduced_train.csv".format(fold), mode='a', header=False, index=False)
 
-    reader = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/test.csv".format(fold), chunksize=7000000, header=None)
+    reader = pd.read_csv("5-fold_sets/Normalized/Sets{}/test.csv".format(fold), chunksize=7000000, header=None)
     for chunk in reader:
         data = discretize(chunk, intervals)
         data.to_csv("5-fold_sets/Discretized/Sets{}/test.csv".format(fold), mode='a', header=False, index=False)
