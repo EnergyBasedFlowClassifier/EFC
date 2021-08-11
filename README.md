@@ -12,6 +12,8 @@ This repository contains two EFC implementations: a single-class version and a m
 
 - **setup.py** - contains building instructions to the Cython modules
 
+The files **classification_funtions_seq_py.py**, **classification_funtions_parallel_py.py** and **dca_functions_py.py** are Python versions of Cython codes. They are not used, but are easier to read than Cython code.
+
 Since EFC is implemented in Cython language, it needs to be built with the following command:
 
 `python3 setup.py build_ext --inplace`
