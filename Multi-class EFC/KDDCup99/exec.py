@@ -5,7 +5,11 @@ import numpy as np
 
 # os.system("python3 normalize.py 0")
 # os.system("python3 normalize.py 1")
+<<<<<<< HEAD
 #
+=======
+
+>>>>>>> parent of 162ffad... Revert "to revert latter"
 os.system("python3 discretize.py 0")
 # os.system("python3 discretize.py 1")
 
