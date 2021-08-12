@@ -121,4 +121,4 @@ def times():
 
 metrics_algorithms_multiclass()
 # times()
-# plot_unknown()
+plot_unknown()

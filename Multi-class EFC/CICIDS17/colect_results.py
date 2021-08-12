@@ -121,6 +121,6 @@ def times():
             test.append(times[1])
         print("{} & {:.3f} $\\pm$ {:.3f} & {:.3f} $\\pm$ {:.3f} \\\\".format(alg, mean(train), 1.96*stdev(train)/sqrt(len(train)), mean(test), 1.96*stdev(test)/sqrt(len(test))))
 
-#metrics_algorithms_multiclass()
+metrics_algorithms_multiclass()
 # times()
 plot_unknown()

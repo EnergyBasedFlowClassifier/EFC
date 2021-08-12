@@ -9,7 +9,7 @@ def get_intervals(file, n_bins):
     intervals = []
     for feature in range(79):
         data = pd.read_csv(file, usecols = [feature], header=None, squeeze=True)
-        if is_numeric_dtype(data):
+        if is_numeric_dtype(data) and len(np.unique(data)) > 10:
             _, retbins = pd.qcut(data, n_bins, labels=False, retbins=True, duplicates = 'drop')
             intervals.append(retbins.astype('float64'))
         else:
@@ -20,7 +20,7 @@ def get_intervals(file, n_bins):
 def discretize(data, intervals):
     for feature in range(79):
         col_values = data.iloc[:,feature]
-        if is_numeric_dtype(col_values):
+        if is_numeric_dtype(data) and len(np.unique(data)) > 10:
             data.iloc[:,feature] = pd.cut(col_values, intervals[feature], labels=False, include_lowest=True, duplicates = 'drop')
             data.iloc[:,feature].fillna(len(intervals[feature]), inplace=True)
         else:
