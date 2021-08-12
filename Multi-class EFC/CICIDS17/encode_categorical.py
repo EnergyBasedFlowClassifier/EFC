@@ -7,6 +7,8 @@ malicious_names = ['BENIGN',  'DDoS', 'PortScan', 'Bot', 'Infiltration', 'Web At
 
 def encode(chunk, dict):
     diff = np.setdiff1d(chunk.iloc[:, 2], dict[2])
+    print(diff)
+    print(dict[2])
     if diff.shape[0] > 0:
         dict[2] += [x for x in diff]
     for x, string in enumerate(dict[2]):
@@ -17,6 +19,7 @@ for fold in range(1,6):
     dict = np.load("5-fold_sets/Discretized/Sets{}/Dict.npy".format(fold), allow_pickle=True)
     reader = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/reduced_train.csv".format(fold), chunksize=2_000_000, header=None)
     for chunk in reader:
+        print(chunk.iloc[0,:])
         data = encode(chunk, dict)
         data.to_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train.csv".format(fold), mode='a', header=False, index=False)
 

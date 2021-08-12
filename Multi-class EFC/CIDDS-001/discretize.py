@@ -9,7 +9,7 @@ def get_intervals(file, n_bins):
     for feature in range(8):
         data = pd.read_csv(file, usecols = [feature], header=None, squeeze=True)
         if is_numeric_dtype(data):
-            data, retbins = pd.qcut(data, n_bins, labels=False, retbins=True, duplicates = 'drop')
+            _, retbins = pd.qcut(data, n_bins, labels=False, retbins=True, duplicates = 'drop')
             intervals.append(retbins.astype('float64'))
         else:
             intervals.append(list(np.unique(data)))
