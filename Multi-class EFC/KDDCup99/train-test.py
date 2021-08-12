@@ -15,7 +15,7 @@ train_origin = "Encoded/Normalized-Discretized"
 if sys.argv[1] == '0':
     test_origin = "Encoded/Normalized-Discretized"
 if sys.argv[1] == '1':
-    test_origin = "Encoded/Unique-Unknown-Normalized-Discretized"
+    test_origin = "Encoded/Unique-Unknown-Discretized"
 
 
 train = pd.read_csv("Data/{}/X_train".format(train_origin), header=None).astype('int')
@@ -23,7 +23,7 @@ train_labels =  pd.read_csv("Data/{}/y_train".format(train_origin), squeeze=True
 test = pd.read_csv("Data/{}/X_test".format(test_origin), header=None).astype('int')
 test_labels =  pd.read_csv("Data/{}/y_test".format(test_origin), squeeze=True, header=None).astype('int')
 
-Q = 87
+Q = test.values.max()
 LAMBDA = 0.9
 
 h_i_matrices, coupling_matrices, cutoffs_list = MultiClassFit(np.array(train), np.array(train_labels), Q, LAMBDA)

@@ -14,45 +14,40 @@ if sys.argv[1] == '0':
     test_origin = "Encoded/Normalized"
     test_dest = "Encoded/Normalized-Discretized"
 if sys.argv[1] == '1':
-    test_origin = "Encoded/Unique-Unknown-Normalized"
-    test_dest = "Encoded/Unique-Unknown-Normalized-Discretized"
+    test_origin = "Encoded/Unique-Unknown"
+    test_dest = "Encoded/Unique-Unknown-Discretized"
 
 
 def get_intervals(file):
     intervals = []
     for feature in range(41):
-        print(feature)
-        data = pd.read_csv(file, usecols = [feature], header=None)
-        data = list(data.iloc[:,0])
-        if feature in [1,2,3]:
+        data = pd.read_csv(file, usecols = [feature], header=None, squeeze=True)
+        if is_numeric_dtype(data) and len(np.unique(data)) > 10:
+            _, retbins = pd.qcut(data, 150, labels=False, retbins=True, duplicates = 'drop')
+            intervals.append(retbins)
+        else: #symbolic, bool or small range
             intervals.append(list(np.unique(data)))
-        else:
-            if len(np.unique(data)) > 10:
-                quantiles = np.quantile(data, [i*(1/150) for i in range(1, 151)])
-                quantiles = sorted(list(set(quantiles)))
-                intervals.append(quantiles)
-            else:
-                intervals.append(list(np.unique(data)))
         print(intervals[feature], len(intervals[feature]))
     return intervals
 
 
 def discretize(data, dict):
     for feature in range(41):
-        if feature in [1,2,3]:
-            diff = np.setdiff1d(data.iloc[:, feature], dict[feature])
-            if diff.shape[0] > 0:
-                dict[feature] += [x for x in diff]
-            for x, string in enumerate(dict[feature]):
-                data.iloc[:, feature] = [x if value == string else value for value in data.iloc[:,feature]]
-        else:
+        col_val = data.iloc[:,feature]
+        if is_numeric_dtype(col_val):
             l_edge = np.NINF
             for x, r_edge in enumerate(dict[feature]):
                 data.iloc[:, feature] = [x if value > l_edge and value <= r_edge else value for value in data.iloc[:,feature]]
                 if r_edge == dict[feature][-1]:
                     data.iloc[:, feature] = [x if value > r_edge else value for value in data.iloc[:,feature]]
                 l_edge = r_edge
-    print(np.unique(data))
+
+        else: #symbolic
+            diff = np.setdiff1d(col_val, dict[feature])
+            if diff.shape[0] > 0:
+                dict[feature] += [x for x in diff]
+            data.iloc[:,feature] = [dict[feature].index(x) for x in col_val]
+        print(np.unique(data.iloc[:, feature]))
     return data
 
 malicious_names = [['normal.'], ['back.', 'smurf.', 'teardrop.', 'neptune.', 'land.', 'pod.'],
@@ -60,9 +55,10 @@ malicious_names = [['normal.'], ['back.', 'smurf.', 'teardrop.', 'neptune.', 'la
  'warezclient.', 'warezmaster.', 'phf.'], ['buffer_overflow.', 'loadmodule.', 'perl.', 'rootkit.']]
 
 
-# discretize train, validation and test sets
-intervals = get_intervals('Data/{}/train'.format(train_origin))
-np.save("Dict.npy", intervals)
+# # discretize train, validation and test sets
+# intervals = get_intervals('Data/{}/train'.format(train_origin))
+# np.save("Dict.npy", intervals)
+
 intervals = np.load("Dict.npy", allow_pickle=True)
 
 data = pd.read_csv('Data/{}/train'.format(train_origin), header=None)

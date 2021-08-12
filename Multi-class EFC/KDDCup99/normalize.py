@@ -16,27 +16,24 @@ if sys.argv[1] == '0':
 if sys.argv[1] == '1':
     test_origin = "Encoded/Unique-Unknown"
     test_dest = "Encoded/Unique-Unknown-Normalized"
-else:
-    exit(-1)
 
 
 def get_normalization(file):
     intervals = []
     for feature in range(41):
-        print(feature)
-        data = pd.read_csv(file, usecols = [feature], header=None)
-        data = list(data.iloc[:,0])
+        data = pd.read_csv(file, usecols = [feature], header=None, squeeze=True)
         intervals.append([min(data), max(data)])
-        print(intervals[feature])
     return intervals
 
 def normalize(data, dict):
     for feature in range(41):
-        if feature not in [1,2,3]:
+        # if feature in [4, 5]:
+        #     data.iloc[:, feature] = np.nan_to_num(np.log(data.iloc[:, feature]), nan=0.0, neginf=0.0)
+        if is_numeric_dtype(data.iloc[:, feature]):
             min, max = dict[feature]
             if min != max:
                 data.iloc[:, feature] = (np.array(data.iloc[:,feature]) - min) / (max - min)
-                print(np.unique(data.iloc[:, feature]))
+
     return data
 
 # normalize train, validation and test sets

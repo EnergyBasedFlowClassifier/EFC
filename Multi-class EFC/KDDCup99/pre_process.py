@@ -9,12 +9,11 @@ import random
 os.makedirs("Data", exist_ok=True)
 os.makedirs("Data/Raw", exist_ok=True)
 os.makedirs("Data/Encoded", exist_ok=True)
-os.makedirs("Data/Encoded/Normalized", exist_ok=True)
 os.makedirs("Data/Encoded/Discretized", exist_ok=True)
 os.makedirs("Data/Encoded/Normalized-Discretized", exist_ok=True)
+os.makedirs("Data/Encoded/Normalized", exist_ok=True)
 os.makedirs("Data/Encoded/Unique-Unknown", exist_ok=True)
-os.makedirs("Data/Encoded/Unique-Unknown-Normalized", exist_ok=True)
-os.makedirs("Data/Encoded/Unique-Unknown-Normalized-Discretized", exist_ok=True)
+os.makedirs("Data/Encoded/Unique-Unknown-Discretized", exist_ok=True)
 
 malicious_names = [['normal.'], ['back.', 'smurf.', 'teardrop.', 'neptune.', 'land.', 'pod.'],
 ['ipsweep.',  'portsweep.',  'satan.',  'nmap.'], ['ftp_write.', 'guess_passwd.', 'imap.', 'multihop.', 'spy.',
