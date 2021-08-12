@@ -26,7 +26,7 @@ def get_min_max(file):
         intervals.append([min(data), max(data)])
     return intervals
 
-<<<<<<< HEAD
+
 def normalize(data, dict):
     for feature in range(41):
         # if feature in [4, 5]:
@@ -36,7 +36,7 @@ def normalize(data, dict):
             if min != max:
                 data.iloc[:, feature] = (np.array(data.iloc[:,feature]) - min) / (max - min)
 
-=======
+
 def normalize(data, dict, columns):
     for feature, name in enumerate(columns):
         if name in ['protocol_type', 'service', 'flag']: #symbolic
@@ -51,7 +51,7 @@ def normalize(data, dict, columns):
             if min != max:
                 data.iloc[:, feature] = (np.array(data.iloc[:,feature]) - min) / (max - min)
             print(np.unique(data.iloc[:, feature]))
->>>>>>> parent of 162ffad... Revert "to revert latter"
+
     return data
 
 columns = ['duration', 'protocol_type', 'service', 'flag', 'src_bytes', 'dst_bytes', 'land', 'wrong_fragment',
