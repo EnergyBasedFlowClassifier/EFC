@@ -5,9 +5,9 @@ import os
 #
 # os.system("python3 normalize.py 0")
 # os.system("python3 normalize.py 1")
-#
-# os.system("python3 discretize.py 0")
+
+os.system("python3 discretize.py 0")
 # os.system("python3 discretize.py 1")
 
 os.system("python3 train-test.py 0")
-os.system("python3 train-test.py 1")
+# os.system("python3 train-test.py 1")
