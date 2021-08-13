@@ -10,8 +10,7 @@ def get_normalization(file):
     intervals = []
     for feature in range(8):
         print(feature)
-        data = pd.read_csv(file, usecols = [feature], header=None)
-        data = list(data.iloc[:,0])
+        data = pd.read_csv(file, usecols = [feature], header=None, squeeze=True)
         intervals.append([min(data), max(data)])
         print(intervals[feature])
     return intervals

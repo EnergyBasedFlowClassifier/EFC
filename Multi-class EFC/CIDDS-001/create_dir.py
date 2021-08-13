@@ -4,7 +4,6 @@ os.makedirs("5-fold_sets/", exist_ok=True)
 
 os.makedirs("5-fold_sets/Discretized", exist_ok=True)
 os.makedirs("5-fold_sets/Non_discretized", exist_ok=True)
-os.makedirs("5-fold_sets/Normalized", exist_ok=True)
 os.makedirs("5-fold_sets/Results", exist_ok=True)
 
 for sets in range(1,6):

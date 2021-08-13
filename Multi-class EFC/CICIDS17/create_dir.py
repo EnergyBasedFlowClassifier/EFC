@@ -8,7 +8,6 @@ os.makedirs("5-fold_sets/Results", exist_ok=True)
 for sets in range(1,6):
     os.makedirs("5-fold_sets/Discretized/Sets{}".format(sets), exist_ok=True)
     os.makedirs("5-fold_sets/Non_discretized/Sets{}".format(sets), exist_ok=True)
-    os.makedirs("5-fold_sets/Normalized/Sets{}".format(sets), exist_ok=True)
     os.makedirs("5-fold_sets/Results/Sets{}".format(sets), exist_ok=True)
 
 for removed in range(1,5):

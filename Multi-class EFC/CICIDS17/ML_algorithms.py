@@ -22,7 +22,7 @@ def KNN(sets):
     test = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_test.csv".format(sets), header=None)
     test_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/test_labels.csv".format(sets), header=None)
 
-    KNN = KNeighborsClassifier(algorithm='kd_tree')
+    KNN = KNeighborsClassifier(algorithm='kd_tree',n_jobs=-1)
     start = time.time()
     KNN.fit(train, train_labels)
     training_time = time.time()-start
@@ -42,7 +42,7 @@ def RF(sets):
     test = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_test.csv".format(sets), header=None)
     test_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/test_labels.csv".format(sets), header=None)
 
-    RF = RandomForestClassifier()
+    RF = RandomForestClassifier(n_jobs=-1)
     start = time.time()
     RF.fit(train, train_labels)
     training_time = time.time()-start

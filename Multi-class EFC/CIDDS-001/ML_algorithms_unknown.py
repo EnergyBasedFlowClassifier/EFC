@@ -26,7 +26,7 @@ def RF(removed, sets):
     train = train[valid_indexes, :]
     train_labels = train_labels[valid_indexes]
 
-    RF = RandomForestClassifier()
+    RF = RandomForestClassifier(n_jobs=-1)
     start = time.time()
     RF.fit(train, train_labels)
     print("RF train: ", time.time()-start)

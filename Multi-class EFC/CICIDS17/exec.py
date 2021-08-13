@@ -1,10 +1,7 @@
-import zipfile
-import os
-
-print("join_web_attack...")
-exec(open("join_web_attack.py").read())
-print("pre_process...")
-exec(open("pre_process.py").read())
+# print("join_web_attack...")
+# exec(open("join_web_attack.py").read())
+# print("pre_process...")
+# exec(open("pre_process.py").read())
 exec(open("create_dir.py").read())
 print("5-folds...")
 exec(open("5-folds.py").read())
