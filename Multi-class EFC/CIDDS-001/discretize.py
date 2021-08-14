@@ -15,7 +15,7 @@ def get_intervals(file, n_bins):
             intervals.append(list(np.unique(data)))
     return intervals
 
-def discretize(data, intervals):
+def discretize(data, dict):
     for feature in range(8):
         col_values = data.iloc[:,feature]
         bins = dict[feature]
