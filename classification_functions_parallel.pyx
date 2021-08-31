@@ -28,7 +28,7 @@ def DefineCutoff(DTYPE_t[:,:] train_data, double[:] h_i, double[:,:] couplingmat
                 e -= (h_i[j*(Q-1) + j_value])
         energies[i] = e
     energies = np.sort(energies, axis=None)
-    cutoff = energies[int(energies.shape[0]*0.95)]
+    cutoff = energies[int(energies.shape[0]*0.99)]
     return cutoff
 
 def OneClassFit(np.ndarray[DTYPE_t, ndim=2] data, int Q, float LAMBDA):
