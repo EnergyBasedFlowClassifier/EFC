@@ -17,10 +17,10 @@ from classification_functions import *
 import time
 
 def KNN(sets):
-    train = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train.csv".format(sets), header=None)
-    train_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train_labels.csv".format(sets), header=None)
-    test = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_test.csv".format(sets), header=None)
-    test_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/test_labels.csv".format(sets), header=None)
+    train = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_train".format(sets), header=None)
+    train_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_train".format(sets), header=None)
+    test = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_test".format(sets), header=None)
+    test_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_test".format(sets), header=None)
 
     KNN = KNeighborsClassifier(algorithm='kd_tree',n_jobs=-1)
     start = time.time()
@@ -37,10 +37,10 @@ def KNN(sets):
 
 
 def RF(sets):
-    train = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train.csv".format(sets), header=None)
-    train_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train_labels.csv".format(sets), header=None)
-    test = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_test.csv".format(sets), header=None)
-    test_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/test_labels.csv".format(sets), header=None)
+    train = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_train".format(sets), header=None)
+    train_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_train".format(sets), header=None)
+    test = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_test".format(sets), header=None)
+    test_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_test".format(sets), header=None)
 
     RF = RandomForestClassifier(n_jobs=-1)
     start = time.time()
@@ -57,10 +57,10 @@ def RF(sets):
 
 
 def GaussianNaiveB(sets):
-    train = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train.csv".format(sets), header=None)
-    train_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train_labels.csv".format(sets), header=None)
-    test = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_test.csv".format(sets), header=None)
-    test_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/test_labels.csv".format(sets), header=None)
+    train = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_train".format(sets), header=None)
+    train_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_train".format(sets), header=None)
+    test = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_test".format(sets), header=None)
+    test_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_test".format(sets), header=None)
 
     NB = GaussianNB()
     start = time.time()
@@ -77,10 +77,10 @@ def GaussianNaiveB(sets):
 
 
 def DT(sets):
-    train = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train.csv".format(sets), header=None)
-    train_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train_labels.csv".format(sets), header=None)
-    test = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_test.csv".format(sets), header=None)
-    test_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/test_labels.csv".format(sets), header=None)
+    train = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_train".format(sets), header=None)
+    train_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_train".format(sets), header=None)
+    test = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_test".format(sets), header=None)
+    test_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_test".format(sets), header=None)
 
     DT = DecisionTreeClassifier()
     start = time.time()
@@ -98,10 +98,10 @@ def DT(sets):
 
 
 def Adaboost(sets):
-    train = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train.csv".format(sets), header=None)
-    train_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train_labels.csv".format(sets), header=None)
-    test = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_test.csv".format(sets), header=None)
-    test_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/test_labels.csv".format(sets), header=None)
+    train = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_train".format(sets), header=None)
+    train_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_train".format(sets), header=None)
+    test = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_test".format(sets), header=None)
+    test_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_test".format(sets), header=None)
 
     AD = AdaBoostClassifier()
     start = time.time()
@@ -117,14 +117,11 @@ def Adaboost(sets):
 
 
 def svc(sets):
-    train = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train.csv".format(sets), header=None)
-    train_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train_labels.csv".format(sets), header=None)
-    test = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_test.csv".format(sets), header=None)
-    test_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/test_labels.csv".format(sets), header=None)
+    train = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_train".format(sets), header=None)
+    train_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_train".format(sets), header=None)
+    test = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_test".format(sets), header=None)
+    test_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_test".format(sets), header=None)
 
-    transformer = Normalizer().fit(train)
-    train = transformer.transform(train)
-    test = transformer.transform(test)
 
     svc = SVC(kernel='poly', probability=True)
     start = time.time()
@@ -141,14 +138,11 @@ def svc(sets):
 
 
 def mlp(sets):
-    train = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train.csv".format(sets), header=None)
-    train_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train_labels.csv".format(sets), header=None)
-    test = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_test.csv".format(sets), header=None)
-    test_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/test_labels.csv".format(sets), header=None)
+    train = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_train".format(sets), header=None)
+    train_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_train".format(sets), header=None)
+    test = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_test".format(sets), header=None)
+    test_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_test".format(sets), header=None)
 
-    transformer = Normalizer().fit(train)
-    train = transformer.transform(train)
-    test = transformer.transform(test)
 
     MLP = MLPClassifier(max_iter=300)
     start = time.time()
@@ -166,10 +160,10 @@ def mlp(sets):
 
 
 def EFC(sets):
-    test = pd.read_csv("5-fold_sets/Discretized/Sets{}/test.csv".format(sets), header=None).astype('int')
-    test_labels = pd.read_csv("5-fold_sets/Discretized/Sets{}/test_labels.csv".format(sets), squeeze=True, header=None).astype('int')
-    train = pd.read_csv("5-fold_sets/Discretized/Sets{}/reduced_train.csv".format(sets), header=None).astype('int')
-    train_labels = pd.read_csv("5-fold_sets/Discretized/Sets{}/reduced_train_labels.csv".format(sets), squeeze=True, header=None).astype('int')
+    test = pd.read_csv("5-fold_sets/Discretized/Sets{}/X_test".format(sets), header=None).astype('int')
+    test_labels = pd.read_csv("5-fold_sets/Discretized/Sets{}/y_test".format(sets), squeeze=True, header=None).astype('int')
+    train = pd.read_csv("5-fold_sets/Discretized/Sets{}/X_train".format(sets), header=None).astype('int')
+    train_labels = pd.read_csv("5-fold_sets/Discretized/Sets{}/y_train".format(sets), squeeze=True, header=None).astype('int')
 
     Q = 32
     LAMBDA = 0.5
@@ -178,9 +172,6 @@ def EFC(sets):
     h_i_matrices, coupling_matrices, cutoffs_list = MultiClassFit(np.array(train), np.array(train_labels), Q, LAMBDA)
     training_time = time.time()-start
     print("EFC train: ", training_time)
-    np.save("5-fold_sets/Discretized/Sets{}/h_i_matrices.npy".format(sets), h_i_matrices)
-    np.save("5-fold_sets/Discretized/Sets{}/coupling_matrices.npy".format(sets), coupling_matrices)
-    np.save("5-fold_sets/Discretized/Sets{}/cutoffs_list.npy".format(sets), cutoffs_list)
 
     start = time.time()
     predicted = MultiClassPredict(np.array(test), h_i_matrices, coupling_matrices, cutoffs_list, Q, np.unique(train_labels))
@@ -201,4 +192,3 @@ for sets in range(1,6):
     DT(sets)
     svc(sets)
     RF(sets)
-    Adaboost(sets)

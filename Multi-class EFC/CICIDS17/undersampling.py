@@ -2,14 +2,13 @@ import pandas as pd
 import numpy as np
 import random
 
-chunksize = 2_000_000
+
 malicious_names = ['BENIGN',  'DDoS', 'PortScan', 'Bot', 'Infiltration', 'Web Attack',
 'FTP-Patator', 'SSH-Patator' , 'DoS Hulk', 'DoS GoldenEye',  'DoS slowloris', 'DoS Slowhttptest', 'Heartbleed']
 
-
 for fold in range(1,6):
-    train_labels = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/train_labels.csv".format(fold), squeeze=True, header=None)
-    print(np.unique(train_labels))
+    train = pd.read_csv("5-fold_sets/Raw/Sets{}/train.csv".format(fold), header=None)
+    train_labels = train.iloc[:, -1]
 
     normals_index = random.Random(1).sample(list(np.where(train_labels==malicious_names[0])[0]), 5000)
     dos_index = random.Random(1).sample(list(np.where(train_labels==malicious_names[1])[0]), 5000)
@@ -28,12 +27,4 @@ for fold in range(1,6):
     all_indexes = normals_index + dos_index + portscan_index + bot_index + inf_index + web_index + ftp_index + ssh_index + hulk_index + goldeneye_index + slowloris_index + slowhttp_index + heartbleed_index
     all_indexes = np.array(all_indexes)
 
-    reader = pd.read_csv("5-fold_sets/Non_discretized/Sets{}/train.csv".format(fold), chunksize=chunksize, header=None)
-    for i, chunk in enumerate(reader):
-
-        indexes = list(all_indexes[np.isin(all_indexes, list(range(i*chunksize, (i+1)*chunksize)))])
-        chunk_indexes = [x-(i*chunksize) for x in indexes]
-
-        chunk.iloc[chunk_indexes, :].to_csv("5-fold_sets/Non_discretized/Sets{}/reduced_train.csv".format(fold), mode='a', header=False, index=False)
-
-        train_labels[indexes].to_csv("5-fold_sets/Non_discretized/Sets{}/reduced_train_labels.csv".format(fold), mode='a', header=False, index=False)
+    train.iloc[all_indexes, :].to_csv("5-fold_sets/Raw/Sets{}/reduced_train.csv".format(fold), mode='a', header=False, index=False)

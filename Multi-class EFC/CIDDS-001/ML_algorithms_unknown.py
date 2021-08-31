@@ -17,14 +17,14 @@ from classification_functions import *
 import time
 
 def RF(removed, sets):
-    train = np.array(pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train.csv".format(sets), header=None))
-    train_labels = np.array(pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_train_labels.csv".format(sets), header=None))
-    test = np.array(pd.read_csv("5-fold_sets/Non_discretized/Sets{}/encoded_test.csv".format(sets), header=None))
-    test_labels = np.array(pd.read_csv("5-fold_sets/Non_discretized/Sets{}/test_labels.csv".format(sets), header=None))
+    train = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_train".format(sets), header=None)
+    train_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_train".format(sets), header=None)
+    test = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_test".format(sets), header=None)
+    test_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_test".format(sets), header=None)
 
-    valid_indexes = [idx for idx, item in enumerate(train_labels) if item != removed]
-    train = train[valid_indexes, :]
-    train_labels = train_labels[valid_indexes]
+    valid_indexes = np.where(train_labels == removed)[0]
+    train.drop(valid_indexes, axis=0, inplace=True)
+    train_labels.drop(valid_indexes, axis=0, inplace=True)
 
     RF = RandomForestClassifier(n_jobs=-1)
     start = time.time()
@@ -37,27 +37,27 @@ def RF(removed, sets):
 
 
 def EFC(removed, sets):
-    test = np.array(pd.read_csv("5-fold_sets/Discretized/Sets{}/test.csv".format(sets), header=None).astype('int'))
-    test_labels = np.array(pd.read_csv("5-fold_sets/Discretized/Sets{}/test_labels.csv".format(sets), squeeze=True, header=None).astype('int'))
-    train = np.array(pd.read_csv("5-fold_sets/Discretized/Sets{}/reduced_train.csv".format(sets), header=None).astype('int'))
-    train_labels = np.array(pd.read_csv("5-fold_sets/Discretized/Sets{}/reduced_train_labels.csv".format(sets), squeeze=True, header=None).astype('int'))
+    test = pd.read_csv("5-fold_sets/Discretized/Sets{}/X_test".format(sets), header=None).astype('int')
+    test_labels = pd.read_csv("5-fold_sets/Discretized/Sets{}/y_test".format(sets), squeeze=True, header=None).astype('int')
+    train = pd.read_csv("5-fold_sets/Discretized/Sets{}/X_train".format(sets), header=None).astype('int')
+    train_labels = pd.read_csv("5-fold_sets/Discretized/Sets{}/y_train".format(sets), squeeze=True, header=None).astype('int')
 
-    valid_indexes = [idx for idx, item in enumerate(train_labels) if item != removed]
-    train = train[valid_indexes, :]
-    train_labels = train_labels[valid_indexes]
+    valid_indexes = np.where(train_labels == removed)[0]
+    train.drop(valid_indexes, axis=0, inplace=True)
+    train_labels.drop(valid_indexes, axis=0, inplace=True)
 
     Q = 32
     LAMBDA = 0.5
 
-    h_i_matrices, coupling_matrices, cutoffs_list = MultiClassFit(train, train_labels, Q, LAMBDA)
+    h_i_matrices, coupling_matrices, cutoffs_list = MultiClassFit(np.array(train), np.array(train_labels), Q, LAMBDA)
 
-    predicted = MultiClassPredict(test, h_i_matrices, coupling_matrices, cutoffs_list, Q, np.unique(train_labels))
+    predicted = MultiClassPredict(np.array(test), h_i_matrices, coupling_matrices, cutoffs_list, Q, np.unique(train_labels))
 
     np.save("5-fold_sets/Results_removing{}/Sets{}/EFC_predicted.npy".format(removed, sets), predicted)
     print(classification_report(test_labels, predicted, labels=np.unique(test_labels)))
 
 
-for removed in [1, 2, 3, 4]:
+for removed in [0, 1, 3, 4]:
     for sets in range(1,6):
         EFC(removed, sets)
         RF(removed, sets)

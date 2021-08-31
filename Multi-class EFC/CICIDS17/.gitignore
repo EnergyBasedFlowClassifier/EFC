@@ -9,3 +9,4 @@ modifications.txt
 *.so
 *.c
 *.png
+/Features

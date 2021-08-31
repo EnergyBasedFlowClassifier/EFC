@@ -11,8 +11,9 @@ from math import sqrt
 from scipy.stats import gmean, gstd
 
 def metrics_algorithms_multiclass():
-    names = ['BENIGN',  'DDoS', 'PortScan', 'Bot', 'Infiltration', 'Web Attack',
-    'FTP-Patator', 'SSH-Patator' , 'DoS Hulk', 'DoS GoldenEye',  'DoS slowloris', 'DoS Slowhttptest', 'Heartbleed']
+    names = ['BENIGN', 'Bot', 'DDoS', 'DoS GoldenEye', 'DoS Hulk',
+           'DoS Slowhttptest', 'DoS slowloris', 'FTP-Patator', 'Heartbleed',
+           'Infiltration', 'PortScan', 'SSH-Patator', 'Web Attack']
     with open("5-fold_sets/Results/Algorithms_comparison.txt", 'w+') as file:
         macro_avarege = [[],[],[],[],[],[],[],[]]
         balanced_acc = [[],[],[],[],[],[],[],[]]
@@ -21,7 +22,7 @@ def metrics_algorithms_multiclass():
         for idx, alg in enumerate(['EFC','NB','KNN', 'DT', 'SVC', 'MLP','RF']):
             f1 = []
             for sets in range(1,6):
-                y_true = pd.read_csv("5-fold_sets/Discretized/Sets{}/test_labels.csv".format(sets), header=None)
+                y_true = pd.read_csv("5-fold_sets/Discretized/Sets{}/y_test".format(sets), header=None)
                 y_pred = np.load("5-fold_sets/Results/Sets{}/{}_predicted.npy".format(sets, alg), allow_pickle=True)
                 macro_avarege[idx].append(f1_score(y_true, y_pred, average='macro'))
                 balanced_acc[idx].append(balanced_accuracy_score(y_true, y_pred))
@@ -52,8 +53,9 @@ def metrics_algorithms_multiclass():
         file.write('\\\\ \n')
 
 def plot_unknown():
-    names = ['DDoS', 'PortScan', 'Bot', 'Infiltration', 'Web Attack',
-    'FTP-Patator', 'SSH-Patator' , 'DoS Hulk', 'DoS GoldenEye',  'DoS slowloris', 'DoS Slowhttptest', 'Heartbleed']
+    names = ['Bot', 'DDoS', 'DoS GoldenEye', 'DoS Hulk',
+           'DoS Slowhttptest', 'DoS slowloris', 'FTP-Patator', 'Heartbleed',
+           'Infiltration', 'PortScan', 'SSH-Patator', 'Web Attack']
     plt.rcParams.update({'font.size': 16})
 
     fig, ax = plt.subplots(1,2, figsize=(16.8, 4.8))
@@ -67,7 +69,7 @@ def plot_unknown():
             others_percent = []
             suspicious_percent = []
             for sets in range(1,6):
-                y_true = np.array(pd.read_csv("5-fold_sets/Discretized/Sets{}/test_labels.csv".format(sets), header=None, squeeze=True))
+                y_true = np.array(pd.read_csv("5-fold_sets/Discretized/Sets{}/y_test".format(sets), header=None, squeeze=True))
                 y_pred = list(np.load("5-fold_sets/Results_removing{}/Sets{}/{}_predicted.npy".format(removed, sets, alg), allow_pickle=True))
                 unknown_predicted = [y_pred[i] for i in np.where(y_true==removed)[0]]
                 print(len(unknown_predicted))

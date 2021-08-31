@@ -11,7 +11,7 @@ from math import sqrt
 from scipy.stats import gmean, gstd
 
 def metrics_algorithms_multiclass():
-    names = ['normal','pingScan','bruteForce','portScan','dos']
+    names = ['bruteForce', 'dos', 'normal', 'pingScan', 'portScan']
     with open("5-fold_sets/Results/Algorithms_comparison.txt", 'w+') as file:
         macro_avarege = [[],[],[],[],[],[],[],[]]
         balanced_acc = [[],[],[],[],[],[],[],[]]
@@ -20,7 +20,7 @@ def metrics_algorithms_multiclass():
         for idx, alg in enumerate(['EFC','NB','KNN', 'DT', 'SVC', 'MLP','RF']):
             f1 = []
             for sets in range(1,6):
-                y_true = pd.read_csv("5-fold_sets/Discretized/Sets{}/test_labels.csv".format(sets), header=None)
+                y_true = pd.read_csv("5-fold_sets/Discretized/Sets{}/y_test".format(sets), header=None)
                 y_pred = np.load("5-fold_sets/Results/Sets{}/{}_predicted.npy".format(sets, alg), allow_pickle=True)
                 macro_avarege[idx].append(f1_score(y_true, y_pred, average='macro'))
                 balanced_acc[idx].append(balanced_accuracy_score(y_true, y_pred))
@@ -51,7 +51,7 @@ def metrics_algorithms_multiclass():
         file.write('\\\\ \n')
 
 def plot_unknown():
-    names = ['normal','pingScan','bruteForce','portScan','dos']
+    names = ['bruteForce', 'dos', 'pingScan', 'portScan']
     plt.rcParams.update({'font.size': 16})
 
     fig, ax = plt.subplots(1,2, figsize=(16.8, 4.8))
@@ -60,18 +60,19 @@ def plot_unknown():
     width = 0.45
     for alg in ['RF','EFC']:
         removed_metrics = []
-        for removed in [1, 2, 3, 4]:
+        for removed in [0, 1, 3, 4]:
             normal_percent = []
             others_percent = []
             suspicious_percent = []
             for sets in range(1,6):
-                y_true = np.array(pd.read_csv("5-fold_sets/Discretized/Sets{}/test_labels.csv".format(sets), header=None, squeeze=True))
+                y_true = np.array(pd.read_csv("5-fold_sets/Discretized/Sets{}/y_test".format(sets), header=None, squeeze=True))
                 y_pred = list(np.load("5-fold_sets/Results_removing{}/Sets{}/{}_predicted.npy".format(removed, sets, alg), allow_pickle=True))
+                print(np.unique(y_pred))
                 unknown_predicted = [y_pred[i] for i in np.where(y_true==removed)[0]]
                 print(len(unknown_predicted))
                 unique, counts = np.unique(unknown_predicted, return_counts=True)
 
-                normal_predicted = counts[np.where(unique==0)[0]]
+                normal_predicted = counts[np.where(unique==2)[0]]
                 if not normal_predicted:
                     normal_predicted = 0
 
@@ -121,4 +122,4 @@ def times():
 
 metrics_algorithms_multiclass()
 # times()
-plot_unknown()
+# plot_unknown()
