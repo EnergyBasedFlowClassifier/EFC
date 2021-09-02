@@ -1,7 +1,6 @@
-from sklearn.preprocessing import OrdinalEncoder, MinMaxScaler, KBinsDiscretizer, Normalizer, StandardScaler, MaxAbsScaler
+from sklearn.preprocessing import OrdinalEncoder, KBinsDiscretizer, MaxAbsScaler
 import numpy as np
 import pandas as pd
-from pandas.api.types import is_numeric_dtype
 
 malicious_names = [['normal.'], ['back.', 'smurf.', 'teardrop.', 'neptune.', 'land.', 'pod.'],
 ['ipsweep.',  'portsweep.',  'satan.',  'nmap.'], ['ftp_write.', 'guess_passwd.', 'imap.', 'multihop.', 'spy.',

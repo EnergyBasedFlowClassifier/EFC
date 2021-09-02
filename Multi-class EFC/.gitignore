@@ -1,12 +1,4 @@
-/KDDCup99/Data/
-/KDDCup99/Results/
-/KDDCup99/__pycache__
-/KDDCup99/__pycache__
-/KDDCup99/plot_couplings.py
-/KDDCup99/10bins
-/KDDCup99/21bins
-/KDDCup99/30bins
-/KDDCup99/plt_energies.py
+/KDDCup99/
 /CICIDS17/TrafficLabelling /
 *.pdf
 *.npy

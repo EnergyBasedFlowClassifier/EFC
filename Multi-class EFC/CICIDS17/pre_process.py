@@ -1,11 +1,7 @@
 import numpy as np
 import pandas as pd
-import sys
 
-#nesse script os nomes das colunas do dataframe são alterados retirando espaços e "/". Em seguidas as colunas
-#relativas à identificação do flow são retiradas, bem como a coluna 'FwdHeaderLength.1' por ser igual a 'FwdHeaderLength'.
-#As linhas com valores NaN são exlcuidas do dataset e os valores infinitos nas features 'Flow Bytes/s' e 'Flow Packets/s'
-#são substituidos pelo máximo valor +1 dessa característica.
+
 def pre_process(file):
     data = pd.read_csv("TrafficLabelling /{}.csv".format(file))
     print(data.shape)

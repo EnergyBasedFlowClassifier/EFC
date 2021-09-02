@@ -3,9 +3,7 @@ sys.path.append('../../../efc')
 from classification_functions import *
 import numpy as np
 import pandas as pd
-import os
-import pickle
-from sklearn.metrics import confusion_matrix, recall_score
+from sklearn.metrics import recall_score
 
 train = pd.read_csv("Data/Normalized-Discretized/X_train", header=None).astype('int')
 train_labels =  pd.read_csv("Data/Normalized-Discretized/y_train", squeeze=True, header=None).astype('int')

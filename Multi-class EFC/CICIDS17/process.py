@@ -1,7 +1,6 @@
-from sklearn.preprocessing import OrdinalEncoder, MinMaxScaler, KBinsDiscretizer, Normalizer, MaxAbsScaler
+from sklearn.preprocessing import OrdinalEncoder, KBinsDiscretizer, MaxAbsScaler
 import numpy as np
 import pandas as pd
-from pandas.api.types import is_numeric_dtype
 
 malicious_names = ['BENIGN', 'Bot', 'DDoS', 'DoS GoldenEye', 'DoS Hulk',
        'DoS Slowhttptest', 'DoS slowloris', 'FTP-Patator', 'Heartbleed',

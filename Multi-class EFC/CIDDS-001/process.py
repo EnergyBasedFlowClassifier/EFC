@@ -1,7 +1,6 @@
-from sklearn.preprocessing import OrdinalEncoder, MinMaxScaler, KBinsDiscretizer, Normalizer, MaxAbsScaler
+from sklearn.preprocessing import OrdinalEncoder, KBinsDiscretizer, MaxAbsScaler
 import numpy as np
 import pandas as pd
-from pandas.api.types import is_numeric_dtype
 
 #group continuos and symbolic features indexes
 symbolic = [1, 6, 8]
@@ -36,8 +35,7 @@ for fold in range(1,6):
     np.savetxt('5-fold_sets/Normalized/Sets{}/y_train'.format(fold), train[:, -1], delimiter=',')
     np.savetxt('5-fold_sets/Normalized/Sets{}/X_test'.format(fold), test[:, :-1], delimiter=',')
     np.savetxt('5-fold_sets/Normalized/Sets{}/y_test'.format(fold), test[:, -1], delimiter=',')
-    print
-
+  
     #discretize continuos features
     disc = KBinsDiscretizer(n_bins=30, encode='ordinal', strategy='quantile')
     disc.fit(train[:, continuous])

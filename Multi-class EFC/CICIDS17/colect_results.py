@@ -1,22 +1,18 @@
 import numpy as np
-import seaborn as sns
 import pandas as pd
-import os
-import pickle
 from statistics import mean, stdev
-from sklearn.metrics import confusion_matrix, balanced_accuracy_score, roc_auc_score, precision_recall_fscore_support, f1_score, recall_score
+from sklearn.metrics import f1_score
 from matplotlib import pyplot as plt
-from sklearn.preprocessing import MinMaxScaler
 from math import sqrt
-from scipy.stats import gmean, gstd
+
 
 def metrics_algorithms_multiclass():
     names = ['BENIGN', 'Bot', 'DDoS', 'DoS GoldenEye', 'DoS Hulk',
            'DoS Slowhttptest', 'DoS slowloris', 'FTP-Patator', 'Heartbleed',
            'Infiltration', 'PortScan', 'SSH-Patator', 'Web Attack']
     with open("5-fold_sets/Results/Algorithms_comparison.txt", 'w+') as file:
-        macro_avarege = [[],[],[],[],[],[],[],[]]
-        balanced_acc = [[],[],[],[],[],[],[],[]]
+        macro_average = [[],[],[],[],[],[],[],[]]
+        weighted_average = [[],[],[],[],[],[],[],[]]
         f1_scores = [[],[],[],[],[],[],[],[]]
         f1_scores_std = [[],[],[],[],[],[],[],[]]
         for idx, alg in enumerate(['EFC','NB','KNN', 'DT', 'SVC', 'MLP','RF']):
@@ -24,8 +20,8 @@ def metrics_algorithms_multiclass():
             for sets in range(1,6):
                 y_true = pd.read_csv("5-fold_sets/Discretized/Sets{}/y_test".format(sets), header=None)
                 y_pred = np.load("5-fold_sets/Results/Sets{}/{}_predicted.npy".format(sets, alg), allow_pickle=True)
-                macro_avarege[idx].append(f1_score(y_true, y_pred, average='macro'))
-                balanced_acc[idx].append(balanced_accuracy_score(y_true, y_pred))
+                macro_average[idx].append(f1_score(y_true, y_pred, average='macro'))
+                weighted_average[idx].append(f1_score(y_true, y_pred, average='weighted'))
                 f1.append(f1_score(y_true, y_pred, average=None, labels=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]))
 
             for label in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
@@ -35,7 +31,7 @@ def metrics_algorithms_multiclass():
                 f1_scores[idx].append(mean(lista))
                 f1_scores_std[idx].append(stdev(lista)/sqrt(len(lista))*1.96)
 
-        print(macro_avarege)
+        print(macro_average)
         for label in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
             file.write('\\textit{{{}}} '.format(names[label]))
             for idx, alg in enumerate(['EFC','NB','KNN', 'DT', 'SVC', 'MLP','RF']):
@@ -44,12 +40,12 @@ def metrics_algorithms_multiclass():
 
         file.write('\\textbf{{{}}} '.format('Macro average'))
         for idx, alg in enumerate(['EFC','NB','KNN', 'DT', 'SVC', 'MLP','RF']):
-                file.write('& {:.3f} $\\pm$ {:.3f}'.format(mean(macro_avarege[idx]), (stdev(macro_avarege[idx])/sqrt(len(macro_avarege[idx])))*1.96))
+                file.write('& {:.3f} $\\pm$ {:.3f}'.format(mean(macro_average[idx]), (stdev(macro_average[idx])/sqrt(len(macro_average[idx])))*1.96))
         file.write('\\\\ \n')
 
-        file.write('\\textbf{{{}}} '.format('Balanced accuracy'))
+        file.write('\\textbf{{{}}} '.format('Weighted average'))
         for idx, alg in enumerate(['EFC','NB','KNN', 'DT', 'SVC', 'MLP','RF']):
-                file.write('& {:.3f} $\\pm$ {:.3f}'.format(mean(balanced_acc[idx]), (stdev(balanced_acc[idx])/sqrt(len(balanced_acc[idx])))*1.96))
+                file.write('& {:.3f} $\\pm$ {:.3f}'.format(mean(weighted_average[idx]), (stdev(weighted_average[idx])/sqrt(len(weighted_average[idx])))*1.96))
         file.write('\\\\ \n')
 
 def plot_unknown():
@@ -125,4 +121,4 @@ def times():
 
 metrics_algorithms_multiclass()
 # times()
-plot_unknown()
+# plot_unknown()

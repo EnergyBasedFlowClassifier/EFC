@@ -4,8 +4,8 @@ sys.path.append('../efc')
 import pandas as pd
 from classification_functions import *
 from generic_discretize import *
-from sklearn.metrics import classification_report, confusion_matrix
-from sklearn.datasets import load_breast_cancer, load_digits, load_iris, load_wine
+from sklearn.metrics import confusion_matrix
+from sklearn.datasets import load_breast_cancer, load_wine
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 
