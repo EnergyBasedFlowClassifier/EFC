@@ -3,14 +3,10 @@ import numpy as np
 from sklearn.neural_network import MLPClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
-from sklearn.linear_model import LinearRegression
-from sklearn.svm import SVC, OneClassSVM
+from sklearn.svm import SVC
 from sklearn.naive_bayes import GaussianNB
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.metrics import confusion_matrix
-from sklearn.preprocessing import Normalizer
 from sklearn.metrics import classification_report
-import pickle
 import sys
 sys.path.append('../../../efc')
 from classification_functions import *
@@ -20,7 +16,6 @@ def KNN():
     train = pd.read_csv("Data/Normalized/X_train", header=None).astype('int')
     train_labels =  pd.read_csv("Data/Normalized/y_train", squeeze=True, header=None).astype('int')
     test = pd.read_csv("Data/Normalized/X_test", header=None).astype('int')
-    test_labels =  pd.read_csv("Data/Normalized/y_test", squeeze=True, header=None).astype('int')
 
     KNN = KNeighborsClassifier(algorithm='kd_tree',n_jobs=-1)
     start = time.time()
@@ -40,7 +35,6 @@ def RF():
     train = pd.read_csv("Data/Normalized/X_train", header=None).astype('int')
     train_labels =  pd.read_csv("Data/Normalized/y_train", squeeze=True, header=None).astype('int')
     test = pd.read_csv("Data/Normalized/X_test", header=None).astype('int')
-    test_labels =  pd.read_csv("Data/Normalized/y_test", squeeze=True, header=None).astype('int')
 
     RF = RandomForestClassifier(n_jobs=-1)
     start = time.time()
@@ -60,7 +54,6 @@ def GaussianNaiveB():
     train = pd.read_csv("Data/Normalized/X_train", header=None).astype('int')
     train_labels =  pd.read_csv("Data/Normalized/y_train", squeeze=True, header=None).astype('int')
     test = pd.read_csv("Data/Normalized/X_test", header=None).astype('int')
-    test_labels =  pd.read_csv("Data/Normalized/y_test", squeeze=True, header=None).astype('int')
 
     NB = GaussianNB()
     start = time.time()
@@ -80,7 +73,6 @@ def DT():
     train = pd.read_csv("Data/Normalized/X_train", header=None).astype('int')
     train_labels =  pd.read_csv("Data/Normalized/y_train", squeeze=True, header=None).astype('int')
     test = pd.read_csv("Data/Normalized/X_test", header=None).astype('int')
-    test_labels =  pd.read_csv("Data/Normalized/y_test", squeeze=True, header=None).astype('int')
 
     DT = DecisionTreeClassifier()
     start = time.time()
@@ -94,14 +86,11 @@ def DT():
     np.save("Results/DT_predicted.npy", predict_labels)
     np.save("Results/DT_times.npy", [training_time, testing_time])
 
-    print("DT", classification_report(test_labels, predict_labels, labels=np.unique(test_labels)))
-
 
 def Adaboost():
     train = pd.read_csv("Data/Normalized/X_train", header=None).astype('int')
     train_labels =  pd.read_csv("Data/Normalized/y_train", squeeze=True, header=None).astype('int')
     test = pd.read_csv("Data/Normalized/X_test", header=None).astype('int')
-    test_labels =  pd.read_csv("Data/Normalized/y_test", squeeze=True, header=None).astype('int')
 
     AD = AdaBoostClassifier()
     start = time.time()
@@ -120,7 +109,6 @@ def svc():
     train = pd.read_csv("Data/Normalized/X_train", header=None).astype('int')
     train_labels =  pd.read_csv("Data/Normalized/y_train", squeeze=True, header=None).astype('int')
     test = pd.read_csv("Data/Normalized/X_test", header=None).astype('int')
-    test_labels =  pd.read_csv("Data/Normalized/y_test", squeeze=True, header=None).astype('int')
 
 
     svc = SVC(kernel='poly')
@@ -141,7 +129,6 @@ def mlp():
     train = pd.read_csv("Data/Normalized/X_train", header=None).astype('int')
     train_labels =  pd.read_csv("Data/Normalized/y_train", squeeze=True, header=None).astype('int')
     test = pd.read_csv("Data/Normalized/X_test", header=None).astype('int')
-    test_labels =  pd.read_csv("Data/Normalized/y_test", squeeze=True, header=None).astype('int')
 
 
     MLP = MLPClassifier(max_iter=300)
@@ -184,10 +171,10 @@ def EFC():
 
 
 
-# EFC()
-# mlp()
-# KNN()
-# GaussianNaiveB()
-# DT()
+EFC()
+mlp()
+KNN()
+GaussianNaiveB()
+DT()
 svc()
-# RF()
+RF()

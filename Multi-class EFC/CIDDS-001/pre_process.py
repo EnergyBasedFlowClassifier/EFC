@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 
 def pre_process_chunk(chunk):
     chunk['attackType'][chunk['attackType'] == '---'] = 'normal'

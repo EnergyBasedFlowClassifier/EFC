@@ -3,14 +3,10 @@ import numpy as np
 from sklearn.neural_network import MLPClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
-from sklearn.linear_model import LinearRegression
-from sklearn.svm import SVC, OneClassSVM
+from sklearn.svm import SVC
 from sklearn.naive_bayes import GaussianNB
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.metrics import confusion_matrix
-from sklearn.preprocessing import Normalizer
 from sklearn.metrics import classification_report
-import pickle
 import sys
 sys.path.append('../../../efc')
 from classification_functions import *
@@ -20,7 +16,6 @@ def KNN(sets):
     train = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_train".format(sets), header=None)
     train_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_train".format(sets), header=None)
     test = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_test".format(sets), header=None)
-    test_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_test".format(sets), header=None)
 
     KNN = KNeighborsClassifier(algorithm='kd_tree',n_jobs=-1)
     start = time.time()
@@ -40,7 +35,6 @@ def RF(sets):
     train = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_train".format(sets), header=None)
     train_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_train".format(sets), header=None)
     test = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_test".format(sets), header=None)
-    test_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_test".format(sets), header=None)
 
     RF = RandomForestClassifier(n_jobs=-1)
     start = time.time()
@@ -60,7 +54,6 @@ def GaussianNaiveB(sets):
     train = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_train".format(sets), header=None)
     train_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_train".format(sets), header=None)
     test = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_test".format(sets), header=None)
-    test_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_test".format(sets), header=None)
 
     NB = GaussianNB()
     start = time.time()
@@ -80,7 +73,6 @@ def DT(sets):
     train = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_train".format(sets), header=None)
     train_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_train".format(sets), header=None)
     test = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_test".format(sets), header=None)
-    test_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_test".format(sets), header=None)
 
     DT = DecisionTreeClassifier()
     start = time.time()
@@ -94,14 +86,10 @@ def DT(sets):
     np.save("5-fold_sets/Results/Sets{}/DT_predicted.npy".format(sets), predict_labels)
     np.save("5-fold_sets/Results/Sets{}/DT_times.npy".format(sets), [training_time, testing_time])
 
-    print("DT", classification_report(test_labels, predict_labels, labels=np.unique(test_labels)))
-
-
 def Adaboost(sets):
     train = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_train".format(sets), header=None)
     train_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_train".format(sets), header=None)
     test = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_test".format(sets), header=None)
-    test_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_test".format(sets), header=None)
 
     AD = AdaBoostClassifier()
     start = time.time()
@@ -120,7 +108,6 @@ def svc(sets):
     train = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_train".format(sets), header=None)
     train_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_train".format(sets), header=None)
     test = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_test".format(sets), header=None)
-    test_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_test".format(sets), header=None)
 
 
     svc = SVC(kernel='poly', probability=True)
@@ -141,7 +128,6 @@ def mlp(sets):
     train = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_train".format(sets), header=None)
     train_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_train".format(sets), header=None)
     test = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_test".format(sets), header=None)
-    test_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_test".format(sets), header=None)
 
 
     MLP = MLPClassifier(max_iter=300)

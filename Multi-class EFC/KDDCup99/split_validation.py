@@ -1,8 +1,6 @@
-import numpy as np
 import pandas as pd
 import os
 import shutil
-import random
 
 os.makedirs("Data", exist_ok=True)
 os.makedirs("Data/Normalized", exist_ok=True)

@@ -1,28 +1,16 @@
 import pandas as pd
 import numpy as np
-from sklearn.neural_network import MLPClassifier
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
-from sklearn.linear_model import LinearRegression
-from sklearn.svm import SVC, OneClassSVM
-from sklearn.naive_bayes import GaussianNB
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.metrics import confusion_matrix
-from sklearn.preprocessing import Normalizer
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, confusion_matrix
-import pickle
 import sys
 sys.path.append('../../../efc')
 from classification_functions import *
 import time
-import seaborn as sns
-from matplotlib import pyplot as plt
 
 def RF(removed, sets):
     train = pd.read_csv("5-fold_sets/Encoded/Sets{}/X_train".format(sets), header=None)
     train_labels = pd.read_csv("5-fold_sets/Encoded/Sets{}/y_train".format(sets), header=None, squeeze=True)
     test = pd.read_csv("5-fold_sets/Encoded/Sets{}/X_test".format(sets), header=None)
-    test_labels = pd.read_csv("5-fold_sets/Encoded/Sets{}/y_test".format(sets), header=None, squeeze=True)
 
     valid_indexes = np.where(train_labels == removed)[0]
     train.drop(valid_indexes, axis=0, inplace=True)
@@ -36,7 +24,6 @@ def RF(removed, sets):
     predict_labels = RF.predict(test)
     print("RF test: ", time.time()-start)
     np.save("5-fold_sets/Results_removing{}/Sets{}/RF_predicted.npy".format(removed, sets), predict_labels)
-    print(classification_report(test_labels, predict_labels, labels=np.unique(test_labels)))
 
 
 def EFC(removed, sets):

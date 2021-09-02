@@ -1,25 +1,9 @@
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
-from sklearn.metrics import confusion_matrix, f1_score, balanced_accuracy_score
+from sklearn.metrics import balanced_accuracy_score, recall_score
 import seaborn as sns
 
-
-# predicted = np.load("Results/EFC_predicted.npy", allow_pickle=True)
-# test_labels =  np.array(pd.read_csv("Data/Normalized-Discretized/y_test", squeeze=True, header=None).astype('int'))
-#
-# plt.rcParams.update({'font.size': 14})
-# names = ['Normal','DoS','Probe', 'R2L', 'U2R', 'Unknown']
-#
-# cf = pd.DataFrame(confusion_matrix(test_labels, predicted, normalize='true'), index = names, columns = names)
-# sns.heatmap(cf, annot=True, cmap="Blues", fmt='.2f')
-# plt.ylabel("True label")
-# plt.xlabel("Predicted label")
-# plt.yticks(rotation=30)
-# plt.xticks(rotation=30)
-# plt.tight_layout()
-# plt.savefig("CM_Test.pdf", format='pdf',bbox_inches = "tight")
-# plt.show()
 
 def plot_unknown():
     algorithms = ['NB','KNN', 'DT','SVC', 'MLP','RF','EFC']
@@ -61,9 +45,9 @@ def metrics_algorithms_multiclass():
         for idx, alg in enumerate(['EFC','NB','KNN', 'DT', 'SVC', 'MLP','RF']):
             y_pred = np.load("Results/{}_predicted.npy".format(alg), allow_pickle=True)
             y_true =  np.array(pd.read_csv("Data/Normalized-Discretized/y_test", squeeze=True, header=None).astype('int'))
-            macro_avarege.append(f1_score(y_true, y_pred, average='macro'))
+            macro_avarege.append(recall_score(y_true, y_pred, average='macro'))
             balanced_acc.append(balanced_accuracy_score(y_true, y_pred))
-            f1_scores.append(f1_score(y_true, y_pred, average=None, labels=[0, 1, 2, 3, 4]))
+            f1_scores.append(recall_score(y_true, y_pred, average=None, labels=[0, 1, 2, 3, 4]))
 
 
         for label in [0, 1, 2, 3, 4]:

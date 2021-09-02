@@ -1,16 +1,7 @@
 import pandas as pd
 import numpy as np
-from sklearn.neural_network import MLPClassifier
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
-from sklearn.linear_model import LinearRegression
-from sklearn.svm import SVC, OneClassSVM
-from sklearn.naive_bayes import GaussianNB
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.metrics import confusion_matrix
-from sklearn.preprocessing import Normalizer
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
-import pickle
 import sys
 sys.path.append('../../../efc')
 from classification_functions import *
@@ -20,7 +11,6 @@ def RF(removed, sets):
     train = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_train".format(sets), header=None)
     train_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_train".format(sets), header=None)
     test = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_test".format(sets), header=None)
-    test_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_test".format(sets), header=None)
 
     valid_indexes = np.where(train_labels == removed)[0]
     train.drop(valid_indexes, axis=0, inplace=True)
