@@ -13,9 +13,9 @@ ctypedef np.int_t DTYPE_t
 def DefineCutoff(DTYPE_t[:,:] train_data, double[:] h_i, double[:,:] couplingmatrix, int Q):
     cdef int n_inst = train_data.shape[0]
     cdef int n_attr = train_data.shape[1]
-    cdef double[:] energies = np.empty(n_inst, dtype= 'float64')
+    cdef double[:] energies = np.empty(n_inst, dtype= 'double')
     cdef int i, j, k, k_value, j_value
-    cdef float e
+    cdef double e
     for i in range(n_inst):
         e = 0
         for j in range(n_attr-1):
@@ -31,7 +31,7 @@ def DefineCutoff(DTYPE_t[:,:] train_data, double[:] h_i, double[:,:] couplingmat
     cutoff = energies[int(energies.shape[0]*0.99)]
     return cutoff
 
-def OneClassFit(np.ndarray[DTYPE_t, ndim=2] data, int Q, float LAMBDA):
+def OneClassFit(np.ndarray[DTYPE_t, ndim=2] data, int Q, double LAMBDA):
     cdef np.ndarray[double, ndim=2] sitefreq = Sitefreq(data, Q, LAMBDA)
     cdef np.ndarray[double, ndim=4] pairfreq = Pairfreq(data, sitefreq, Q, LAMBDA)
     cdef np.ndarray[double, ndim=2] couplingmatrix = Coupling(sitefreq, pairfreq, Q)
@@ -39,19 +39,19 @@ def OneClassFit(np.ndarray[DTYPE_t, ndim=2] data, int Q, float LAMBDA):
     couplingmatrix = np.log(couplingmatrix)
     h_i = np.log(h_i)
     cdef double cutoff = DefineCutoff(data, h_i, couplingmatrix, Q)
-    return couplingmatrix, h_i, cutoff
+    return couplingmatrix, h_i, cutoff, sitefreq, pairfreq
 
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.cdivision(True)
-def OneClassPredict(DTYPE_t[:,:] test_data, double[:,:] couplingmatrix, double[:] h_i, float cutoff, int Q):
+def OneClassPredict(DTYPE_t[:,:] test_data, double[:,:] couplingmatrix, double[:] h_i, double cutoff, int Q):
     cdef int n_inst = test_data.shape[0]
     cdef int n_attr = test_data.shape[1]
-    cdef double[:] energies = np.empty(n_inst, dtype= 'float64')
+    cdef double[:] energies = np.empty(n_inst, dtype= 'double')
     cdef DTYPE_t[:] predicted = np.empty(n_inst, dtype= 'int')
     cdef int i, j, k, k_value, j_value
-    cdef float e
+    cdef double e
     for i in range(n_inst):
         e = 0
         for j in range(n_attr-1):
@@ -67,18 +67,18 @@ def OneClassPredict(DTYPE_t[:,:] test_data, double[:,:] couplingmatrix, double[:
     return np.asarray(predicted), np.asarray(energies)
 
 
-def FitClass(np.ndarray[DTYPE_t, ndim=2] set, int Q, float LAMBDA):
-    cdef np.ndarray[double, ndim=2] sitefreq = Sitefreq(set, Q, LAMBDA)
-    cdef np.ndarray[double, ndim=4] pairfreq = Pairfreq(set, sitefreq, Q, LAMBDA)
+def FitClass(np.ndarray[DTYPE_t, ndim=2] subset, int Q, double LAMBDA):
+    cdef np.ndarray[double, ndim=2] sitefreq = Sitefreq(subset, Q, LAMBDA)
+    cdef np.ndarray[double, ndim=4] pairfreq = Pairfreq(subset, sitefreq, Q, LAMBDA)
     cdef np.ndarray[double, ndim=2] couplingmatrix = Coupling(sitefreq, pairfreq, Q)
     cdef np.ndarray[double, ndim=1] h_i = LocalFields(couplingmatrix, sitefreq, Q)
     couplingmatrix = np.log(couplingmatrix)
     h_i = np.log(h_i)
-    cdef double cutoff = DefineCutoff(set, h_i, couplingmatrix, Q)
+    cdef double cutoff = DefineCutoff(subset, h_i, couplingmatrix, Q)
     return h_i, couplingmatrix, cutoff
 
 
-def MultiClassFit(np.ndarray[DTYPE_t, ndim=2] data, np.ndarray[DTYPE_t, ndim=1] labels, int Q, float LAMBDA):
+def MultiClassFit(np.ndarray[DTYPE_t, ndim=2] data, np.ndarray[DTYPE_t, ndim=1] labels, int Q, double LAMBDA):
     cdef int n_classes = np.unique(labels).shape[0]
     cdef np.ndarray[object, ndim=1] data_per_type = np.empty(n_classes, dtype=np.ndarray)
     cdef int label
@@ -90,7 +90,7 @@ def MultiClassFit(np.ndarray[DTYPE_t, ndim=2] data, np.ndarray[DTYPE_t, ndim=1] 
 
     cdef np.ndarray[object, ndim=1] h_i_matrices = np.empty(n_classes, dtype=np.ndarray)
     cdef np.ndarray[object, ndim=1] coupling_matrices = np.empty(n_classes, dtype=np.ndarray)
-    cdef np.ndarray[double, ndim=1] cutoffs_list = np.empty(n_classes, dtype=float)
+    cdef np.ndarray[double, ndim=1] cutoffs_list = np.empty(n_classes, dtype='double')
     for indx, result in enumerate(results):
         h_i_matrices[indx] = result[0]
         coupling_matrices[indx] = result[1]
