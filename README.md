@@ -24,7 +24,7 @@ Observations:
 * To change between sequential or parallel versions of EFC edit **setup.py** according to the comments on the file.
 * To use the scipts from this repository, the following dependencies are required: Numpy, Scipy, Cython, Pandas, Scikit-learn and Seaborn.
 
-**Note:** This repository contains scripts from the first studies of the EFC method. In the future, EFC will be made available as a scikit-learn compatible package.
+**Note:** This repository contains scripts from the first studies of the EFC method. Nowdays, EFC is available as a scikit-learn compatible [package](https://github.com/EnergyBasedFlowClassifier/EFC-package).
 
 # Experiments
 
