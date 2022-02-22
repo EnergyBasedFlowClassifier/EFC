@@ -1,6 +1,7 @@
 # EFC
 
 The Energy-based Flow Classifier (EFC) is a new classification method to be used in network intrusion detection systems.
+This repository holds the scripts from the initial studies of the EFC method. Nowdays, EFC is available as a scikit-learn compatible [package](https://github.com/EnergyBasedFlowClassifier/EFC-package).
 
 This repository contains two EFC implementations: a single-class version and a multi-class version. To use the algorithm in either version, you need to download the files **dca_functions.pyx**, **classification_funtions_seq.pyx**, **classification_functions_parallel.pyx** and **setup.py**. 
 
@@ -24,7 +25,6 @@ Observations:
 * To change between sequential or parallel versions of EFC edit **setup.py** according to the comments on the file.
 * To use the scipts from this repository, the following dependencies are required: Numpy, Scipy, Cython, Pandas, Scikit-learn and Seaborn.
 
-**Note:** This repository contains scripts from the first studies of the EFC method. Nowdays, EFC is available as a scikit-learn compatible [package](https://github.com/EnergyBasedFlowClassifier/EFC-package).
 
 # Experiments
 
