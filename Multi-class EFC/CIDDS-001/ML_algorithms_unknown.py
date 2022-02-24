@@ -5,7 +5,7 @@ from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
 import sys
-sys.path.append('../../../efc')
+sys.path.append('../../../EFC')
 from classification_functions import *
 import time
 import threading
@@ -29,6 +29,7 @@ def RF(removed, sets):
     np.save("5-fold_sets/Results_removing{}/Sets{}/RF_predicted.npy".format(removed, sets), predict_labels)
 
 def SVC(removed, sets):
+    print("SVC", removed, sets)
     train = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_train".format(sets), header=None)
     train_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_train".format(sets), header=None)
     test = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_test".format(sets), header=None)
@@ -37,18 +38,20 @@ def SVC(removed, sets):
     train.drop(valid_indexes, axis=0, inplace=True)
     train_labels.drop(valid_indexes, axis=0, inplace=True)
 
-    svc = SVC(kernel='poly')
+    svc = SVC()
     start = time.time()
     svc.fit(train, train_labels)
     train_time = time.time()-start
     start = time.time()
     predict_labels = svc.predict(test)
     test_time = time.time()-start
+    print(train_time, test_time)
     np.save("5-fold_sets/Results_removing{}/Sets{}/SVC_predicted.npy".format(removed, sets), predict_labels)
     np.save("5-fold_sets/Results_removing{}/Sets{}/SVC_times.npy".format(removed, sets), [train_time, test_time])
 
 
 def EFC(removed, sets):
+    print("EFC", removed, sets)
     test = pd.read_csv("5-fold_sets/Discretized/Sets{}/X_test".format(sets), header=None).astype('int')
     test_labels = pd.read_csv("5-fold_sets/Discretized/Sets{}/y_test".format(sets), squeeze=True, header=None).astype('int')
     train = pd.read_csv("5-fold_sets/Discretized/Sets{}/X_train".format(sets), header=None).astype('int')
@@ -75,5 +78,5 @@ def EFC(removed, sets):
 
 for removed in [0, 1, 3, 4]:
     for sets in range(1,6):
-        threading.Thread(EFC, args=(removed, sets,)).start()
-        threading.Thread(SVC, args=(removed, sets,)).start()
+        threading.Thread(target=EFC, args=(removed, sets,)).start()
+        threading.Thread(target=SVC, args=(removed, sets,)).start()

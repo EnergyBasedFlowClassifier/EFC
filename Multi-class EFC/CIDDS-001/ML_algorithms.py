@@ -8,7 +8,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import classification_report
 import sys
-sys.path.append('../../../efc')
+sys.path.append('../../../EFC')
 from classification_functions import *
 import time
 
