@@ -10,3 +10,5 @@ modifications.txt
 *.c
 *.png
 /__pycache__
+
+Literature/Data
