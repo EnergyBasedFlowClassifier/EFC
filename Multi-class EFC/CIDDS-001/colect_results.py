@@ -105,6 +105,67 @@ def plot_unknown():
             ax[1].set_title("EFC")
         fig.savefig("5-fold_sets/Results/EFC_RF_unknown_CIDDS001.pdf", format="pdf",bbox_inches = "tight")#
 
+def plot_unknown_on_top():
+    names = ['bruteForce', 'dos', 'pingScan', 'portScan']
+    plt.rcParams.update({'font.size': 18, 'axes.linewidth': 0.01})
+
+    fig, ax = plt.subplots(2, 1, figsize=(10, 12))
+    plt.tight_layout(w_pad=3.3, h_pad=7)
+    plt.ylim((0.0,1.4))
+    width = 0.45
+    for alg in ['RF','EFC']:
+        removed_metrics = []
+        for removed in [0, 1, 3, 4]:
+            normal_percent = []
+            others_percent = []
+            suspicious_percent = []
+            for sets in range(1,6):
+                y_true = np.array(pd.read_csv("5-fold_sets/Discretized/Sets{}/y_test".format(sets), header=None, squeeze=True))
+                y_pred = list(np.load("5-fold_sets/Results_removing{}/Sets{}/{}_predicted.npy".format(removed, sets, alg), allow_pickle=True))
+                print(np.unique(y_pred))
+                unknown_predicted = [y_pred[i] for i in np.where(y_true==removed)[0]]
+                print(len(unknown_predicted))
+                unique, counts = np.unique(unknown_predicted, return_counts=True)
+
+                normal_predicted = counts[np.where(unique==2)[0]]
+                if not normal_predicted:
+                    normal_predicted = 0
+
+                suspicious_predicted = counts[np.where(unique==100)[0]]
+                if not suspicious_predicted:
+                    suspicious_predicted = 0
+
+                normal_percent.append(float(normal_predicted/len(unknown_predicted)))
+                others_percent.append(float((len(unknown_predicted)-normal_predicted-suspicious_predicted)/len(unknown_predicted)))
+                suspicious_percent.append(float(suspicious_predicted/len(unknown_predicted)))
+
+            if alg != 'EFC':
+                removed_metrics.append([mean(normal_percent), (stdev(normal_percent)/sqrt(len(normal_percent)))*1.96, mean(others_percent), (stdev(others_percent)/sqrt(len(others_percent)))*1.96])
+            else:
+                removed_metrics.append([mean(normal_percent), (stdev(normal_percent)/sqrt(len(normal_percent)))*1.96, mean(others_percent), (stdev(others_percent)/sqrt(len(others_percent)))*1.96, mean(suspicious_percent), (stdev(suspicious_percent)/sqrt(len(suspicious_percent)))*1.96])
+
+        if alg != 'EFC':
+            ax[0].bar(names, [x[0] for x in removed_metrics], width, capsize=3, ecolor='black', yerr=[x[1] for x in removed_metrics], label='Benigno', color='#006BA4')
+            ax[0].bar(names, [x[2] for x in removed_metrics], width, capsize=3, ecolor='black', yerr=[x[3] for x in removed_metrics], bottom=[x[0] for x in removed_metrics], label='Outras classes', color = '#CFCFCF')
+            ax[0].set_ylabel('Porcentagem de amostras preditas')
+            ticks_loc = ax[0].get_xticks()
+            ax[0].set_xticks(ax[0].get_xticks())
+            ax[0].set_xticklabels(names, rotation=45, ha='right')
+            ax[0].set_ylim((0.0,1.4))
+            ax[0].legend(loc=1, bbox_to_anchor=(1.1, 1.1))
+            ax[0].set_title("RF")
+        else:
+            ax[1].bar(names, [x[0] for x in removed_metrics], width, capsize=3, ecolor='black', yerr=[x[1] for x in removed_metrics], label='Benigno', color='#006BA4')
+            ax[1].bar(names, [x[2] for x in removed_metrics], width, capsize=3, ecolor='black', yerr=[x[3] for x in removed_metrics], bottom=[x[0] for x in removed_metrics], label='Outras classes',  color = '#CFCFCF')
+            ax[1].bar(names, [x[4] for x in removed_metrics], width, capsize=3, ecolor='black', yerr=[x[5] for x in removed_metrics], bottom=[x[0]+x[2] for x in removed_metrics], label='Suspeito',  color = '#FF800E')
+            ax[1].set_ylabel('Porcentagem de amostras preditas')
+            ax[1].set_xticklabels(names, rotation=45, ha='right')
+            ax[1].set_ylim((0.0,1.4))
+            ax[1].legend(loc=1, bbox_to_anchor=(1.1, 1.1))
+            ax[1].set_title("EFC")
+
+        fig.savefig("5-fold_sets/Results/EFC_RF_unknown_CIDDS001.pdf", format="pdf",bbox_inches = "tight")#
+
 def times():
     for alg in ['RF','NB','KNN', 'SVC', 'MLP', 'AD', 'DT','EFC']:
         train = []
@@ -115,6 +176,7 @@ def times():
             test.append(times[1])
         print("{} & {:.3f} $\\pm$ {:.3f} & {:.3f} $\\pm$ {:.3f} \\\\".format(alg, mean(train), 1.96*stdev(train)/sqrt(len(train)), mean(test), 1.96*stdev(test)/sqrt(len(test))))
 
-metrics_algorithms_multiclass()
+# metrics_algorithms_multiclass()
 # times()
 # plot_unknown()
+plot_unknown_on_top()

@@ -8,30 +8,33 @@ import sys
 sys.path.append('../../../EFC')
 from classification_functions import *
 import time
-import threading
+from concurrent.futures import ProcessPoolExecutor
+import itertools
 
-def RF(removed, sets):
+def RF(args):
+    removed, sets = args
     train = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_train".format(sets), header=None)
-    train_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_train".format(sets), header=None)
+    train_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_train".format(sets), header=None).squeeze()
     test = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_test".format(sets), header=None)
 
     valid_indexes = np.where(train_labels == removed)[0]
     train.drop(valid_indexes, axis=0, inplace=True)
     train_labels.drop(valid_indexes, axis=0, inplace=True)
 
-    RF = RandomForestClassifier(n_jobs=-1)
+    RandomForest = RandomForestClassifier()
     start = time.time()
-    RF.fit(train, train_labels)
+    RandomForest.fit(train, train_labels)
     print("RF train: ", time.time()-start)
     start = time.time()
-    predict_labels = RF.predict(test)
+    predict_labels = RandomForest.predict(test)
     print("RF test: ", time.time()-start)
     np.save("5-fold_sets/Results_removing{}/Sets{}/RF_predicted.npy".format(removed, sets), predict_labels)
 
-def SVC(removed, sets):
+def svc(args):
+    removed, sets = args
     print("SVC", removed, sets)
     train = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_train".format(sets), header=None)
-    train_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_train".format(sets), header=None)
+    train_labels = pd.read_csv("5-fold_sets/Normalized/Sets{}/y_train".format(sets), header=None).squeeze()
     test = pd.read_csv("5-fold_sets/Normalized/Sets{}/X_test".format(sets), header=None)
 
     valid_indexes = np.where(train_labels == removed)[0]
@@ -50,7 +53,8 @@ def SVC(removed, sets):
     np.save("5-fold_sets/Results_removing{}/Sets{}/SVC_times.npy".format(removed, sets), [train_time, test_time])
 
 
-def EFC(removed, sets):
+def EFC(args):
+    removed, sets = args
     print("EFC", removed, sets)
     test = pd.read_csv("5-fold_sets/Discretized/Sets{}/X_test".format(sets), header=None).astype('int')
     test_labels = pd.read_csv("5-fold_sets/Discretized/Sets{}/y_test".format(sets), squeeze=True, header=None).astype('int')
@@ -70,13 +74,12 @@ def EFC(removed, sets):
     start = time.time()
     predicted = MultiClassPredict(np.array(test), h_i_matrices, coupling_matrices, cutoffs_list, Q, np.unique(train_labels))
     test_time = time.time()-start
-
+    print(train_time, test_time)
     np.save("5-fold_sets/Results_removing{}/Sets{}/EFC_predicted.npy".format(removed, sets), predicted)
     np.save("5-fold_sets/Results_removing{}/Sets{}/EFC_times.npy".format(removed, sets), [train_time, test_time])
     print(classification_report(test_labels, predicted, labels=np.unique(test_labels)))
 
-
-for removed in [0, 1, 3, 4]:
-    for sets in range(1,6):
-        threading.Thread(target=EFC, args=(removed, sets,)).start()
-        threading.Thread(target=SVC, args=(removed, sets,)).start()
+with ProcessPoolExecutor() as executor:
+    # executor.map(svc, itertools.product([0,1,2,3,4], range(1,6)))
+    # executor.map(EFC, itertools.product([0,1,2,3,4], range(1,6)))
+    executor.map(RF, itertools.product([0,1,2,3,4], range(1,6)))
