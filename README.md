@@ -35,6 +35,6 @@ The experiments results can be seen in
 detection using the inverse Potts model](https://arxiv.org/pdf/1910.07266.pdf)
 
 The folder **Multi_class EFC** contains scripts used to
-perform experiments with the Multi-class EFC with CICDDS-001, CICIDS2017 and KDDCup99 data sets. To reproduce this experiments,
+perform experiments with the Multi-class EFC with CICIDS2017 dataset. To reproduce this experiments,
 please read the README.md file inside that folder.
 
