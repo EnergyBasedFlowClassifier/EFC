@@ -53,7 +53,7 @@ def plot_unknown():
     plt.tight_layout(w_pad=3.3)
     plt.ylim((0.0,1.4))
     width = 0.45
-    for alg in ['RF','EFC']:
+    for alg in ['SVC','EFC']:
         removed_metrics = []
         for removed in [0, 1, 3, 4]:
             normal_percent = []
@@ -93,7 +93,7 @@ def plot_unknown():
             ax[0].set_xticklabels(names, rotation=45, ha='right')
             ax[0].set_ylim((0.0,1.4))
             ax[0].legend(loc=1, bbox_to_anchor=(1.1, 1.05))
-            ax[0].set_title("RF")
+            ax[0].set_title("SVC")
         else:
             ax[1].bar(names, [x[0] for x in removed_metrics], width, capsize=3, ecolor='black', yerr=[x[1] for x in removed_metrics], label='Benign', color='#006BA4')
             ax[1].bar(names, [x[2] for x in removed_metrics], width, capsize=3, ecolor='black', yerr=[x[3] for x in removed_metrics], bottom=[x[0] for x in removed_metrics], label='Other classes',  color = '#CFCFCF')
@@ -103,7 +103,7 @@ def plot_unknown():
             ax[1].set_ylim((0.0,1.4))
             ax[1].legend(loc=1, bbox_to_anchor=(1.1, 1.05))
             ax[1].set_title("EFC")
-        fig.savefig("5-fold_sets/Results/EFC_RF_unknown_CIDDS001.pdf", format="pdf",bbox_inches = "tight")#
+        fig.savefig("5-fold_sets/Results/EFC_SVC_unknown_CIDDS001.pdf", format="pdf",bbox_inches = "tight")#
 
 def times():
     for alg in ['RF','NB','KNN', 'SVC', 'MLP', 'AD', 'DT','EFC']:
@@ -115,6 +115,6 @@ def times():
             test.append(times[1])
         print("{} & {:.3f} $\\pm$ {:.3f} & {:.3f} $\\pm$ {:.3f} \\\\".format(alg, mean(train), 1.96*stdev(train)/sqrt(len(train)), mean(test), 1.96*stdev(test)/sqrt(len(test))))
 
-metrics_algorithms_multiclass()
+# metrics_algorithms_multiclass()
 # times()
-# plot_unknown()
+plot_unknown()
