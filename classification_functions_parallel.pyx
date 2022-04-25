@@ -28,7 +28,7 @@ def DefineCutoff(DTYPE_t[:,:] train_data, double[:] h_i, double[:,:] couplingmat
                 e -= (h_i[j*(Q-1) + j_value])
         energies[i] = e
     energies = np.sort(energies, axis=None)
-    cutoff = energies[int(energies.shape[0]*0.99)]
+    cutoff = energies[int(energies.shape[0]*0.95)]
     return cutoff
 
 def OneClassFit(np.ndarray[DTYPE_t, ndim=2] data, int Q, double LAMBDA):
@@ -85,7 +85,7 @@ def MultiClassFit(np.ndarray[DTYPE_t, ndim=2] data, np.ndarray[DTYPE_t, ndim=1] 
     for indx, label in enumerate(np.unique(labels)):
       data_per_type[indx] = np.array([data[i,:] for i in range(data.shape[0]) if labels[i] == label])
 
-    with concurrent.futures.ProcessPoolExecutor() as executor:
+    with concurrent.futures.ProcessPoolExecutor(max_workers=3) as executor:
         results = executor.map(FitClass, data_per_type, n_classes*[Q], n_classes*[LAMBDA])
 
     cdef np.ndarray[object, ndim=1] h_i_matrices = np.empty(n_classes, dtype=np.ndarray)
@@ -104,6 +104,7 @@ def PredictSubset(np.ndarray[DTYPE_t, ndim=2] test_data, np.ndarray[object, ndim
     cdef int n_attr = test_data.shape[1]
     cdef int n_classes = h_i_matrices.shape[0]
     cdef np.ndarray predicted = np.empty(n_inst, dtype=int)
+    cdef np.ndarray predicted_proba = np.empty((n_inst, n_classes), dtype=float)
     cdef int i, label, j, k, j_value, k_value, idx
     cdef double e, min_energy
     cdef np.ndarray[double, ndim=2] couplingmatrix
@@ -124,28 +125,31 @@ def PredictSubset(np.ndarray[DTYPE_t, ndim=2] test_data, np.ndarray[object, ndim
                   e -= (h_i[j*(Q-1) + j_value])
           energies.append(e)
 
+        predicted_proba[i, :] = energies
         min_energy = min(energies)
         idx = energies.index(min_energy)
         if min_energy < cutoffs_list[idx]:
             predicted[i] = np.unique(train_labels)[idx]
         else:
             predicted[i] = 100
-    return predicted
+    return predicted, predicted_proba
 
 
 def MultiClassPredict(np.ndarray[DTYPE_t, ndim=2] test_data, np.ndarray[object, ndim=1] h_i_matrices, np.ndarray[object, ndim=1] coupling_matrices, np.ndarray[double, ndim=1] cutoffs_list, int Q, np.ndarray[DTYPE_t, ndim=1] train_labels):
-    cdef int n_jobs = multiprocessing.cpu_count()
+    cdef int n_jobs = 3
     cdef int chunk_size = test_data.shape[0]//n_jobs
     cdef int i
     cdef np.ndarray[object, ndim=1] data_frac = np.empty(n_jobs, dtype=np.ndarray)
     for i in range(n_jobs-1):
       data_frac[i] = test_data[i*chunk_size:(i+1)*chunk_size]
     data_frac[i+1] = test_data[(n_jobs-1)*chunk_size::]
-    with concurrent.futures.ProcessPoolExecutor() as executor:
+    with concurrent.futures.ProcessPoolExecutor(max_workers=3) as executor:
         results = executor.map(PredictSubset, data_frac, n_jobs*[h_i_matrices], n_jobs*[coupling_matrices], n_jobs*[cutoffs_list], n_jobs*[Q], n_jobs*[train_labels])
 
     predicted = []
+    predicted_proba = []
     for result in results:
-        predicted += list(result)
+        predicted += list(result[0])
+        predicted_proba += list(result[1])
 
-    return predicted
+    return predicted, predicted_proba

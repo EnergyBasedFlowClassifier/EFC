@@ -1,8 +1,7 @@
 /build
 modifications.txt
 /"Multi-class EFC"/CICIDS17/5_fold_sets/
-/"Multi-class EFC"/CIDDS-001/5-fold_sets/
-/"Multi-class EFC"/CIDDS-001/CIDDS-001/
+/"Multi-class EFC"/CIDDS-001/
 
 *.pdf
 *.npy
@@ -10,3 +9,6 @@ modifications.txt
 *.c
 *.png
 /__pycache__
+
+Literature/Data
+Literature/Data_original

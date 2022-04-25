@@ -1,0 +1,904 @@
+<string>:43: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+<string>:44: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+<string>:69: DtypeWarning: Columns (0,1,3,6,84) have mixed types.Specify dtype option on import or set low_memory=False.
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 1 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 3 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 4 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 5 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 6 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 7 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 8 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 9 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 10 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 11 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 12 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 13 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 14 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 15 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 16 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 18 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 20 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 21 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 22 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 23 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 24 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 25 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 26 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 27 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 28 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 29 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 30 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 31 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 32 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 33 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 34 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 35 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 36 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 37 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 38 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 39 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 40 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 41 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 42 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 43 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 44 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 45 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 46 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 47 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 48 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 49 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 50 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 51 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 52 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 53 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 54 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 55 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 56 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 57 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 58 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 59 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 60 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 61 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 62 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 63 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 64 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 65 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 66 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 67 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 68 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 69 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 70 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 71 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 72 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 73 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 74 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 75 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 76 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 77 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 1 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 3 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 4 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 5 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 6 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 7 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 8 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 9 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 10 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 11 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 12 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 13 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 14 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 15 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 16 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 18 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 20 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 21 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 22 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 23 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 24 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 25 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 26 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 27 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 28 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 29 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 30 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 31 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 32 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 33 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 34 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 35 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 36 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 37 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 38 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 39 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 40 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 41 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 42 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 43 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 44 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 45 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 46 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 47 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 48 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 49 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 50 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 51 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 52 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 53 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 54 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 55 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 56 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 57 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 58 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 59 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 60 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 61 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 62 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 63 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 64 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 65 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 66 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 67 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 68 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 69 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 70 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 71 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 72 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 73 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 74 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 75 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 76 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 77 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 1 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 3 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 4 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 5 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 6 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 7 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 8 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 9 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 10 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 11 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 12 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 13 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 14 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 15 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 16 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 18 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 20 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 21 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 22 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 23 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 24 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 25 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 26 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 27 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 28 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 29 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 30 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 31 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 32 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 33 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 34 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 35 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 36 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 37 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 38 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 39 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 40 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 41 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 42 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 43 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 44 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 45 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 46 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 47 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 48 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 49 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 50 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 51 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 52 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 53 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 54 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 55 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 56 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 57 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 58 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 59 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 60 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 61 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 62 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 63 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 64 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 65 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 66 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 67 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 68 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 69 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 70 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 71 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 72 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 73 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 74 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 75 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 76 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 77 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 1 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 3 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 4 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 5 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 6 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 7 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 8 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 9 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 10 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 11 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 12 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 13 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 14 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 15 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 16 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 18 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 20 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 21 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 22 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 23 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 24 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 25 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 26 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 27 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 28 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 29 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 30 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 31 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 32 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 33 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 34 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 35 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 36 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 37 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 38 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 39 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 40 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 41 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 42 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 43 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 44 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 45 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 46 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 47 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 48 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 49 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 50 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 51 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 52 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 53 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 54 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 55 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 56 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 57 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 58 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 59 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 60 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 61 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 62 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 63 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 64 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 65 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 66 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 67 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 68 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 69 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 70 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 71 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 72 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 73 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 74 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 75 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 76 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 77 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 1 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 3 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 4 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 5 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 6 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 7 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 8 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 9 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 10 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 11 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 12 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 13 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 14 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 15 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 16 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 18 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 20 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 21 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 22 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 23 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 24 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 25 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 26 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 27 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 28 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 29 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 30 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 31 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 32 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 33 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 34 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 35 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 36 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 37 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 38 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 39 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 40 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 41 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 42 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 43 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 44 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 45 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 46 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 47 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 48 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 49 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 50 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 51 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 52 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 53 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 54 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+join_web_attack...
+pre_process...
+Friday-WorkingHours-Afternoon-DDos.pcap_ISCX
+(225745, 85)
+Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX
+(286467, 85)
+Friday-WorkingHours-Morning.pcap_ISCX
+(191033, 85)
+Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX
+(288602, 85)
+Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX_fixed
+(458968, 85)
+Tuesday-WorkingHours.pcap_ISCX
+(445909, 85)
+Wednesday-workingHours.pcap_ISCX
+(692703, 85)
+Monday-WorkingHours.pcap_ISCX
+(529918, 85)
+5-folds...
+1
+2
+3
+4
+5
+undersampling...
+process...
+ML_algorithms...
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 55 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 56 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 57 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 58 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 59 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 60 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:200: UserWarning: Feature 61 is constant and will be replaced with 0.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 62 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 63 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 64 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 65 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 66 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 67 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 68 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 69 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 70 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 71 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 72 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 73 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 74 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 75 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 76 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/preprocessing/_discretization.py:236: UserWarning: Bins whose width are too small (i.e., <= 1e-8) in feature 77 are removed. Consider decreasing the number of bins.
+  warnings.warn(
+<string>:11: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+ML_algorithms.py:11: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  from classification_functions import *
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/neural_network/_multilayer_perceptron.py:1109: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/home/munak98/.local/lib/python3.8/site-packages/sklearn/utils/validation.py:985: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+DT train:  0.7115023136138916
+DT test:  0.0812065601348877
+MLP train:  62.49440002441406
+MLP test:  0.9575595855712891
+SVC train:  52.5590615272522
+SVC test:  245.65553331375122
+Traceback (most recent call last):
+  File "ML_algorithms.py", line 145, in <module>
+    EFC(sets)
+  File "ML_algorithms.py", line 109, in EFC
+    h_i_matrices, coupling_matrices, cutoffs_list = MultiClassFit(
+  File "classification_functions_parallel.pyx", line 81, in classification_functions.MultiClassFit
+    def MultiClassFit(np.ndarray[DTYPE_t, ndim=2] data, np.ndarray[DTYPE_t, ndim=1] labels, int Q, double LAMBDA):
+TypeError: MultiClassFit() takes exactly 4 positional arguments (5 given)
+generateLargeFiles.py:42: DeprecationWarning: an integer is required (got type float).  Implicit conversion to integers using __int__ is deprecated, and may be removed in a future version of Python.
+  resource.setrlimit(resource.RLIMIT_AS, (get_memory() * 1024 * 0.8, hard))
+Traceback (most recent call last):
+  File "ML_algorithms_times.py", line 5, in <module>
+    from classification_functions import *
+ModuleNotFoundError: No module named 'classification_functions'
+ML_algorithms_times.py:8: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  from classification_functions import *
+Traceback (most recent call last):
+  File "ML_algorithms_times.py", line 101, in <module>
+    EFC(size)
+TypeError: EFC() missing 1 required positional argument: 'exp'
+ML_algorithms_times.py:8: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  from classification_functions import *
+Traceback (most recent call last):
+  File "ML_algorithms_times.py", line 101, in <module>
+    EFC(size)
+  File "ML_algorithms_times.py", line 68, in EFC
+    train = np.load("TimeData/Discretized/Size{}/X_train".format(sets), header=None).astype('int')
+TypeError: load() got an unexpected keyword argument 'header'
+ML_algorithms_times.py:8: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  from classification_functions import *
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/concurrent/futures/process.py", line 239, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File "/usr/lib/python3.8/concurrent/futures/process.py", line 198, in _process_chunk
+    return [fn(*args) for args in chunk]
+  File "/usr/lib/python3.8/concurrent/futures/process.py", line 198, in <listcomp>
+    return [fn(*args) for args in chunk]
+  File "classification_functions_parallel.pyx", line 70, in classification_functions.FitClass
+TypeError: FitClass() takes exactly 4 positional arguments (3 given)
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "ML_algorithms_times.py", line 101, in <module>
+    EFC(size)
+  File "ML_algorithms_times.py", line 77, in EFC
+    h_i_matrices, coupling_matrices, cutoffs_list = MultiClassFit(
+  File "classification_functions_parallel.pyx", line 94, in classification_functions.MultiClassFit
+    for indx, result in enumerate(results):
+  File "/usr/lib/python3.8/concurrent/futures/process.py", line 484, in _chain_from_iterable_of_lists
+    for element in iterable:
+  File "/usr/lib/python3.8/concurrent/futures/_base.py", line 619, in result_iterator
+    yield fs.pop().result()
+  File "/usr/lib/python3.8/concurrent/futures/_base.py", line 437, in result
+    return self.__get_result()
+  File "/usr/lib/python3.8/concurrent/futures/_base.py", line 389, in __get_result
+    raise self._exception
+TypeError: FitClass() takes exactly 4 positional arguments (3 given)
+ML_algorithms_times.py:8: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  from classification_functions import *
+EFC train:  19.77132749557495
+ML_algorithms_times.py:8: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  from classification_functions import *
+ML_algorithms_times.py:111: DeprecationWarning: an integer is required (got type float).  Implicit conversion to integers using __int__ is deprecated, and may be removed in a future version of Python.
+  resource.setrlimit(resource.RLIMIT_AS, (get_memory() * 1024 * 0.8, hard))
+EFC train:  19.100279331207275
+EFC test:  90.70890259742737
+Train: 19.100279331207275
+Test: 90.70890259742737
+DT train: 0.7181158065795898
+DT test: 0.08103036880493164
+Train: 50.122042655944824
+Test: 249.10062670707703
+Train: 72.20358610153198
+Test: 1.4393439292907715
+EFC train:  27.918373823165894
+EFC test:  177.39098739624023
+Train: 27.918373823165894
+Test: 177.39098739624023
+DT train: 1.6054184436798096
+DT test: 0.17321538925170898
+Train: 271.48457169532776
+Test: 1244.3295454978943
+Train: 128.56345510482788
+Test: 3.196866989135742
+EFC train:  37.64181733131409
+EFC test:  262.6981110572815
+Train: 37.64181733131409
+Test: 262.6981110572815
+DT train: 2.444384813308716
+DT test: 0.24013257026672363
+Train: 578.5299687385559
+Test: 2510.01349401474
+Train: 203.20264863967896
+Test: 4.853863716125488
+EFC train:  47.82828736305237
+EFC test:  349.4096767902374
+Train: 47.82828736305237
+Test: 349.4096767902374
+DT train: 3.6181702613830566
+DT test: 0.3469681739807129
+Train: 1044.045377254486
+Test: 4284.14271402359
+Train: 319.9291729927063
+Test: 5.900179862976074
