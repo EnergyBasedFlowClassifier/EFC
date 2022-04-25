@@ -1,9 +1,12 @@
 /KDDCup99
 /CIDDS-001
 /CICIDS17/TrafficLabelling /
+/CICIDS17/TimeData/
+
 *.pdf
 *.npy
 *.so
 *.c
 *.png
 *.zip
+/Literature/Data/

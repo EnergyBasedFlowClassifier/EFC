@@ -1,7 +1,8 @@
+from genericpath import exists
 import pandas as pd
+import os
 import sys
-
-sys.path.append("../../EFC")
+sys.path.append("../../../EFC")
 from classification_functions import *
 import numpy as np
 from sklearn.preprocessing import MaxAbsScaler, KBinsDiscretizer
@@ -13,6 +14,8 @@ n_bins = 30
 pseudo = 0.5
 
 folder = "Data"
+
+os.makedirs(f"{folder}/Models", exist_ok=True)
 
 train = pd.read_csv(f"{folder}/train_known.csv", header=None)
 

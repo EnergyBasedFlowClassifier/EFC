@@ -1,7 +1,7 @@
 import pandas as pd
 import sys
 
-sys.path.append("../../EFC")
+sys.path.append("../../../EFC")
 from classification_functions import *
 import resource
 import numpy as np

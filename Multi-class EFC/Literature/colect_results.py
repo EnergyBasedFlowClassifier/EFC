@@ -20,9 +20,12 @@ def single_attack(folder, attacks):
             ]
 
             probs = [1 - x for x in probs_rvs]
+            probs_rvs = [-x for x in probs]
 
             fpr, tpr, _ = roc_curve(y_test, probs, pos_label=1)
             precision, recall, _ = precision_recall_curve(y_test, probs, pos_label=1)
+
+            y_test = [0 if x == 1 else 1 for x in y_test]
             precision_rvs, recall_rvs, _ = precision_recall_curve(
                 y_test, probs_rvs, pos_label=1
             )

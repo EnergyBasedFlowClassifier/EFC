@@ -4,7 +4,6 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import classification_report
-from sklearn.svm import SVC
 import sys
 
 sys.path.append("../../../EFC")

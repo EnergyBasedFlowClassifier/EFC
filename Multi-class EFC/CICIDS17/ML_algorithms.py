@@ -103,11 +103,10 @@ def EFC(sets):
     ).astype("int")
     Q = 30
     LAMBDA = 0.5
-    cutoff = 0.95
 
     start = time.time()
     h_i_matrices, coupling_matrices, cutoffs_list = MultiClassFit(
-        np.array(train), np.array(train_labels), Q, LAMBDA, cutoff
+        np.array(train), np.array(train_labels), Q, LAMBDA
     )
     training_time = time.time() - start
     print("EFC train: ", training_time)
@@ -133,8 +132,13 @@ def EFC(sets):
     print(classification_report(test_labels, predicted, labels=np.unique(test_labels)))
 
 
-with ProcessPoolExecutor() as executor:
-    executor.map(mlp, range(1, 6))
-    executor.map(DT, range(1, 6))
-    executor.map(svc, range(1, 6))
-    executor.map(EFC, range(1, 6))
+# with ProcessPoolExecutor(max_workers=3) as executor:
+#     executor.map(mlp, range(1, 3))
+#     executor.map(DT, range(1, 3))
+#     # executor.map(svc, range(1, 3))
+#     # executor.map(EFC, range(1, 3))
+sets = 1
+DT(sets)
+mlp(sets)
+svc(sets)
+EFC(sets)
